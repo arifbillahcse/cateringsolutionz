@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="About Catering Solutionz — Birmingham's trusted supplier of premium catering equipment for over 15 years. We lead the way others follow." />
+  <title>About Us | Catering Solutionz</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/about.css" />
+</head>
+<body>
+
+  <!-- ===== PRELOADER ===== -->
+  <div class="preloader" id="preloader">
+    <div class="loader-ring"></div>
+    <div class="loader-text">CATERING <span>SOLUTIONZ</span></div>
+  </div>
+
+  <!-- ===== TOP BAR ===== -->
+  <div class="topbar">
+    <div class="container topbar-inner">
+      <div class="topbar-left">
+        <a href="mailto:info@cateringsolutionz.com"><i class="fa-solid fa-envelope"></i> info@cateringsolutionz.com</a>
+        <a href="tel:07611825723"><i class="fa-solid fa-phone"></i> 07611 825723</a>
+      </div>
+      <div class="topbar-right">
+        <span class="topbar-slogan"><i class="fa-solid fa-award"></i> We Lead the Way Others Follow</span>
+        <div class="topbar-social">
+          <a href="https://www.facebook.com/ifzal.hafiz" target="_blank" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+          <a href="https://www.instagram.com/cateringsolutionz/" target="_blank" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+          <a href="https://share.google/IndMplzxJdc2CNqRK" target="_blank" aria-label="Google Reviews"><i class="fa-brands fa-google"></i></a>
+        </div>
+
+        <!-- Language Selector -->
+        <div class="lang-selector" id="langSelector">
+          <button class="lang-btn" id="langBtn" aria-label="Select language" aria-expanded="false">
+            <span class="lang-flag" id="currentFlag">🇬🇧</span>
+            <span class="lang-name" id="currentLang">EN</span>
+            <i class="fa-solid fa-chevron-down lang-arrow"></i>
+          </button>
+          <ul class="lang-dropdown" id="langDropdown" role="listbox">
+            <li class="lang-option active" data-lang="en" data-flag="🇬🇧" data-name="EN" role="option"><span>🇬🇧</span> English</li>
+            <li class="lang-option" data-lang="ur" data-flag="🇵🇰" data-name="UR" role="option"><span>🇵🇰</span> اردو</li>
+            <li class="lang-option" data-lang="pa" data-flag="🇮🇳" data-name="PA" role="option"><span>🇮🇳</span> ਪੰਜਾਬੀ</li>
+            <li class="lang-option" data-lang="bn" data-flag="🇧🇩" data-name="BN" role="option"><span>🇧🇩</span> বাংলা</li>
+            <li class="lang-option" data-lang="pl" data-flag="🇵🇱" data-name="PL" role="option"><span>🇵🇱</span> Polski</li>
+            <li class="lang-option" data-lang="ar" data-flag="🇸🇦" data-name="AR" role="option"><span>🇸🇦</span> العربية</li>
+          </ul>
+        </div>
+        <div id="google_translate_element" style="display:none;"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== HEADER ===== -->
+  <header class="header" id="header">
+    <div class="container header-inner">
+      <a href="index.html" class="logo">
+        <span class="logo-mark"><i class="fa-solid fa-utensils"></i></span>
+        <span class="logo-text">Catering<span>Solutionz</span></span>
+      </a>
+
+      <nav class="nav" id="nav">
+        <ul class="nav-list">
+          <li><a href="index.html" class="nav-link">Home</a></li>
+          <li><a href="index.html#categories" class="nav-link">Shop</a></li>
+          <li><a href="index.html#products" class="nav-link">Products</a></li>
+          <li><a href="about.html" class="nav-link active">About</a></li>
+          <li><a href="index.html#features" class="nav-link">Why Us</a></li>
+          <li><a href="index.html#reviews" class="nav-link">Reviews</a></li>
+          <li><a href="index.html#contact" class="nav-link">Contact</a></li>
+        </ul>
+      </nav>
+
+      <div class="header-actions">
+        <button class="icon-btn" aria-label="Search"><i class="fa-solid fa-magnifying-glass"></i></button>
+        <button class="icon-btn" aria-label="Account"><i class="fa-solid fa-user"></i></button>
+        <button class="icon-btn cart-btn" aria-label="Cart">
+          <i class="fa-solid fa-cart-shopping"></i>
+          <span class="cart-count">0</span>
+        </button>
+        <button class="menu-toggle" id="menuToggle" aria-label="Menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ===== PAGE HERO BANNER ===== -->
+  <section class="page-hero">
+    <div class="page-hero-overlay"></div>
+    <div class="container page-hero-content">
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href="index.html">Home</a>
+        <i class="fa-solid fa-chevron-right"></i>
+        <span>About Us</span>
+      </nav>
+      <h1 class="page-hero-title" data-anim>About Us</h1>
+      <p class="page-hero-sub" data-anim>We Lead the Way Others Follow</p>
+    </div>
+  </section>
+
+  <!-- ===== INTRO ===== -->
+  <section class="au-intro">
+    <div class="container au-intro-inner">
+      <div class="au-intro-text reveal">
+        <span class="section-tag">Who We Are</span>
+        <h2 class="section-title" style="text-align:left;">Birmingham's Trusted<br><span style="color:var(--gold)">Catering Equipment Supplier</span></h2>
+        <p class="about-lead">Catering Solutionz is Birmingham's trusted supplier of premium catering equipment and professional kitchen supplies, proudly serving the region for over 15 years.</p>
+        <p class="about-body">Based in Aston, Birmingham, we supply restaurants, event caterers, hotels, food businesses, and private clients with everything they need to run a successful catering operation. Our extensive range covers stainless steel chafing dishes, commercial cookware, cutlery, crockery, glassware, disposables and much more — all chosen for quality, durability and outstanding value.</p>
+        <p class="about-body">We believe that professional catering starts with the right equipment. That's why every product we stock is commercial-grade, built to withstand the demands of a busy kitchen or event. We combine fast local delivery, flexible payment options, and genuine expert advice to make sourcing your catering supplies as easy as possible.</p>
+      </div>
+      <div class="au-intro-visual reveal" data-delay="120">
+        <div class="au-stats-panel">
+          <div class="au-stat">
+            <span class="au-stat-num" data-target="15">0</span><span class="au-stat-plus">+</span>
+            <p>Years in Business</p>
+          </div>
+          <div class="au-stat">
+            <span class="au-stat-num" data-target="1200">0</span><span class="au-stat-plus">+</span>
+            <p>Happy Clients</p>
+          </div>
+          <div class="au-stat">
+            <span class="au-stat-num" data-target="850">0</span><span class="au-stat-plus">+</span>
+            <p>Products</p>
+          </div>
+          <div class="au-stat">
+            <span class="au-stat-num" data-target="98">0</span><span class="au-stat-plus">%</span>
+            <p>Satisfaction Rate</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== MISSION & VALUES ===== -->
+  <section class="au-values">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="section-tag">What Drives Us</span>
+        <h2 class="section-title">Our Mission &amp; Values</h2>
+        <p class="section-sub">Everything we do is built on four core principles that set us apart.</p>
+      </div>
+      <div class="au-values-grid">
+        <div class="au-value-card reveal">
+          <div class="au-value-icon"><i class="fa-solid fa-medal"></i></div>
+          <h3>Quality First</h3>
+          <p>We only stock commercial-grade equipment that meets the highest standards of durability and performance. If it wouldn't stand up in a professional kitchen, it doesn't make it onto our shelves.</p>
+        </div>
+        <div class="au-value-card reveal" data-delay="100">
+          <div class="au-value-icon"><i class="fa-solid fa-handshake"></i></div>
+          <h3>Honest Service</h3>
+          <p>We give straightforward advice tailored to your actual needs — no unnecessary upselling, no jargon. Just honest guidance from people who understand the catering industry.</p>
+        </div>
+        <div class="au-value-card reveal" data-delay="200">
+          <div class="au-value-icon"><i class="fa-solid fa-truck-fast"></i></div>
+          <h3>Fast &amp; Reliable</h3>
+          <p>We know downtime costs money. That's why we keep strong stock levels and offer prompt courier and palletised delivery across Birmingham and surrounding areas.</p>
+        </div>
+        <div class="au-value-card reveal" data-delay="300">
+          <div class="au-value-icon"><i class="fa-solid fa-sterling-sign"></i></div>
+          <h3>Great Value</h3>
+          <p>Premium quality shouldn't mean premium prices. We work hard to offer the best value on the market, with flexible payment options including card and cash on delivery.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== WHY CHOOSE US ===== -->
+  <section class="au-why">
+    <div class="container au-why-inner">
+      <div class="au-why-text reveal">
+        <span class="section-tag">Why Choose Us</span>
+        <h2 class="section-title" style="text-align:left;">Everything You Need,<br><span style="color:var(--gold)">All in One Place</span></h2>
+        <p class="about-body">From a single chafing dish to a full event setup, Catering Solutionz has you covered. We're not just a supplier — we're a partner who genuinely cares about the success of your catering business.</p>
+        <ul class="au-why-list">
+          <li><i class="fa-solid fa-circle-check"></i><div><strong>Birmingham Based</strong><span>Unit 1b Cheston Road, Aston, Birmingham, B7 5EE — local and easy to reach.</span></div></li>
+          <li><i class="fa-solid fa-circle-check"></i><div><strong>Commercial Grade Quality</strong><span>Every product is built for professional, high-volume use.</span></div></li>
+          <li><i class="fa-solid fa-circle-check"></i><div><strong>Card &amp; Cash on Delivery</strong><span>Flexible payment to suit your business needs.</span></div></li>
+          <li><i class="fa-solid fa-circle-check"></i><div><strong>Courier &amp; Palletised Delivery</strong><span>Fast, safe delivery for orders of all sizes.</span></div></li>
+          <li><i class="fa-solid fa-circle-check"></i><div><strong>Full Stock Management</strong><span>We monitor stock levels so what you need is always available.</span></div></li>
+          <li><i class="fa-solid fa-circle-check"></i><div><strong>Expert Advice</strong><span>Our team has hands-on experience in the catering industry.</span></div></li>
+        </ul>
+      </div>
+      <div class="au-why-visual reveal" data-delay="120">
+        <div class="au-info-card">
+          <div class="au-info-icon au-info-icon--img">
+            <img src="https://images.unsplash.com/photo-1555244162-803834f70033?auto=format&fit=crop&w=120&q=80" alt="Catering equipment" />
+          </div>
+          <h3>Visit Our Store</h3>
+          <p>Come and see our full range in person at our Birmingham showroom.</p>
+          <ul class="au-contact-list">
+            <li><i class="fa-solid fa-location-dot"></i> Unit 1b Cheston Road, Aston,<br>Birmingham, B7 5EE</li>
+            <li><i class="fa-solid fa-phone"></i> <a href="tel:07611825723">07611 825723</a></li>
+            <li><i class="fa-solid fa-envelope"></i> <a href="mailto:info@cateringsolutionz.com">info@cateringsolutionz.com</a></li>
+          </ul>
+          <div class="au-info-map">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2428.6!2d-1.8712!3d52.4934!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4870bc8e5e09c3a7%3A0x1!2sCheston%20Rd%2C%20Birmingham%20B7%205EE!5e0!3m2!1sen!2suk!4v1234567890"
+              width="100%" height="200" style="border:0;border-radius:12px;" allowfullscreen loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade" title="Catering Solutionz Location">
+            </iframe>
+          </div>
+          <a href="tel:07611825723" class="btn btn-primary" style="width:100%;justify-content:center;margin-top:18px;">
+            <i class="fa-solid fa-phone"></i> Call Us Now
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== WHO WE SERVE ===== -->
+  <section class="au-serve">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="section-tag">Our Clients</span>
+        <h2 class="section-title">Who We Serve</h2>
+        <p class="section-sub">From small food businesses to large event operations — our equipment powers them all.</p>
+      </div>
+      <div class="au-serve-grid">
+        <div class="au-serve-card reveal">
+          <div class="au-serve-icon"><i class="fa-solid fa-utensils"></i></div>
+          <h3>Restaurants &amp; Cafés</h3>
+          <p>From compact city cafés to full-service restaurants, we supply the cookware, servingware and disposables that keep kitchens running smoothly every day.</p>
+        </div>
+        <div class="au-serve-card reveal" data-delay="90">
+          <div class="au-serve-icon"><i class="fa-solid fa-champagne-glasses"></i></div>
+          <h3>Event Caterers</h3>
+          <p>Weddings, corporate dinners, festivals — our chafing dishes, buffet equipment and tableware make every event look and feel professional.</p>
+        </div>
+        <div class="au-serve-card reveal" data-delay="180">
+          <div class="au-serve-icon"><i class="fa-solid fa-building"></i></div>
+          <h3>Hotels &amp; Venues</h3>
+          <p>Hotels and banqueting halls trust us for consistent supply of high-quality kitchenware and front-of-house catering equipment at competitive trade prices.</p>
+        </div>
+        <div class="au-serve-card reveal" data-delay="270">
+          <div class="au-serve-icon"><i class="fa-solid fa-school"></i></div>
+          <h3>Schools &amp; Institutions</h3>
+          <p>We supply schools, care homes and community centres with robust, easy-clean catering equipment that withstands high-volume daily use.</p>
+        </div>
+        <div class="au-serve-card reveal" data-delay="360">
+          <div class="au-serve-icon"><i class="fa-solid fa-shop"></i></div>
+          <h3>Food Retail &amp; Takeaways</h3>
+          <p>Takeaways and food retailers rely on our disposable packaging, servingware and cooking equipment to deliver quality meals efficiently.</p>
+        </div>
+        <div class="au-serve-card reveal" data-delay="450">
+          <div class="au-serve-icon"><i class="fa-solid fa-house-chimney"></i></div>
+          <h3>Private &amp; Home Events</h3>
+          <p>Planning a home party or private celebration? We have everything you need to host like a professional — with delivery straight to your door.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== BOLD PROMISE BANNER ===== -->
+  <section class="au-promise">
+    <div class="container au-promise-inner reveal">
+      <div class="au-promise-text">
+        <span class="section-tag" style="color:var(--gold-soft);">Our Promise</span>
+        <h2>We Don't Just Sell Equipment.<br>We Help Your Business Succeed.</h2>
+        <p>Every order placed with Catering Solutionz comes with the backing of a team that understands what professional catering demands. We stock what you need, deliver when you need it, and stand behind every product we sell.</p>
+        <div class="au-promise-pills">
+          <span><i class="fa-solid fa-shield-halved"></i> Quality Guaranteed</span>
+          <span><i class="fa-solid fa-rotate-left"></i> Easy Returns</span>
+          <span><i class="fa-solid fa-headset"></i> Expert Support</span>
+          <span><i class="fa-solid fa-bolt"></i> Fast Dispatch</span>
+        </div>
+      </div>
+      <div class="au-promise-badge">
+        <div class="au-promise-ring">
+          <i class="fa-solid fa-award"></i>
+          <span>Trusted by 1,200+ Businesses</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== HOW IT WORKS ===== -->
+  <section class="au-process">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="section-tag">Simple &amp; Easy</span>
+        <h2 class="section-title">How It Works</h2>
+        <p class="section-sub">Getting the right catering equipment has never been simpler.</p>
+      </div>
+      <div class="au-process-steps">
+        <div class="au-step reveal">
+          <div class="au-step-num">01</div>
+          <div class="au-step-icon"><i class="fa-solid fa-magnifying-glass"></i></div>
+          <h3>Browse &amp; Choose</h3>
+          <p>Explore our extensive range of catering equipment — filter by category, price or product type to find exactly what you need.</p>
+        </div>
+        <div class="au-step-arrow reveal" data-delay="60"><i class="fa-solid fa-arrow-right"></i></div>
+        <div class="au-step reveal" data-delay="120">
+          <div class="au-step-num">02</div>
+          <div class="au-step-icon"><i class="fa-solid fa-cart-shopping"></i></div>
+          <h3>Place Your Order</h3>
+          <p>Add items to your cart and check out securely using card payment online or choose cash on delivery for added convenience.</p>
+        </div>
+        <div class="au-step-arrow reveal" data-delay="180"><i class="fa-solid fa-arrow-right"></i></div>
+        <div class="au-step reveal" data-delay="240">
+          <div class="au-step-num">03</div>
+          <div class="au-step-icon"><i class="fa-solid fa-box-open"></i></div>
+          <h3>We Pack &amp; Dispatch</h3>
+          <p>Your order is carefully packed and dispatched quickly via our courier or palletised delivery service — tracked all the way.</p>
+        </div>
+        <div class="au-step-arrow reveal" data-delay="300"><i class="fa-solid fa-arrow-right"></i></div>
+        <div class="au-step reveal" data-delay="360">
+          <div class="au-step-num">04</div>
+          <div class="au-step-icon"><i class="fa-solid fa-truck-fast"></i></div>
+          <h3>Delivered to You</h3>
+          <p>Receive your equipment safely and on time. Not happy? Our friendly team will sort it — your satisfaction is our priority.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== REVIEWS STRIP ===== -->
+  <section class="reviews" style="background:var(--light);">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="section-tag">Testimonials</span>
+        <h2 class="section-title">What Our Customers Say</h2>
+        <p class="section-sub">Real reviews from caterers and event businesses we proudly serve.</p>
+      </div>
+      <div class="review-grid">
+        <div class="review-card reveal">
+          <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+          <p>"Top quality equipment and lightning-fast delivery. Catering Solutionz has become our go-to supplier for every event."</p>
+          <div class="reviewer"><span class="avatar">SH</span><div><strong>Sarah Hughes</strong><small>Event Caterer, Birmingham</small></div></div>
+        </div>
+        <div class="review-card reveal" data-delay="120">
+          <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+          <p>"The chafing dishes are superb and the prices are unbeatable. Genuinely the best catering supplier in the area."</p>
+          <div class="reviewer"><span class="avatar">MR</span><div><strong>Mohammed Raza</strong><small>Restaurant Owner</small></div></div>
+        </div>
+        <div class="review-card reveal" data-delay="240">
+          <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+          <p>"Brilliant service from start to finish. The team really know their products and went above and beyond to help."</p>
+          <div class="reviewer"><span class="avatar">EC</span><div><strong>Emma Clarke</strong><small>Wedding Planner</small></div></div>
+        </div>
+      </div>
+      <div class="review-cta reveal">
+        <a href="https://share.google/IndMplzxJdc2CNqRK" target="_blank" class="btn btn-google">
+          <i class="fa-brands fa-google"></i> Read More on Google
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CTA BANNER ===== -->
+  <section class="au-cta">
+    <div class="container au-cta-inner reveal">
+      <div class="au-cta-text">
+        <h2>Ready to Upgrade Your Catering Setup?</h2>
+        <p>Browse our full range of professional equipment and get fast delivery across Birmingham.</p>
+      </div>
+      <div class="au-cta-btns">
+        <a href="index.html#categories" class="btn btn-primary">Shop Now <i class="fa-solid fa-arrow-right"></i></a>
+        <a href="tel:07611825723" class="btn btn-ghost"><i class="fa-solid fa-phone"></i> Call Us</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer" id="contact">
+    <div class="container footer-grid">
+      <div class="footer-col">
+        <a href="index.html" class="logo logo-footer">
+          <span class="logo-mark"><i class="fa-solid fa-utensils"></i></span>
+          <span class="logo-text">Catering<span>Solutionz</span></span>
+        </a>
+        <p class="footer-slogan">We Lead the Way Others Follow.</p>
+        <div class="footer-social">
+          <a href="https://www.facebook.com/ifzal.hafiz" target="_blank" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+          <a href="https://www.instagram.com/cateringsolutionz/" target="_blank" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+          <a href="https://share.google/IndMplzxJdc2CNqRK" target="_blank" aria-label="Google"><i class="fa-brands fa-google"></i></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="index.html#categories">Shop</a></li>
+          <li><a href="index.html#products">Products</a></li>
+          <li><a href="index.html#reviews">Reviews</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Customer Care</h4>
+        <ul>
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">Terms &amp; Conditions</a></li>
+          <li><a href="#">Shipping Info</a></li>
+          <li><a href="#">My Account</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Get In Touch</h4>
+        <ul class="footer-contact">
+          <li><i class="fa-solid fa-location-dot"></i> Unit 1b Cheston Road, Aston, Birmingham, B7 5EE</li>
+          <li><i class="fa-solid fa-phone"></i> <a href="tel:07611825723">07611 825723</a></li>
+          <li><i class="fa-solid fa-envelope"></i> <a href="mailto:info@cateringsolutionz.com">info@cateringsolutionz.com</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="container footer-bottom-inner">
+        <p>&copy; 2026 Catering Solutionz. All Rights Reserved.</p>
+        <div class="pay-methods">
+          <i class="fa-brands fa-cc-visa"></i>
+          <i class="fa-brands fa-cc-mastercard"></i>
+          <i class="fa-brands fa-cc-paypal"></i>
+          <i class="fa-solid fa-money-bill-wave"></i>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Back to top -->
+  <button class="back-top" id="backTop" aria-label="Back to top"><i class="fa-solid fa-arrow-up"></i></button>
+
+  <!-- Google Translate API -->
+  <script type="text/javascript">
+    function googleTranslateElementInit() {
+      new google.translate.TranslateElement({
+        pageLanguage: 'en',
+        includedLanguages: 'en,ur,pa,bn,pl,ar',
+        layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+        autoDisplay: false
+      }, 'google_translate_element');
+    }
+  </script>
+  <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
