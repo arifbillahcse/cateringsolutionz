@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Footer — Catering Solutionz</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+  <style>
+    :root {
+      --navy: #092143;
+      --navy-2: #0d2d5a;
+      --gold: #00c3ff;
+      --gold-soft: #66d9ff;
+      --dark: #071838;
+      --light: #f6f8fb;
+      --trans: 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+      --font-head: "Playfair Display", serif;
+      --font-body: "Poppins", sans-serif;
+    }
+
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: var(--font-body);
+      color: var(--navy);
+      background: var(--dark);
+      overflow-x: hidden;
+      line-height: 1.6;
+    }
+
+    a { text-decoration: none; color: inherit; }
+    ul { list-style: none; }
+    img { max-width: 100%; display: block; }
+
+    .container { width: min(1200px, 92%); margin: 0 auto; }
+
+    /* ===== LOGO ===== */
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-family: var(--font-head);
+      font-weight: 700;
+      font-size: 1.35rem;
+      color: var(--navy);
+    }
+
+    .logo-mark {
+      width: 45px;
+      height: 45px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--navy), var(--navy-2));
+      color: var(--gold);
+      display: grid;
+      place-items: center;
+      font-size: 1.4rem;
+    }
+
+    .logo-text span { color: var(--gold); }
+
+    /* ===== FOOTER ===== */
+    .footer {
+      background: var(--dark);
+      color: #aeb8c9;
+      padding-top: 70px;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.6fr 1fr 1fr 1.4fr;
+      gap: 40px;
+      padding-bottom: 50px;
+    }
+
+    .logo-footer .logo-text { color: #fff; }
+    .footer-slogan {
+      margin: 18px 0 20px;
+      font-style: italic;
+      color: #8d97a8;
+    }
+
+    .footer-social {
+      display: flex;
+      gap: 12px;
+    }
+
+    .footer-social a {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.06);
+      display: grid;
+      place-items: center;
+      transition: var(--trans);
+    }
+
+    .footer-social a:hover {
+      background: var(--gold);
+      color: var(--navy);
+      transform: translateY(-4px);
+    }
+
+    .footer-col h4 {
+      color: #fff;
+      font-size: 1.05rem;
+      margin-bottom: 22px;
+      position: relative;
+      padding-bottom: 12px;
+    }
+
+    .footer-col h4::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 36px;
+      height: 2px;
+      background: var(--gold);
+    }
+
+    .footer-col ul li {
+      margin-bottom: 12px;
+    }
+
+    .footer-col ul li a {
+      transition: color 0.3s, padding-left 0.3s;
+    }
+
+    .footer-col ul li a:hover {
+      color: var(--gold);
+      padding-left: 5px;
+    }
+
+    .footer-contact li {
+      display: flex;
+      gap: 12px;
+      margin-bottom: 16px;
+    }
+
+    .footer-contact i {
+      color: var(--gold);
+      margin-top: 4px;
+    }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      padding: 22px 0;
+    }
+
+    .footer-bottom-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.85rem;
+    }
+
+    .pay-methods {
+      display: flex;
+      gap: 14px;
+      font-size: 1.6rem;
+      color: #6b7689;
+    }
+
+    .pay-methods i:hover {
+      color: var(--gold);
+    }
+
+    /* ===== BACK TO TOP ===== */
+    .back-top {
+      position: fixed;
+      bottom: 28px;
+      right: 28px;
+      z-index: 900;
+      width: 50px;
+      height: 50px;
+      border: none;
+      border-radius: 50%;
+      background: var(--gold);
+      color: var(--navy);
+      cursor: pointer;
+      font-size: 1rem;
+      box-shadow: 0 10px 26px rgba(0, 195, 255, 0.5);
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(20px);
+      transition: var(--trans);
+    }
+
+    .back-top.show {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+
+    .back-top:hover {
+      transform: translateY(-4px);
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 1024px) {
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+    }
+
+    @media (max-width: 560px) {
+      .footer-grid { grid-template-columns: 1fr; gap: 34px; }
+      .footer-bottom-inner { flex-direction: column; gap: 14px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer" id="contact">
+    <div class="container footer-grid">
+      <div class="footer-col">
+        <a href="#" class="logo logo-footer">
+          <span class="logo-mark"><i class="fa-solid fa-utensils"></i></span>
+          <span class="logo-text">Catering<span>Solutionz</span></span>
+        </a>
+        <p class="footer-slogan">We Lead the Way Others Follow.</p>
+        <div class="footer-social">
+          <a href="https://www.facebook.com/ifzal.hafiz" target="_blank" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+          <a href="https://www.instagram.com/cateringsolutionz/" target="_blank" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+          <a href="https://share.google/IndMplzxJdc2CNqRK" target="_blank" aria-label="Google"><i class="fa-brands fa-google"></i></a>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="#hero">Home</a></li>
+          <li><a href="#categories">Shop</a></li>
+          <li><a href="#products">Products</a></li>
+          <li><a href="#reviews">Reviews</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Customer Care</h4>
+        <ul>
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">Terms &amp; Conditions</a></li>
+          <li><a href="#">Shipping Info</a></li>
+          <li><a href="#">My Account</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Get In Touch</h4>
+        <ul class="footer-contact">
+          <li><i class="fa-solid fa-location-dot"></i> Unit 1b Cheston Road, Aston, Birmingham, B7 5EE</li>
+          <li><i class="fa-solid fa-phone"></i> <a href="tel:07611825723">07611 825723</a></li>
+          <li><i class="fa-solid fa-envelope"></i> <a href="mailto:info@cateringsolutionz.com">info@cateringsolutionz.com</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div class="container footer-bottom-inner">
+        <p>&copy; 2026 Catering Solutionz. All Rights Reserved.</p>
+        <div class="pay-methods">
+          <i class="fa-brands fa-cc-visa"></i>
+          <i class="fa-brands fa-cc-mastercard"></i>
+          <i class="fa-brands fa-cc-paypal"></i>
+          <i class="fa-solid fa-money-bill-wave"></i>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Back to top -->
+  <button class="back-top" id="backTop" aria-label="Back to top"><i class="fa-solid fa-arrow-up"></i></button>
+
+  <script>
+    /* Back to top button */
+    const backTopBtn = document.getElementById("backTop");
+
+    window.addEventListener("scroll", () => {
+      if (window.scrollY > 300) {
+        backTopBtn.classList.add("show");
+      } else {
+        backTopBtn.classList.remove("show");
+      }
+    });
+
+    backTopBtn.addEventListener("click", () => {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+  </script>
+
+</body>
+</html>
