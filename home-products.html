@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Catering Products — Catering Solutionz</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+  <style>
+    :root {
+      --navy: #092143;
+      --navy-2: #0d2d5a;
+      --gold: #00c3ff;
+      --gold-soft: #66d9ff;
+      --dark: #071838;
+      --light: #f5f6fb;
+      --grey: #5a6b7f;
+      --grey-light: #aeb8c9;
+      --shadow: 0 12px 32px rgba(0, 195, 255, 0.15);
+      --shadow-sm: 0 4px 12px rgba(0, 0, 0, 0.08);
+      --trans: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      --font-head: 'Playfair Display', serif;
+      --font-body: 'Poppins', sans-serif;
+    }
+
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: var(--font-body);
+      background: #fff;
+    }
+
+    .cs-products {
+      padding: 90px 20px;
+      background: #fff;
+      overflow: hidden;
+    }
+
+    .cs-products-container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .cs-products-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 50px;
+      flex-wrap: wrap;
+      gap: 30px;
+    }
+
+    .cs-products-title {
+      font-family: var(--font-head);
+      font-size: clamp(2rem, 5vw, 2.8rem);
+      font-weight: 800;
+      color: var(--navy);
+    }
+
+    .cs-products-tabs {
+      display: flex;
+      gap: 12px;
+      list-style: none;
+      flex-wrap: wrap;
+    }
+
+    .cs-products-tabs li {
+      opacity: 0;
+      animation: csSlideIn 0.6s ease forwards;
+    }
+
+    .cs-products-tabs li:nth-child(1) { animation-delay: 0.1s; }
+    .cs-products-tabs li:nth-child(2) { animation-delay: 0.15s; }
+    .cs-products-tabs li:nth-child(3) { animation-delay: 0.2s; }
+    .cs-products-tabs li:nth-child(4) { animation-delay: 0.25s; }
+
+    .cs-products-tabs button {
+      padding: 8px 20px;
+      border: 1px solid transparent;
+      background: transparent;
+      color: var(--grey);
+      font-size: 0.9rem;
+      font-weight: 500;
+      cursor: pointer;
+      border-radius: 50px;
+      transition: var(--trans);
+      font-family: var(--font-body);
+    }
+
+    .cs-products-tabs button:hover,
+    .cs-products-tabs button.active {
+      color: var(--gold);
+      border-color: var(--gold);
+      background: rgba(0, 195, 255, 0.05);
+    }
+
+    .cs-products-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 28px;
+      margin-bottom: 50px;
+    }
+
+    .cs-product-card {
+      background: #fff;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+      transition: var(--trans);
+      border: 1px solid #eef1f6;
+      opacity: 0;
+      animation: csPopIn 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+
+    .cs-product-card:nth-child(1) { animation-delay: 0.1s; }
+    .cs-product-card:nth-child(2) { animation-delay: 0.15s; }
+    .cs-product-card:nth-child(3) { animation-delay: 0.2s; }
+    .cs-product-card:nth-child(4) { animation-delay: 0.25s; }
+    .cs-product-card:nth-child(5) { animation-delay: 0.3s; }
+    .cs-product-card:nth-child(6) { animation-delay: 0.35s; }
+    .cs-product-card:nth-child(7) { animation-delay: 0.4s; }
+    .cs-product-card:nth-child(8) { animation-delay: 0.45s; }
+
+    .cs-product-card:hover {
+      transform: translateY(-12px);
+      box-shadow: var(--shadow);
+      border-color: var(--gold-soft);
+    }
+
+    .cs-product-image {
+      position: relative;
+      width: 100%;
+      height: 220px;
+      background: linear-gradient(135deg, var(--light), #e8ecf4);
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .cs-product-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: var(--trans);
+    }
+
+    .cs-product-card:hover .cs-product-image img {
+      transform: scale(1.08);
+    }
+
+    .cs-product-badge {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      padding: 6px 12px;
+      border-radius: 4px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      z-index: 1;
+    }
+
+    .cs-product-badge.new {
+      background: #10b981;
+      color: #fff;
+    }
+
+    .cs-product-badge.hot {
+      background: #ef4444;
+      color: #fff;
+    }
+
+    .cs-product-badge.sale {
+      background: var(--gold);
+      color: var(--navy);
+    }
+
+    .cs-product-info {
+      padding: 18px;
+    }
+
+    .cs-product-category {
+      font-size: 0.8rem;
+      color: var(--grey-light);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 6px;
+    }
+
+    .cs-product-name {
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: var(--navy);
+      margin-bottom: 10px;
+      line-height: 1.4;
+      min-height: 2.8em;
+    }
+
+    .cs-product-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .cs-product-price {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .cs-product-price .current {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--gold);
+    }
+
+    .cs-product-price .original {
+      font-size: 0.85rem;
+      color: var(--grey-light);
+      text-decoration: line-through;
+    }
+
+    .cs-product-btn {
+      padding: 8px 16px;
+      background: linear-gradient(135deg, var(--gold), var(--gold-soft));
+      color: var(--navy);
+      border: none;
+      border-radius: 6px;
+      font-weight: 600;
+      cursor: pointer;
+      font-size: 0.85rem;
+      transition: var(--trans);
+      font-family: var(--font-body);
+    }
+
+    .cs-product-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(0, 195, 255, 0.3);
+    }
+
+    .cs-products-nav {
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+    }
+
+    .cs-nav-btn {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      border: 2px solid var(--gold);
+      background: transparent;
+      color: var(--gold);
+      font-size: 1.1rem;
+      cursor: pointer;
+      transition: var(--trans);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .cs-nav-btn:hover {
+      background: var(--gold);
+      color: var(--navy);
+    }
+
+    @keyframes csSlideIn {
+      from {
+        opacity: 0;
+        transform: translateX(-20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    @keyframes csPopIn {
+      from {
+        opacity: 0;
+        transform: scale(0.95);
+      }
+      to {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 768px) {
+      .cs-products {
+        padding: 60px 16px;
+      }
+
+      .cs-products-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 20px;
+      }
+
+      .cs-products-tabs {
+        width: 100%;
+        overflow-x: auto;
+        padding-bottom: 8px;
+      }
+
+      .cs-products-grid {
+        grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+        gap: 20px;
+      }
+
+      .cs-product-image {
+        height: 180px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .cs-products {
+        padding: 50px 12px;
+      }
+
+      .cs-products-title {
+        font-size: clamp(1.5rem, 4vw, 2rem);
+      }
+
+      .cs-products-grid {
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+        gap: 16px;
+      }
+
+      .cs-product-card {
+        box-shadow: none;
+      }
+
+      .cs-product-image {
+        height: 150px;
+      }
+
+      .cs-product-info {
+        padding: 12px;
+      }
+
+      .cs-product-name {
+        font-size: 0.95rem;
+        min-height: auto;
+      }
+
+      .cs-product-footer {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <section class="cs-products">
+    <div class="cs-products-container">
+      <div class="cs-products-header">
+        <h2 class="cs-products-title">Catering Equipment</h2>
+        <ul class="cs-products-tabs">
+          <li><button class="tab-btn active" data-tab="all">All</button></li>
+          <li><button class="tab-btn" data-tab="equipment">Equipment</button></li>
+          <li><button class="tab-btn" data-tab="tableware">Tableware</button></li>
+          <li><button class="tab-btn" data-tab="accessories">Accessories</button></li>
+        </ul>
+      </div>
+
+      <div class="cs-products-grid" id="productsGrid">
+        <!-- Products will be generated here -->
+      </div>
+
+      <div class="cs-products-nav">
+        <button class="cs-nav-btn" id="prevBtn"><i class="fa-solid fa-chevron-left"></i></button>
+        <button class="cs-nav-btn" id="nextBtn"><i class="fa-solid fa-chevron-right"></i></button>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    // Product data
+    const products = [
+      {
+        id: 1,
+        name: "Stainless Steel Chafing Dish",
+        category: "equipment",
+        price: "$189.00",
+        originalPrice: "$229.00",
+        badge: "hot",
+        image: "https://images.unsplash.com/photo-1578972678644-fad2c3a31e70?w=400&h=400&fit=crop"
+      },
+      {
+        id: 2,
+        name: "Professional Food Warmer",
+        category: "equipment",
+        price: "$249.00",
+        originalPrice: "$299.00",
+        badge: "sale",
+        image: "https://images.unsplash.com/photo-1587270055901-4e3df8d26a1c?w=400&h=400&fit=crop"
+      },
+      {
+        id: 3,
+        name: "Premium Serving Utensils Set",
+        category: "tableware",
+        price: "$89.99",
+        originalPrice: null,
+        badge: "new",
+        image: "https://images.unsplash.com/photo-1599599810694-b5ac4dd64e90?w=400&h=400&fit=crop"
+      },
+      {
+        id: 4,
+        name: "Elegant Buffet Stand",
+        category: "equipment",
+        price: "$329.00",
+        originalPrice: "$379.00",
+        badge: null,
+        image: "https://images.unsplash.com/photo-1609208186957-ecd4f0b6d1f7?w=400&h=400&fit=crop"
+      },
+      {
+        id: 5,
+        name: "Ceramic Serving Bowls",
+        category: "tableware",
+        price: "$129.00",
+        originalPrice: null,
+        badge: "new",
+        image: "https://images.unsplash.com/photo-1610701596007-11502861dcfa?w=400&h=400&fit=crop"
+      },
+      {
+        id: 6,
+        name: "Professional Ice Bucket",
+        category: "accessories",
+        price: "$79.99",
+        originalPrice: "$99.99",
+        badge: "sale",
+        image: "https://images.unsplash.com/photo-1578972566174-29582a02ae5d?w=400&h=400&fit=crop"
+      },
+      {
+        id: 7,
+        name: "Stainless Steel Food Covers",
+        category: "accessories",
+        price: "$199.00",
+        originalPrice: null,
+        badge: null,
+        image: "https://images.unsplash.com/photo-1554118811-1e0d58224e24?w=400&h=400&fit=crop"
+      },
+      {
+        id: 8,
+        name: "Premium Dinner Plate Set",
+        category: "tableware",
+        price: "$249.00",
+        originalPrice: "$299.00",
+        badge: "hot",
+        image: "https://images.unsplash.com/photo-1578500494198-246f612d03b3?w=400&h=400&fit=crop"
+      }
+    ];
+
+    let currentTab = "all";
+    let currentPage = 0;
+    const itemsPerPage = 8;
+
+    function renderProducts() {
+      const filtered = currentTab === "all"
+        ? products
+        : products.filter(p => p.category === currentTab);
+
+      const grid = document.getElementById("productsGrid");
+      grid.innerHTML = filtered.map(product => `
+        <div class="cs-product-card">
+          <div class="cs-product-image">
+            <img src="${product.image}" alt="${product.name}" loading="lazy">
+            ${product.badge ? `<span class="cs-product-badge ${product.badge}">${product.badge}</span>` : ''}
+          </div>
+          <div class="cs-product-info">
+            <div class="cs-product-category">${product.category}</div>
+            <h3 class="cs-product-name">${product.name}</h3>
+            <div class="cs-product-footer">
+              <div class="cs-product-price">
+                <span class="current">${product.price}</span>
+                ${product.originalPrice ? `<span class="original">${product.originalPrice}</span>` : ''}
+              </div>
+              <button class="cs-product-btn">
+                <i class="fa-solid fa-shopping-cart"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+      `).join("");
+    }
+
+    // Tab functionality
+    document.querySelectorAll(".tab-btn").forEach(btn => {
+      btn.addEventListener("click", function() {
+        document.querySelectorAll(".tab-btn").forEach(b => b.classList.remove("active"));
+        this.classList.add("active");
+        currentTab = this.dataset.tab;
+        currentPage = 0;
+        renderProducts();
+      });
+    });
+
+    // Navigation buttons
+    document.getElementById("prevBtn").addEventListener("click", () => {
+      currentPage = Math.max(0, currentPage - 1);
+    });
+
+    document.getElementById("nextBtn").addEventListener("click", () => {
+      currentPage++;
+    });
+
+    // Initial render
+    renderProducts();
+  </script>
+
+</body>
+</html>
