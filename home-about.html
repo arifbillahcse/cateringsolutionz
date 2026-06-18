@@ -60,9 +60,9 @@
 
     .ab-about-inner {
       display: grid;
-      grid-template-columns: 1fr 1.25fr;
-      gap: 70px;
-      align-items: center;
+      grid-template-columns: 1fr 1.2fr;
+      gap: 60px;
+      align-items: stretch;
     }
 
     .ab-about-visual {
@@ -79,8 +79,8 @@
 
     .ab-about-img-main {
       width: 100%;
-      max-width: 400px;
-      height: 420px;
+      max-width: 100%;
+      height: 550px;
       border-radius: 24px;
       box-shadow: var(--shadow);
       position: relative;
@@ -112,12 +112,13 @@
 
     .ab-about-badge-card {
       position: absolute;
-      bottom: -20px;
-      right: -20px;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
       background: var(--gold);
       color: var(--navy);
       border-radius: 16px;
-      padding: 18px 22px;
+      padding: 18px 28px;
       text-align: center;
       box-shadow: 0 12px 32px rgba(0, 195, 255, 0.4);
     }
@@ -157,9 +158,9 @@
 
     .ab-section-title {
       font-family: var(--font-head);
-      font-size: clamp(2.2rem, 6vw, 3.5rem);
+      font-size: clamp(1.8rem, 4vw, 2.4rem);
       font-weight: 800;
-      line-height: 1.15;
+      line-height: 1.2;
       color: var(--navy);
       margin-bottom: 32px;
     }
@@ -186,28 +187,32 @@
 
     .ab-about-pills {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 24px;
+      grid-template-columns: 1fr;
+      gap: 16px;
       margin: 40px 0 42px;
     }
 
     .ab-pill-item {
       display: flex;
-      flex-direction: column;
       align-items: center;
-      text-align: center;
-      gap: 12px;
-    }
-
-    .ab-pill-item i {
-      font-size: 2.2rem;
-      color: var(--gold);
+      gap: 18px;
+      padding: 16px 20px;
+      background: rgba(0, 195, 255, 0.08);
+      border-radius: 12px;
       transition: var(--trans);
     }
 
-    .ab-pill-item:hover i {
-      transform: translateY(-6px);
-      color: var(--gold-soft);
+    .ab-pill-item:hover {
+      background: rgba(0, 195, 255, 0.14);
+      transform: translateX(6px);
+    }
+
+    .ab-pill-item i {
+      font-size: 1.8rem;
+      color: var(--gold);
+      flex-shrink: 0;
+      min-width: 40px;
+      text-align: center;
     }
 
     .ab-pill-item span {
@@ -266,7 +271,8 @@
     @media (max-width: 1024px) {
       .ab-about-inner {
         grid-template-columns: 1fr;
-        gap: 50px;
+        gap: 40px;
+        align-items: center;
       }
 
       .ab-about-visual {
@@ -275,7 +281,7 @@
 
       .ab-about-img-main {
         max-width: 100%;
-        height: 320px;
+        height: 400px;
       }
     }
 
@@ -285,48 +291,51 @@
       }
 
       .ab-section-title {
-        font-size: clamp(1.6rem, 4vw, 2.4rem);
+        font-size: clamp(1.4rem, 3.5vw, 2rem);
         margin-bottom: 24px;
       }
 
       .ab-about-lead {
-        font-size: 1.05rem;
-        margin-bottom: 18px;
+        font-size: 1rem;
+        margin-bottom: 16px;
       }
 
       .ab-about-img-main {
-        height: 300px;
+        height: 320px;
       }
 
       .ab-about-badge-card {
-        bottom: -15px;
-        right: -15px;
-        padding: 14px 18px;
+        bottom: 16px;
+        padding: 14px 22px;
       }
 
       .ab-about-badge-num {
-        font-size: 1.6rem;
+        font-size: 1.4rem;
+      }
+
+      .ab-about-badge-lbl {
+        font-size: 0.7rem;
       }
 
       .ab-about-contact {
         flex-direction: column;
         align-items: flex-start;
-        gap: 18px;
-        margin-top: 32px;
+        gap: 16px;
+        margin-top: 28px;
       }
 
       .ab-about-pills {
-        grid-template-columns: 1fr 1fr;
-        gap: 18px;
-        margin: 36px 0 40px;
+        gap: 12px;
+        margin: 32px 0 36px;
       }
 
       .ab-pill-item {
-        gap: 10px;
+        padding: 14px 16px;
+        gap: 14px;
       }
 
       .ab-pill-item i {
-        font-size: 1.8rem;
+        font-size: 1.4rem;
       }
 
       .ab-pill-item span {
@@ -344,12 +353,16 @@
         <div class="ab-about-img-stack">
           <div class="ab-about-img-main">
             <img src="https://images.unsplash.com/photo-1555244162-803834f70033?auto=format&fit=crop&w=800&q=80" alt="Professional catering setup with chafing dishes" />
+            <div class="ab-about-badge-card">
+              <span class="ab-about-badge-num">15+</span>
+              <span class="ab-about-badge-lbl">Years of Excellence</span>
+            </div>
           </div>
         </div>
       </div>
 
       <div class="ab-about-text">
-        <h2 class="ab-section-title">What Do We<br><span>Offer?</span></h2>
+        <h2 class="ab-section-title">What Do We <span>Offer?</span></h2>
         <p class="ab-about-lead">Catering Solutionz is Birmingham's trusted supplier of premium catering equipment and professional kitchen supplies.</p>
 
         <p class="ab-about-body">Based in Aston, Birmingham, we have been serving restaurants, event caterers, hotels and food businesses for over 15 years. Our extensive range — from stainless steel chafing dishes and commercial cookware to disposables and glassware — is chosen for quality, durability and value.</p>
