@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Catering Equipment — Catering Solutionz</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+  <style>
+    :root {
+      --navy: #092143;
+      --navy-2: #0d2d5a;
+      --gold: #00c3ff;
+      --gold-soft: #66d9ff;
+      --dark: #071838;
+      --light: #f5f6fb;
+      --grey: #5a6b7f;
+      --grey-light: #aeb8c9;
+      --shadow: 0 12px 32px rgba(0, 195, 255, 0.15);
+      --shadow-sm: 0 4px 12px rgba(0, 0, 0, 0.08);
+      --trans: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      --font-head: 'Playfair Display', serif;
+      --font-body: 'Poppins', sans-serif;
+    }
+
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: var(--font-body);
+      background: #fff;
+    }
+
+    .cs-equipment {
+      padding: 90px 20px;
+      background: #fff;
+      overflow: hidden;
+    }
+
+    .cs-equipment-container {
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    .cs-section-title {
+      font-family: var(--font-head);
+      font-size: clamp(1.8rem, 4vw, 2.6rem);
+      font-weight: 800;
+      color: var(--navy);
+      margin-bottom: 50px;
+    }
+
+    .cs-equipment-wrapper {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 40px;
+      align-items: start;
+    }
+
+    /* ===== LEFT SIDE - PRODUCTS GRID ===== */
+    .cs-products-section {
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+    }
+
+    .cs-products-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .cs-products-title {
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--navy);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .cs-products-tabs {
+      display: flex;
+      gap: 20px;
+      list-style: none;
+    }
+
+    .cs-products-tabs button {
+      padding: 0;
+      border: none;
+      background: none;
+      color: var(--grey);
+      font-size: 0.9rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: var(--trans);
+      font-family: var(--font-body);
+      position: relative;
+    }
+
+    .cs-products-tabs button:hover,
+    .cs-products-tabs button.active {
+      color: var(--gold);
+    }
+
+    .cs-products-tabs button.active::after {
+      content: "";
+      position: absolute;
+      bottom: -8px;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: var(--gold);
+    }
+
+    .cs-products-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+    }
+
+    .cs-product-item {
+      background: #fff;
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid #eef1f6;
+      transition: var(--trans);
+      opacity: 0;
+      animation: csSlideUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+
+    .cs-product-item:nth-child(1) { animation-delay: 0.1s; }
+    .cs-product-item:nth-child(2) { animation-delay: 0.15s; }
+    .cs-product-item:nth-child(3) { animation-delay: 0.2s; }
+    .cs-product-item:nth-child(4) { animation-delay: 0.25s; }
+
+    .cs-product-item:hover {
+      transform: translateY(-8px);
+      box-shadow: var(--shadow);
+      border-color: var(--gold-soft);
+    }
+
+    .cs-product-img {
+      position: relative;
+      width: 100%;
+      height: 180px;
+      background: linear-gradient(135deg, var(--light), #e8ecf4);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    .cs-product-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: var(--trans);
+    }
+
+    .cs-product-item:hover .cs-product-img img {
+      transform: scale(1.08);
+    }
+
+    .cs-badge {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      padding: 4px 10px;
+      border-radius: 4px;
+      font-size: 0.7rem;
+      font-weight: 600;
+      text-transform: uppercase;
+    }
+
+    .cs-badge.new {
+      background: #10b981;
+      color: #fff;
+    }
+
+    .cs-badge.hot {
+      background: #ef4444;
+      color: #fff;
+    }
+
+    .cs-product-body {
+      padding: 16px;
+    }
+
+    .cs-product-cat {
+      font-size: 0.75rem;
+      color: var(--grey-light);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 6px;
+    }
+
+    .cs-product-name {
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--navy);
+      margin-bottom: 8px;
+      line-height: 1.3;
+    }
+
+    .cs-product-price {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--gold);
+    }
+
+    .cs-product-price .old {
+      font-size: 0.85rem;
+      color: var(--grey-light);
+      text-decoration: line-through;
+      margin-left: 6px;
+    }
+
+    .cs-nav-arrows {
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+    }
+
+    .cs-nav-arrow {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      border: 2px solid #ddd;
+      background: #fff;
+      color: var(--grey);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: var(--trans);
+      font-size: 1rem;
+    }
+
+    .cs-nav-arrow:hover {
+      border-color: var(--gold);
+      color: var(--gold);
+    }
+
+    /* ===== RIGHT SIDE - FEATURED PRODUCT ===== */
+    .cs-featured-section {
+      background: linear-gradient(135deg, #ffffff 0%, var(--light) 100%);
+      border: 2px solid var(--gold-soft);
+      border-radius: 16px;
+      padding: 36px 28px;
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+      opacity: 0;
+      animation: csSlideUp 0.8s 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+
+    .cs-featured-title {
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--navy);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .cs-featured-title::before {
+      content: "";
+      width: 4px;
+      height: 24px;
+      background: var(--gold);
+      border-radius: 2px;
+    }
+
+    .cs-featured-product {
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .cs-featured-img {
+      width: 100%;
+      height: 300px;
+      background: #fff;
+      border-radius: 12px;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .cs-featured-img img {
+      width: 85%;
+      height: 85%;
+      object-fit: contain;
+    }
+
+    .cs-featured-badge {
+      position: absolute;
+      top: 16px;
+      right: 16px;
+      padding: 8px 14px;
+      background: var(--gold);
+      color: var(--navy);
+      border-radius: 6px;
+      font-weight: 600;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+    }
+
+    .cs-featured-content {
+      text-align: left;
+    }
+
+    .cs-featured-cat {
+      font-size: 0.8rem;
+      color: var(--grey-light);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 8px;
+    }
+
+    .cs-featured-name {
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 12px;
+      line-height: 1.4;
+    }
+
+    .cs-featured-price {
+      font-size: 1.6rem;
+      font-weight: 800;
+      color: var(--gold);
+      margin-bottom: 16px;
+    }
+
+    .cs-featured-desc {
+      color: var(--grey);
+      font-size: 0.95rem;
+      line-height: 1.6;
+      margin-bottom: 16px;
+    }
+
+    .cs-featured-btn {
+      padding: 14px 28px;
+      background: linear-gradient(135deg, var(--gold), var(--gold-soft));
+      color: var(--navy);
+      border: none;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: var(--trans);
+      font-family: var(--font-body);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+    }
+
+    .cs-featured-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 28px rgba(0, 195, 255, 0.35);
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 1024px) {
+      .cs-equipment-wrapper {
+        grid-template-columns: 1fr;
+        gap: 30px;
+      }
+
+      .cs-products-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .cs-featured-img {
+        height: 250px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .cs-equipment {
+        padding: 60px 16px;
+      }
+
+      .cs-section-title {
+        margin-bottom: 30px;
+      }
+
+      .cs-products-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .cs-featured-section {
+        padding: 24px 20px;
+      }
+
+      .cs-featured-img {
+        height: 220px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .cs-equipment {
+        padding: 50px 12px;
+      }
+
+      .cs-section-title {
+        font-size: clamp(1.3rem, 3vw, 1.8rem);
+      }
+
+      .cs-products-title,
+      .cs-featured-title {
+        font-size: 1.1rem;
+      }
+
+      .cs-products-tabs {
+        gap: 12px;
+      }
+
+      .cs-products-tabs button {
+        font-size: 0.8rem;
+      }
+
+      .cs-product-item {
+        box-shadow: none;
+      }
+
+      .cs-featured-section {
+        border-radius: 12px;
+      }
+
+      .cs-featured-name {
+        font-size: 1.1rem;
+      }
+
+      .cs-featured-price {
+        font-size: 1.4rem;
+      }
+    }
+
+    @keyframes csSlideUp {
+      from {
+        opacity: 0;
+        transform: translateY(24px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <section class="cs-equipment">
+    <div class="cs-equipment-container">
+      <h2 class="cs-section-title">Catering Equipment</h2>
+
+      <div class="cs-equipment-wrapper">
+        <!-- LEFT SIDE - PRODUCTS GRID -->
+        <div class="cs-products-section">
+          <div class="cs-products-header">
+            <div class="cs-products-title">Featured Items</div>
+            <ul class="cs-products-tabs">
+              <li><button class="tab-btn active" data-tab="all">All</button></li>
+              <li><button class="tab-btn" data-tab="equipment">Equipment</button></li>
+              <li><button class="tab-btn" data-tab="tableware">Tableware</button></li>
+            </ul>
+          </div>
+
+          <div class="cs-products-grid" id="productsGrid">
+            <!-- Products will be generated here -->
+          </div>
+
+          <div class="cs-nav-arrows">
+            <button class="cs-nav-arrow" id="prevBtn"><i class="fa-solid fa-chevron-left"></i></button>
+            <button class="cs-nav-arrow" id="nextBtn"><i class="fa-solid fa-chevron-right"></i></button>
+          </div>
+        </div>
+
+        <!-- RIGHT SIDE - FEATURED PRODUCT -->
+        <div class="cs-featured-section">
+          <h3 class="cs-featured-title">Hot Deal</h3>
+
+          <div class="cs-featured-product">
+            <div class="cs-featured-img" id="featuredImg">
+              <!-- Image will be generated -->
+            </div>
+
+            <div class="cs-featured-content">
+              <div class="cs-featured-cat" id="featuredCat"></div>
+              <h4 class="cs-featured-name" id="featuredName"></h4>
+              <div class="cs-featured-price" id="featuredPrice"></div>
+              <p class="cs-featured-desc" id="featuredDesc"></p>
+              <button class="cs-featured-btn">
+                <i class="fa-solid fa-shopping-cart"></i> Add to Cart
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    const products = [
+      {
+        id: 1,
+        name: "Stainless Steel Chafing Dish",
+        category: "equipment",
+        price: "$189.00",
+        originalPrice: "$229.00",
+        badge: "hot",
+        image: "https://images.unsplash.com/photo-1578972678644-fad2c3a31e70?w=400&h=400&fit=crop",
+        description: "Professional grade stainless steel chafing dish with folding stand. Perfect for keeping food warm at events and buffets."
+      },
+      {
+        id: 2,
+        name: "Professional Food Warmer",
+        category: "equipment",
+        price: "$249.00",
+        originalPrice: "$299.00",
+        badge: "sale",
+        image: "https://images.unsplash.com/photo-1587270055901-4e3df8d26a1c?w=400&h=400&fit=crop",
+        description: "Electric food warmer with adjustable temperature control. Maintains food quality for hours."
+      },
+      {
+        id: 3,
+        name: "Premium Serving Utensils Set",
+        category: "tableware",
+        price: "$89.99",
+        originalPrice: null,
+        badge: "new",
+        image: "https://images.unsplash.com/photo-1599599810694-b5ac4dd64e90?w=400&h=400&fit=crop",
+        description: "Complete serving utensil set with elegant design. Includes spoons, forks, and ladles."
+      },
+      {
+        id: 4,
+        name: "Elegant Buffet Stand",
+        category: "equipment",
+        price: "$329.00",
+        originalPrice: "$379.00",
+        badge: null,
+        image: "https://images.unsplash.com/photo-1609208186957-ecd4f0b6d1f7?w=400&h=400&fit=crop",
+        description: "Premium buffet stand with adjustable height. Creates a professional catering setup."
+      }
+    ];
+
+    let currentTab = "all";
+
+    function renderProducts() {
+      const filtered = currentTab === "all"
+        ? products
+        : products.filter(p => p.category === currentTab);
+
+      const grid = document.getElementById("productsGrid");
+      grid.innerHTML = filtered.map(product => `
+        <div class="cs-product-item">
+          <div class="cs-product-img">
+            <img src="${product.image}" alt="${product.name}" loading="lazy">
+            ${product.badge ? `<span class="cs-badge ${product.badge}">${product.badge}</span>` : ''}
+          </div>
+          <div class="cs-product-body">
+            <div class="cs-product-cat">${product.category}</div>
+            <h4 class="cs-product-name">${product.name}</h4>
+            <div class="cs-product-price">
+              ${product.price}
+              ${product.originalPrice ? `<span class="old">${product.originalPrice}</span>` : ''}
+            </div>
+          </div>
+        </div>
+      `).join("");
+
+      // Set featured product to first item
+      const featured = filtered[0];
+      document.getElementById("featuredImg").innerHTML =
+        `<img src="${featured.image}" alt="${featured.name}" loading="lazy">`;
+      document.getElementById("featuredCat").textContent = featured.category;
+      document.getElementById("featuredName").textContent = featured.name;
+      document.getElementById("featuredPrice").textContent = featured.price;
+      document.getElementById("featuredDesc").textContent = featured.description;
+    }
+
+    // Tab functionality
+    document.querySelectorAll(".tab-btn").forEach(btn => {
+      btn.addEventListener("click", function() {
+        document.querySelectorAll(".tab-btn").forEach(b => b.classList.remove("active"));
+        this.classList.add("active");
+        currentTab = this.dataset.tab;
+        renderProducts();
+      });
+    });
+
+    // Navigation buttons
+    document.getElementById("prevBtn").addEventListener("click", () => {
+      console.log("Prev clicked");
+    });
+
+    document.getElementById("nextBtn").addEventListener("click", () => {
+      console.log("Next clicked");
+    });
+
+    // Initial render
+    renderProducts();
+  </script>
+
+</body>
+</html>
