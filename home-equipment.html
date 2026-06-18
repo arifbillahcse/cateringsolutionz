@@ -474,11 +474,11 @@
         <!-- LEFT SIDE - PRODUCTS GRID -->
         <div class="cs-products-section">
           <div class="cs-products-header">
-            <div class="cs-products-title">Featured Items</div>
+            <div class="cs-products-title">Sale Products</div>
             <ul class="cs-products-tabs">
-              <li><button class="tab-btn active" data-tab="all">All</button></li>
-              <li><button class="tab-btn" data-tab="equipment">Equipment</button></li>
-              <li><button class="tab-btn" data-tab="tableware">Tableware</button></li>
+              <li><button class="tab-btn active" data-tab="new">New</button></li>
+              <li><button class="tab-btn" data-tab="featured">Featured</button></li>
+              <li><button class="tab-btn" data-tab="topsellers">Top Sellers</button></li>
             </ul>
           </div>
 
@@ -521,7 +521,7 @@
       {
         id: 1,
         name: "Stainless Steel Chafing Dish",
-        category: "equipment",
+        type: "featured",
         price: "$189.00",
         originalPrice: "$229.00",
         badge: "hot",
@@ -531,7 +531,7 @@
       {
         id: 2,
         name: "Professional Food Warmer",
-        category: "equipment",
+        type: "topsellers",
         price: "$249.00",
         originalPrice: "$299.00",
         badge: "sale",
@@ -541,7 +541,7 @@
       {
         id: 3,
         name: "Premium Serving Utensils Set",
-        category: "tableware",
+        type: "new",
         price: "$89.99",
         originalPrice: null,
         badge: "new",
@@ -551,7 +551,7 @@
       {
         id: 4,
         name: "Elegant Buffet Stand",
-        category: "equipment",
+        type: "featured",
         price: "$329.00",
         originalPrice: "$379.00",
         badge: null,
@@ -560,12 +560,12 @@
       }
     ];
 
-    let currentTab = "all";
+    let currentTab = "new";
 
     function renderProducts() {
       const filtered = currentTab === "all"
         ? products
-        : products.filter(p => p.category === currentTab);
+        : products.filter(p => p.type === currentTab);
 
       const grid = document.getElementById("productsGrid");
       grid.innerHTML = filtered.map(product => `
@@ -575,7 +575,7 @@
             ${product.badge ? `<span class="cs-badge ${product.badge}">${product.badge}</span>` : ''}
           </div>
           <div class="cs-product-body">
-            <div class="cs-product-cat">${product.category}</div>
+            <div class="cs-product-cat">${product.type}</div>
             <h4 class="cs-product-name">${product.name}</h4>
             <div class="cs-product-price">
               ${product.price}
@@ -589,7 +589,7 @@
       const featured = filtered[0];
       document.getElementById("featuredImg").innerHTML =
         `<img src="${featured.image}" alt="${featured.name}" loading="lazy">`;
-      document.getElementById("featuredCat").textContent = featured.category;
+      document.getElementById("featuredCat").textContent = featured.type;
       document.getElementById("featuredName").textContent = featured.name;
       document.getElementById("featuredPrice").textContent = featured.price;
       document.getElementById("featuredDesc").textContent = featured.description;

@@ -199,7 +199,7 @@ document.addEventListener("DOMContentLoaded", () => {
     {
       id: 1,
       name: "Stainless Steel Chafing Dish",
-      category: "equipment",
+      type: "featured",
       price: "$189.00",
       originalPrice: "$229.00",
       badge: "hot",
@@ -209,7 +209,7 @@ document.addEventListener("DOMContentLoaded", () => {
     {
       id: 2,
       name: "Professional Food Warmer",
-      category: "equipment",
+      type: "topsellers",
       price: "$249.00",
       originalPrice: "$299.00",
       badge: "sale",
@@ -219,7 +219,7 @@ document.addEventListener("DOMContentLoaded", () => {
     {
       id: 3,
       name: "Premium Serving Utensils Set",
-      category: "tableware",
+      type: "new",
       price: "$89.99",
       originalPrice: null,
       badge: "new",
@@ -229,7 +229,7 @@ document.addEventListener("DOMContentLoaded", () => {
     {
       id: 4,
       name: "Elegant Buffet Stand",
-      category: "equipment",
+      type: "featured",
       price: "$329.00",
       originalPrice: "$379.00",
       badge: null,
@@ -238,12 +238,12 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   ];
 
-  let equipmentTab = "all";
+  let equipmentTab = "new";
 
   function renderEquipment() {
     const filtered = equipmentTab === "all"
       ? equipmentProducts
-      : equipmentProducts.filter(p => p.category === equipmentTab);
+      : equipmentProducts.filter(p => p.type === equipmentTab);
 
     const grid = document.getElementById("equipmentGrid");
     if (!grid) return;
@@ -255,7 +255,7 @@ document.addEventListener("DOMContentLoaded", () => {
           ${product.badge ? `<span class="equipment-badge ${product.badge}">${product.badge}</span>` : ''}
         </div>
         <div class="equipment-body">
-          <div class="equipment-cat">${product.category}</div>
+          <div class="equipment-cat">${product.type}</div>
           <h4 class="equipment-name">${product.name}</h4>
           <div class="equipment-price">
             ${product.price}
@@ -275,7 +275,7 @@ document.addEventListener("DOMContentLoaded", () => {
       featuredImg.innerHTML = `<img src="${featured.image}" alt="${featured.name}" loading="lazy">`;
     }
     const featuredCat = document.getElementById("equipmentFeaturedCat");
-    if (featuredCat) featuredCat.textContent = featured.category;
+    if (featuredCat) featuredCat.textContent = featured.type;
     const featuredName = document.getElementById("equipmentFeaturedName");
     if (featuredName) featuredName.textContent = featured.name;
     const featuredPrice = document.getElementById("equipmentFeaturedPrice");
