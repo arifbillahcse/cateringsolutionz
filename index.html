@@ -38,6 +38,39 @@
           <a href="https://www.instagram.com/cateringsolutionz/" target="_blank" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
           <a href="https://share.google/IndMplzxJdc2CNqRK" target="_blank" aria-label="Google Reviews"><i class="fa-brands fa-google"></i></a>
         </div>
+
+        <!-- Language Selector -->
+        <div class="lang-selector" id="langSelector">
+          <button class="lang-btn" id="langBtn" aria-label="Select language" aria-expanded="false">
+            <span class="lang-flag" id="currentFlag">🇬🇧</span>
+            <span class="lang-name" id="currentLang">EN</span>
+            <i class="fa-solid fa-chevron-down lang-arrow"></i>
+          </button>
+          <ul class="lang-dropdown" id="langDropdown" role="listbox">
+            <li class="lang-option active" data-lang="en" data-flag="🇬🇧" data-name="EN" role="option">
+              <span>🇬🇧</span> English
+            </li>
+            <li class="lang-option" data-lang="ur" data-flag="🇵🇰" data-name="UR" role="option">
+              <span>🇵🇰</span> اردو
+            </li>
+            <li class="lang-option" data-lang="pa" data-flag="🇮🇳" data-name="PA" role="option">
+              <span>🇮🇳</span> ਪੰਜਾਬੀ
+            </li>
+            <li class="lang-option" data-lang="bn" data-flag="🇧🇩" data-name="BN" role="option">
+              <span>🇧🇩</span> বাংলা
+            </li>
+            <li class="lang-option" data-lang="pl" data-flag="🇵🇱" data-name="PL" role="option">
+              <span>🇵🇱</span> Polski
+            </li>
+            <li class="lang-option" data-lang="ar" data-flag="🇸🇦" data-name="AR" role="option">
+              <span>🇸🇦</span> العربية
+            </li>
+          </ul>
+        </div>
+
+        <!-- Hidden Google Translate element -->
+        <div id="google_translate_element" style="display:none;"></div>
+
       </div>
     </div>
   </div>
@@ -55,6 +88,7 @@
           <li><a href="#hero" class="nav-link active">Home</a></li>
           <li><a href="#categories" class="nav-link">Shop</a></li>
           <li><a href="#products" class="nav-link">Products</a></li>
+          <li><a href="#about" class="nav-link">About</a></li>
           <li><a href="#features" class="nav-link">Why Us</a></li>
           <li><a href="#reviews" class="nav-link">Reviews</a></li>
           <li><a href="#contact" class="nav-link">Contact</a></li>
@@ -160,6 +194,40 @@
           <h4>Disposables</h4>
           <span>61 Products</span>
         </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== ABOUT US ===== -->
+  <section class="about" id="about">
+    <div class="container about-inner">
+      <div class="about-visual reveal">
+        <div class="about-img-stack">
+          <div class="about-img-main"><i class="fa-solid fa-store"></i></div>
+          <div class="about-badge-card">
+            <span class="about-badge-num">15+</span>
+            <span class="about-badge-lbl">Years of Excellence</span>
+          </div>
+        </div>
+      </div>
+      <div class="about-text reveal" data-delay="120">
+        <span class="section-tag">About Us</span>
+        <h2 class="section-title" style="text-align:left;">We Lead the Way<br><span style="color:var(--gold)">Others Follow</span></h2>
+        <p class="about-lead">Catering Solutionz is Birmingham's trusted supplier of premium catering equipment and professional kitchen supplies.</p>
+        <p class="about-body">Based in Aston, Birmingham, we have been serving restaurants, event caterers, hotels and food businesses for over 15 years. Our extensive range — from stainless steel chafing dishes and commercial cookware to disposables and glassware — is chosen for quality, durability and value.</p>
+        <p class="about-body">We offer fast local delivery across Birmingham, flexible payment options, and a team that genuinely understands the catering industry.</p>
+        <div class="about-pills">
+          <span><i class="fa-solid fa-check"></i> Birmingham Based</span>
+          <span><i class="fa-solid fa-check"></i> Commercial Grade Quality</span>
+          <span><i class="fa-solid fa-check"></i> Cash &amp; Card Accepted</span>
+          <span><i class="fa-solid fa-check"></i> Fast Local Delivery</span>
+          <span><i class="fa-solid fa-check"></i> Stock Management</span>
+          <span><i class="fa-solid fa-check"></i> Expert Advice</span>
+        </div>
+        <div class="about-contact">
+          <a href="tel:07611825723" class="btn btn-primary"><i class="fa-solid fa-phone"></i> Call Us Now</a>
+          <div class="about-addr"><i class="fa-solid fa-location-dot"></i> Unit 1b Cheston Road, Aston, Birmingham, B7 5EE</div>
+        </div>
       </div>
     </div>
   </section>
@@ -336,6 +404,19 @@
 
   <!-- Back to top -->
   <button class="back-top" id="backTop" aria-label="Back to top"><i class="fa-solid fa-arrow-up"></i></button>
+
+  <!-- Google Translate API -->
+  <script type="text/javascript">
+    function googleTranslateElementInit() {
+      new google.translate.TranslateElement({
+        pageLanguage: 'en',
+        includedLanguages: 'en,ur,pa,bn,pl,ar',
+        layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+        autoDisplay: false
+      }, 'google_translate_element');
+    }
+  </script>
+  <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
   <!-- YouTube IFrame API for hero background -->
   <script src="https://www.youtube.com/iframe_api"></script>

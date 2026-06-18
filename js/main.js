@@ -4,6 +4,60 @@
 
 document.addEventListener("DOMContentLoaded", () => {
 
+  /* ---------- Language / Flag Dropdown ---------- */
+  const langSelector = document.getElementById("langSelector");
+  const langBtn      = document.getElementById("langBtn");
+  const langDropdown = document.getElementById("langDropdown");
+  const currentFlag  = document.getElementById("currentFlag");
+  const currentLang  = document.getElementById("currentLang");
+
+  if (langBtn) {
+    langBtn.addEventListener("click", (e) => {
+      e.stopPropagation();
+      const isOpen = langSelector.classList.toggle("open");
+      langBtn.setAttribute("aria-expanded", isOpen);
+    });
+  }
+
+  document.querySelectorAll(".lang-option").forEach(option => {
+    option.addEventListener("click", () => {
+      const lang  = option.dataset.lang;
+      const flag  = option.dataset.flag;
+      const name  = option.dataset.name;
+
+      // Update button display
+      currentFlag.textContent = flag;
+      currentLang.textContent = name;
+
+      // Mark active
+      document.querySelectorAll(".lang-option").forEach(o => o.classList.remove("active"));
+      option.classList.add("active");
+
+      // Close dropdown
+      langSelector.classList.remove("open");
+      langBtn.setAttribute("aria-expanded", "false");
+
+      // Trigger Google Translate
+      const gtSelect = document.querySelector(".goog-te-combo");
+      if (gtSelect) {
+        gtSelect.value = lang;
+        gtSelect.dispatchEvent(new Event("change"));
+      } else {
+        // Fallback: use cookie method
+        document.cookie = `googtrans=/en/${lang}; path=/`;
+        location.reload();
+      }
+    });
+  });
+
+  // Close dropdown when clicking outside
+  document.addEventListener("click", (e) => {
+    if (langSelector && !langSelector.contains(e.target)) {
+      langSelector.classList.remove("open");
+      langBtn && langBtn.setAttribute("aria-expanded", "false");
+    }
+  });
+
   /* ---------- Preloader ---------- */
   const preloader = document.getElementById("preloader");
   const hero = document.getElementById("hero");
