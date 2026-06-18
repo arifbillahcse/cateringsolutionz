@@ -203,7 +203,7 @@ document.addEventListener("DOMContentLoaded", () => {
       price: "$189.00",
       originalPrice: "$229.00",
       badge: "hot",
-      image: "https://images.unsplash.com/photo-1585518419759-87aaa7ec8f42?w=400&h=400&fit=crop",
+      image: "https://via.placeholder.com/400x400/FF6B6B/FFFFFF?text=Chafing+Dish",
       description: "Professional grade stainless steel chafing dish with folding stand. Perfect for keeping food warm at events and buffets."
     },
     {
@@ -213,7 +213,7 @@ document.addEventListener("DOMContentLoaded", () => {
       price: "$249.00",
       originalPrice: "$299.00",
       badge: "sale",
-      image: "https://images.unsplash.com/photo-1584568694244-14fbbc50d737?w=400&h=400&fit=crop",
+      image: "https://via.placeholder.com/400x400/4ECDC4/FFFFFF?text=Food+Warmer",
       description: "Electric food warmer with adjustable temperature control. Maintains food quality for hours."
     },
     {
@@ -223,7 +223,7 @@ document.addEventListener("DOMContentLoaded", () => {
       price: "$89.99",
       originalPrice: null,
       badge: "new",
-      image: "https://images.unsplash.com/photo-1578500494198-246f612d03b3?w=400&h=400&fit=crop",
+      image: "https://via.placeholder.com/400x400/45B7D1/FFFFFF?text=Utensils+Set",
       description: "Complete serving utensil set with elegant design. Includes spoons, forks, and ladles."
     },
     {
@@ -233,7 +233,7 @@ document.addEventListener("DOMContentLoaded", () => {
       price: "$329.00",
       originalPrice: "$379.00",
       badge: null,
-      image: "https://images.unsplash.com/photo-1570521944256-9b06a35f5dca?w=400&h=400&fit=crop",
+      image: "https://via.placeholder.com/400x400/95E1D3/FFFFFF?text=Buffet+Stand",
       description: "Premium buffet stand with adjustable height. Creates a professional catering setup."
     }
   ];
