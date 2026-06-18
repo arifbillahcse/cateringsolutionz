@@ -5,8 +5,8 @@
 :root {
   --navy: #0e1b33;
   --navy-2: #142544;
-  --gold: #d4a54f;
-  --gold-soft: #e8c886;
+  --gold: #00c3ff;
+  --gold-soft: #66d9ff;
   --blue: #1f7ae0;
   --light: #f6f8fb;
   --grey: #6b7689;
@@ -57,9 +57,9 @@ img { max-width: 100%; display: block; }
 .btn-primary {
   background: linear-gradient(135deg, var(--gold), var(--gold-soft));
   color: var(--navy);
-  box-shadow: 0 10px 30px rgba(212, 165, 79, 0.4);
+  box-shadow: 0 10px 30px rgba(0, 195, 255, 0.4);
 }
-.btn-primary:hover { transform: translateY(-3px); box-shadow: 0 16px 40px rgba(212, 165, 79, 0.55); }
+.btn-primary:hover { transform: translateY(-3px); box-shadow: 0 16px 40px rgba(0, 195, 255, 0.55); }
 .btn-primary:hover i { transform: translateX(5px); }
 .btn-ghost {
   background: rgba(255, 255, 255, 0.12);
@@ -84,7 +84,7 @@ img { max-width: 100%; display: block; }
 .preloader.hidden { opacity: 0; visibility: hidden; }
 .loader-ring {
   width: 64px; height: 64px;
-  border: 4px solid rgba(212, 165, 79, 0.2);
+  border: 4px solid rgba(0, 195, 255, 0.2);
   border-top-color: var(--gold);
   border-radius: 50%;
   animation: spin 0.9s linear infinite;
@@ -130,7 +130,7 @@ img { max-width: 100%; display: block; }
   transition: background 0.3s, border-color 0.3s;
   font-family: var(--font-body);
 }
-.lang-btn:hover { background: rgba(212,165,79,0.18); border-color: var(--gold); }
+.lang-btn:hover { background: rgba(0,195,255,0.18); border-color: var(--gold); }
 .lang-flag { font-size: 1rem; line-height: 1; }
 .lang-arrow {
   font-size: 0.65rem;
@@ -140,7 +140,7 @@ img { max-width: 100%; display: block; }
 .lang-dropdown {
   position: absolute; top: calc(100% + 8px); right: 0;
   background: var(--navy);
-  border: 1px solid rgba(212,165,79,0.25);
+  border: 1px solid rgba(0,195,255,0.25);
   border-radius: 12px;
   min-width: 150px;
   padding: 6px 0;
@@ -160,7 +160,7 @@ img { max-width: 100%; display: block; }
   color: #cdd5e3; font-size: 0.85rem;
   transition: background 0.2s, color 0.2s;
 }
-.lang-option:hover { background: rgba(212,165,79,0.12); color: var(--gold); }
+.lang-option:hover { background: rgba(0,195,255,0.12); color: var(--gold); }
 .lang-option.active { color: var(--gold); font-weight: 600; }
 .lang-option span { font-size: 1.1rem; }
 
@@ -373,10 +373,10 @@ img { max-width: 100%; display: block; }
 .promo-inner::before {
   content: ""; position: absolute; right: -80px; top: -80px;
   width: 280px; height: 280px; border-radius: 50%;
-  background: radial-gradient(circle, rgba(212,165,79,0.25), transparent 70%);
+  background: radial-gradient(circle, rgba(0,195,255,0.25), transparent 70%);
 }
 .promo-tag {
-  display: inline-block; background: rgba(212,165,79,0.2);
+  display: inline-block; background: rgba(0,195,255,0.2);
   color: var(--gold-soft); padding: 6px 16px; border-radius: 50px;
   font-size: 0.8rem; font-weight: 500; margin-bottom: 16px;
 }
@@ -476,7 +476,7 @@ img { max-width: 100%; display: block; }
 .review-card::before {
   content: "\201C"; font-family: var(--font-head);
   position: absolute; top: 10px; right: 26px;
-  font-size: 5rem; color: rgba(212,165,79,0.18); line-height: 1;
+  font-size: 5rem; color: rgba(0,195,255,0.18); line-height: 1;
 }
 .review-card:hover { transform: translateY(-8px); box-shadow: var(--shadow); }
 .stars { color: var(--gold); margin-bottom: 16px; }
@@ -558,7 +558,7 @@ img { max-width: 100%; display: block; }
 .about-img-main::before {
   content: "";
   position: absolute; inset: 0;
-  background: radial-gradient(circle at 30% 30%, rgba(212,165,79,0.18), transparent 60%);
+  background: radial-gradient(circle at 30% 30%, rgba(0,195,255,0.18), transparent 60%);
 }
 .about-badge-card {
   position: absolute; bottom: -20px; right: -20px;
@@ -567,7 +567,7 @@ img { max-width: 100%; display: block; }
   border-radius: 16px;
   padding: 18px 22px;
   text-align: center;
-  box-shadow: 0 12px 32px rgba(212,165,79,0.4);
+  box-shadow: 0 12px 32px rgba(0,195,255,0.4);
 }
 .about-badge-num {
   display: block;
@@ -612,7 +612,7 @@ img { max-width: 100%; display: block; }
   position: fixed; bottom: 28px; right: 28px; z-index: 900;
   width: 50px; height: 50px; border: none; border-radius: 50%;
   background: var(--gold); color: var(--navy); cursor: pointer;
-  font-size: 1rem; box-shadow: 0 10px 26px rgba(212,165,79,0.5);
+  font-size: 1rem; box-shadow: 0 10px 26px rgba(0,195,255,0.5);
   opacity: 0; visibility: hidden; transform: translateY(20px);
   transition: var(--trans);
 }

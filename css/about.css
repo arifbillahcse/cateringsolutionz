@@ -13,11 +13,11 @@
 .page-hero::before {
   content: "";
   position: absolute; inset: 0;
-  background: radial-gradient(ellipse at 60% 50%, rgba(212,165,79,0.2), transparent 65%);
+  background: radial-gradient(ellipse at 60% 50%, rgba(0,195,255,0.15), transparent 65%);
 }
 .page-hero-overlay {
   position: absolute; inset: 0;
-  background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23d4a54f' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%2300c3ff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
 }
 .page-hero-content {
   position: relative; z-index: 1;
@@ -67,7 +67,7 @@
   content: "";
   position: absolute; top: -60px; right: -60px;
   width: 200px; height: 200px; border-radius: 50%;
-  background: radial-gradient(circle, rgba(212,165,79,0.2), transparent 70%);
+  background: radial-gradient(circle, rgba(0,195,255,0.15), transparent 70%);
 }
 .au-stat { text-align: center; }
 .au-stat-num, .au-stat-plus {
@@ -156,7 +156,7 @@
 .au-cta-inner::before {
   content: ""; position: absolute; right: -80px; top: -80px;
   width: 280px; height: 280px; border-radius: 50%;
-  background: radial-gradient(circle, rgba(212,165,79,0.2), transparent 70%);
+  background: radial-gradient(circle, rgba(0,195,255,0.15), transparent 70%);
 }
 .au-cta-text h2 {
   font-family: var(--font-head);
@@ -204,7 +204,7 @@
 .au-promise-inner::before {
   content: ""; position: absolute; left: -80px; bottom: -80px;
   width: 300px; height: 300px; border-radius: 50%;
-  background: radial-gradient(circle, rgba(212,165,79,0.15), transparent 70%);
+  background: radial-gradient(circle, rgba(0,195,255,0.15), transparent 70%);
 }
 .au-promise-text { max-width: 620px; }
 .au-promise-text h2 {
@@ -225,7 +225,7 @@
 .au-promise-badge { flex-shrink: 0; }
 .au-promise-ring {
   width: 180px; height: 180px;
-  border: 2px dashed rgba(212,165,79,0.5);
+  border: 2px dashed rgba(0,195,255,0.15);
   border-radius: 50%;
   display: flex; flex-direction: column;
   align-items: center; justify-content: center; gap: 10px;
@@ -251,7 +251,7 @@
 .au-step:hover { transform: translateY(-8px); box-shadow: var(--shadow); }
 .au-step-num {
   font-family: var(--font-head); font-size: 3rem;
-  font-weight: 800; color: rgba(212,165,79,0.18);
+  font-weight: 800; color: rgba(0,195,255,0.15);
   line-height: 1; margin-bottom: 10px;
 }
 .au-step-icon {
