@@ -193,11 +193,25 @@ img { max-width: 100%; display: block; }
   overflow: hidden;
   color: #fff;
 }
-.hero-video {
+/* YouTube background wrapper */
+.hero-yt-wrap {
   position: absolute; inset: 0;
-  width: 100%; height: 100%;
-  object-fit: cover;
   z-index: -2;
+  overflow: hidden;
+  pointer-events: none;
+}
+.hero-yt-wrap #ytPlayer,
+.hero-yt-wrap iframe {
+  position: absolute;
+  top: 50%; left: 50%;
+  /* Scale up so the 16:9 frame always covers the viewport */
+  width: 100vw;
+  height: 56.25vw; /* 100 / (16/9) */
+  min-height: 100vh;
+  min-width: 177.78vh; /* 100 * (16/9) */
+  transform: translate(-50%, -50%);
+  border: 0;
+  pointer-events: none;
 }
 .hero-overlay {
   position: absolute; inset: 0; z-index: -1;

@@ -75,11 +75,11 @@
     </div>
   </header>
 
-  <!-- ===== HERO SECTION (VIDEO BACKGROUND) ===== -->
+  <!-- ===== HERO SECTION (YOUTUBE VIDEO BACKGROUND) ===== -->
   <section class="hero" id="hero">
-    <video class="hero-video" autoplay muted loop playsinline>
-      <source src="assets/fire.mp4" type="video/mp4" />
-    </video>
+    <div class="hero-yt-wrap">
+      <div id="ytPlayer"></div>
+    </div>
     <div class="hero-overlay"></div>
 
     <div class="container hero-content">
@@ -337,6 +337,32 @@
   <!-- Back to top -->
   <button class="back-top" id="backTop" aria-label="Back to top"><i class="fa-solid fa-arrow-up"></i></button>
 
+  <!-- YouTube IFrame API for hero background -->
+  <script src="https://www.youtube.com/iframe_api"></script>
+  <script>
+    var ytPlayer;
+    function onYouTubeIframeAPIReady() {
+      ytPlayer = new YT.Player('ytPlayer', {
+        videoId: 'WyK-3LoOwJw',
+        playerVars: {
+          autoplay: 1,
+          mute: 1,
+          loop: 1,
+          playlist: 'WyK-3LoOwJw',
+          controls: 0,
+          showinfo: 0,
+          rel: 0,
+          iv_load_policy: 3,
+          modestbranding: 1,
+          start: 10,
+          enablejsapi: 1
+        },
+        events: {
+          onReady: function(e) { e.target.playVideo(); }
+        }
+      });
+    }
+  </script>
   <script src="js/main.js"></script>
 </body>
 </html>
