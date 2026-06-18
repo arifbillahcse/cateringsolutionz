@@ -198,33 +198,33 @@ document.addEventListener("DOMContentLoaded", () => {
   const equipmentProducts = [
     {
       id: 1,
-      name: "Stainless Steel Chafing Dish",
-      type: "featured",
-      price: "$189.00",
-      originalPrice: "$229.00",
-      badge: "hot",
-      image: "https://via.placeholder.com/400x400/FF6B6B/FFFFFF?text=Chafing+Dish",
-      description: "Professional grade stainless steel chafing dish with folding stand. Perfect for keeping food warm at events and buffets."
-    },
-    {
-      id: 2,
-      name: "Professional Food Warmer",
-      type: "topsellers",
-      price: "$249.00",
-      originalPrice: "$299.00",
-      badge: "sale",
-      image: "https://via.placeholder.com/400x400/4ECDC4/FFFFFF?text=Food+Warmer",
-      description: "Electric food warmer with adjustable temperature control. Maintains food quality for hours."
-    },
-    {
-      id: 3,
       name: "Premium Serving Utensils Set",
       type: "new",
       price: "$89.99",
       originalPrice: null,
       badge: "new",
-      image: "https://via.placeholder.com/400x400/45B7D1/FFFFFF?text=Utensils+Set",
+      image: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Crect fill='%2345B7D1' width='400' height='400'/%3E%3Ctext x='50%' y='50%' font-size='24' fill='white' text-anchor='middle' dy='.3em' font-family='Arial'%3EUtensils Set%3C/text%3E%3C/svg%3E",
       description: "Complete serving utensil set with elegant design. Includes spoons, forks, and ladles."
+    },
+    {
+      id: 2,
+      name: "Modern Plate Set",
+      type: "new",
+      price: "$129.99",
+      originalPrice: null,
+      badge: "new",
+      image: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Crect fill='%2394E3F2' width='400' height='400'/%3E%3Ctext x='50%' y='50%' font-size='24' fill='white' text-anchor='middle' dy='.3em' font-family='Arial'%3EPlate Set%3C/text%3E%3C/svg%3E",
+      description: "Elegant modern dinnerware set. Perfect for catering events and formal dining."
+    },
+    {
+      id: 3,
+      name: "Stainless Steel Chafing Dish",
+      type: "featured",
+      price: "$189.00",
+      originalPrice: "$229.00",
+      badge: "hot",
+      image: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Crect fill='%23FF6B6B' width='400' height='400'/%3E%3Ctext x='50%' y='50%' font-size='24' fill='white' text-anchor='middle' dy='.3em' font-family='Arial'%3EChafing Dish%3C/text%3E%3C/svg%3E",
+      description: "Professional grade stainless steel chafing dish with folding stand. Perfect for keeping food warm at events and buffets."
     },
     {
       id: 4,
@@ -233,8 +233,48 @@ document.addEventListener("DOMContentLoaded", () => {
       price: "$329.00",
       originalPrice: "$379.00",
       badge: null,
-      image: "https://via.placeholder.com/400x400/95E1D3/FFFFFF?text=Buffet+Stand",
+      image: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Crect fill='%2395E1D3' width='400' height='400'/%3E%3Ctext x='50%' y='50%' font-size='24' fill='white' text-anchor='middle' dy='.3em' font-family='Arial'%3EBuffet Stand%3C/text%3E%3C/svg%3E",
       description: "Premium buffet stand with adjustable height. Creates a professional catering setup."
+    },
+    {
+      id: 5,
+      name: "Crystal Glass Set",
+      type: "featured",
+      price: "$159.00",
+      originalPrice: "$189.00",
+      badge: "sale",
+      image: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Crect fill='%233FA9D6' width='400' height='400'/%3E%3Ctext x='50%' y='50%' font-size='24' fill='white' text-anchor='middle' dy='.3em' font-family='Arial'%3EGlass Set%3C/text%3E%3C/svg%3E",
+      description: "Elegant crystal glassware for beverages. Perfect for upscale catering services."
+    },
+    {
+      id: 6,
+      name: "Professional Food Warmer",
+      type: "topsellers",
+      price: "$249.00",
+      originalPrice: "$299.00",
+      badge: "sale",
+      image: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Crect fill='%234ECDC4' width='400' height='400'/%3E%3Ctext x='50%' y='50%' font-size='24' fill='white' text-anchor='middle' dy='.3em' font-family='Arial'%3EFood Warmer%3C/text%3E%3C/svg%3E",
+      description: "Electric food warmer with adjustable temperature control. Maintains food quality for hours."
+    },
+    {
+      id: 7,
+      name: "Deluxe Serving Tray",
+      type: "topsellers",
+      price: "$99.99",
+      originalPrice: null,
+      badge: null,
+      image: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Crect fill='%2365C7CB' width='400' height='400'/%3E%3Ctext x='50%' y='50%' font-size='24' fill='white' text-anchor='middle' dy='.3em' font-family='Arial'%3EServing Tray%3C/text%3E%3C/svg%3E",
+      description: "High-quality serving trays ideal for presentations and buffet displays."
+    },
+    {
+      id: 8,
+      name: "Catering Cart",
+      type: "topsellers",
+      price: "$449.00",
+      originalPrice: "$499.00",
+      badge: "hot",
+      image: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Crect fill='%235DB3B8' width='400' height='400'/%3E%3Ctext x='50%' y='50%' font-size='24' fill='white' text-anchor='middle' dy='.3em' font-family='Arial'%3ECatering Cart%3C/text%3E%3C/svg%3E",
+      description: "Professional catering cart with multiple shelves and sturdy wheels for easy transport."
     }
   ];
 
