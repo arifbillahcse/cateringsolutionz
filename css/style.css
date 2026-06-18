@@ -547,18 +547,22 @@ img { max-width: 100%; display: block; }
 }
 .about-img-main {
   width: 100%; max-width: 400px; height: 420px;
-  background: linear-gradient(135deg, var(--navy), var(--navy-2));
   border-radius: 24px;
-  display: grid; place-items: center;
-  font-size: 7rem; color: var(--gold);
   box-shadow: var(--shadow);
   position: relative;
   overflow: hidden;
 }
+.about-img-main img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.6s ease;
+}
+.about-img-main:hover img { transform: scale(1.05); }
 .about-img-main::before {
   content: "";
-  position: absolute; inset: 0;
-  background: radial-gradient(circle at 30% 30%, rgba(0,195,255,0.18), transparent 60%);
+  position: absolute; inset: 0; z-index: 1;
+  background: linear-gradient(160deg, rgba(9,33,67,0.25) 0%, rgba(9,33,67,0.1) 100%);
 }
 .about-badge-card {
   position: absolute; bottom: -20px; right: -20px;
