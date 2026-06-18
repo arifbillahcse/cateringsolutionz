@@ -194,6 +194,108 @@ document.addEventListener("DOMContentLoaded", () => {
     return html;
   }
 
+  /* ---------- Equipment section ---------- */
+  const equipmentProducts = [
+    {
+      id: 1,
+      name: "Stainless Steel Chafing Dish",
+      category: "equipment",
+      price: "$189.00",
+      originalPrice: "$229.00",
+      badge: "hot",
+      image: "https://picsum.photos/400/400?random=1",
+      description: "Professional grade stainless steel chafing dish with folding stand. Perfect for keeping food warm at events and buffets."
+    },
+    {
+      id: 2,
+      name: "Professional Food Warmer",
+      category: "equipment",
+      price: "$249.00",
+      originalPrice: "$299.00",
+      badge: "sale",
+      image: "https://picsum.photos/400/400?random=2",
+      description: "Electric food warmer with adjustable temperature control. Maintains food quality for hours."
+    },
+    {
+      id: 3,
+      name: "Premium Serving Utensils Set",
+      category: "tableware",
+      price: "$89.99",
+      originalPrice: null,
+      badge: "new",
+      image: "https://picsum.photos/400/400?random=3",
+      description: "Complete serving utensil set with elegant design. Includes spoons, forks, and ladles."
+    },
+    {
+      id: 4,
+      name: "Elegant Buffet Stand",
+      category: "equipment",
+      price: "$329.00",
+      originalPrice: "$379.00",
+      badge: null,
+      image: "https://picsum.photos/400/400?random=4",
+      description: "Premium buffet stand with adjustable height. Creates a professional catering setup."
+    }
+  ];
+
+  let equipmentTab = "all";
+
+  function renderEquipment() {
+    const filtered = equipmentTab === "all"
+      ? equipmentProducts
+      : equipmentProducts.filter(p => p.category === equipmentTab);
+
+    const grid = document.getElementById("equipmentGrid");
+    if (!grid) return;
+
+    grid.innerHTML = filtered.map((product, i) => `
+      <div class="equipment-item reveal" data-delay="${i * 80}">
+        <div class="equipment-img">
+          <img src="${product.image}" alt="${product.name}" loading="lazy">
+          ${product.badge ? `<span class="equipment-badge ${product.badge}">${product.badge}</span>` : ''}
+        </div>
+        <div class="equipment-body">
+          <div class="equipment-cat">${product.category}</div>
+          <h4 class="equipment-name">${product.name}</h4>
+          <div class="equipment-price">
+            ${product.price}
+            ${product.originalPrice ? `<span class="old">${product.originalPrice}</span>` : ''}
+          </div>
+        </div>
+      </div>
+    `).join("");
+
+    // Re-observe new cards
+    grid.querySelectorAll(".reveal").forEach(el => revealObserver.observe(el));
+
+    // Update featured product
+    const featured = filtered[0];
+    const featuredImg = document.getElementById("equipmentFeaturedImg");
+    if (featuredImg) {
+      featuredImg.innerHTML = `<img src="${featured.image}" alt="${featured.name}" loading="lazy">`;
+    }
+    const featuredCat = document.getElementById("equipmentFeaturedCat");
+    if (featuredCat) featuredCat.textContent = featured.category;
+    const featuredName = document.getElementById("equipmentFeaturedName");
+    if (featuredName) featuredName.textContent = featured.name;
+    const featuredPrice = document.getElementById("equipmentFeaturedPrice");
+    if (featuredPrice) featuredPrice.textContent = featured.price;
+    const featuredDesc = document.getElementById("equipmentFeaturedDesc");
+    if (featuredDesc) featuredDesc.textContent = featured.description;
+  }
+
+  // Equipment tab buttons
+  document.querySelectorAll(".equipment-tab-btn").forEach(btn => {
+    btn.addEventListener("click", function() {
+      document.querySelectorAll(".equipment-tab-btn").forEach(b => b.classList.remove("active"));
+      this.classList.add("active");
+      equipmentTab = this.dataset.tab;
+      renderEquipment();
+    });
+  });
+
+  renderEquipment();
+
   /* ---------- Cart counter demo ---------- */
   const cartCount = document.querySelector(".cart-count");
   let count = 0;
