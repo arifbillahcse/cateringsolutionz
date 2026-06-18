@@ -142,6 +142,7 @@
       opacity: 0;
       transform: translateY(32px);
       animation: abReveal 0.8s 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+      overflow: hidden;
     }
 
     .ab-section-tag {
@@ -185,26 +186,35 @@
 
     .ab-about-pills {
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 14px;
-      margin: 32px 0 36px;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin: 40px 0 42px;
     }
 
-    .ab-about-pills span {
+    .ab-pill-item {
       display: flex;
+      flex-direction: column;
       align-items: center;
-      gap: 10px;
-      background: transparent;
-      border: none;
-      border-radius: 0;
-      padding: 0;
+      text-align: center;
+      gap: 12px;
+    }
+
+    .ab-pill-item i {
+      font-size: 2.2rem;
+      color: var(--gold);
+      transition: var(--trans);
+    }
+
+    .ab-pill-item:hover i {
+      transform: translateY(-6px);
+      color: var(--gold-soft);
+    }
+
+    .ab-pill-item span {
       font-size: 0.95rem;
       font-weight: 500;
       color: var(--navy);
-    }
-
-    .ab-about-pills span i {
-      color: var(--gold);
+      line-height: 1.4;
     }
 
     .ab-about-contact {
@@ -240,21 +250,6 @@
       box-shadow: 0 12px 32px rgba(0, 195, 255, 0.35);
     }
 
-    .ab-about-addr {
-      display: flex;
-      align-items: flex-start;
-      gap: 12px;
-      font-size: 0.95rem;
-      color: var(--grey);
-      max-width: 280px;
-      line-height: 1.6;
-    }
-
-    .ab-about-addr i {
-      color: var(--gold);
-      margin-top: 3px;
-      flex-shrink: 0;
-    }
 
     @keyframes abReveal {
       from {
@@ -321,13 +316,21 @@
       }
 
       .ab-about-pills {
-        grid-template-columns: 1fr;
-        gap: 12px;
-        margin: 28px 0 32px;
+        grid-template-columns: 1fr 1fr;
+        gap: 18px;
+        margin: 36px 0 40px;
       }
 
-      .ab-about-pills span {
-        font-size: 0.9rem;
+      .ab-pill-item {
+        gap: 10px;
+      }
+
+      .ab-pill-item i {
+        font-size: 1.8rem;
+      }
+
+      .ab-pill-item span {
+        font-size: 0.88rem;
       }
     }
   </style>
@@ -342,15 +345,10 @@
           <div class="ab-about-img-main">
             <img src="https://images.unsplash.com/photo-1555244162-803834f70033?auto=format&fit=crop&w=800&q=80" alt="Professional catering setup with chafing dishes" />
           </div>
-          <div class="ab-about-badge-card">
-            <span class="ab-about-badge-num">15+</span>
-            <span class="ab-about-badge-lbl">Years of Excellence</span>
-          </div>
         </div>
       </div>
 
       <div class="ab-about-text">
-        <span class="ab-section-tag">About Us</span>
         <h2 class="ab-section-title">We Lead the Way<br><span>Others Follow</span></h2>
         <p class="ab-about-lead">Catering Solutionz is Birmingham's trusted supplier of premium catering equipment and professional kitchen supplies.</p>
 
@@ -359,17 +357,34 @@
         <p class="ab-about-body">We offer fast local delivery across Birmingham, flexible payment options, and a team that genuinely understands the catering industry.</p>
 
         <div class="ab-about-pills">
-          <span><i class="fa-solid fa-check"></i> Birmingham Based</span>
-          <span><i class="fa-solid fa-check"></i> Commercial Grade Quality</span>
-          <span><i class="fa-solid fa-check"></i> Cash &amp; Card Accepted</span>
-          <span><i class="fa-solid fa-check"></i> Fast Local Delivery</span>
-          <span><i class="fa-solid fa-check"></i> Stock Management</span>
-          <span><i class="fa-solid fa-check"></i> Expert Advice</span>
+          <div class="ab-pill-item">
+            <i class="fa-solid fa-location-dot"></i>
+            <span>Birmingham Based</span>
+          </div>
+          <div class="ab-pill-item">
+            <i class="fa-solid fa-trophy"></i>
+            <span>Commercial Grade Quality</span>
+          </div>
+          <div class="ab-pill-item">
+            <i class="fa-solid fa-credit-card"></i>
+            <span>Cash &amp; Card Accepted</span>
+          </div>
+          <div class="ab-pill-item">
+            <i class="fa-solid fa-truck"></i>
+            <span>Fast Local Delivery</span>
+          </div>
+          <div class="ab-pill-item">
+            <i class="fa-solid fa-cubes"></i>
+            <span>Stock Management</span>
+          </div>
+          <div class="ab-pill-item">
+            <i class="fa-solid fa-headset"></i>
+            <span>Expert Advice</span>
+          </div>
         </div>
 
         <div class="ab-about-contact">
           <a href="tel:07611825723" class="ab-btn ab-btn-primary"><i class="fa-solid fa-phone"></i> Call Us Now</a>
-          <div class="ab-about-addr"><i class="fa-solid fa-location-dot"></i> Unit 1b Cheston Road, Aston, Birmingham, B7 5EE</div>
         </div>
       </div>
     </div>
