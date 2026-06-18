@@ -1,0 +1,156 @@
+/* ===========================================================
+   Catering Solutionz — Home Page Scripts
+   =========================================================== */
+
+document.addEventListener("DOMContentLoaded", () => {
+
+  /* ---------- Preloader ---------- */
+  const preloader = document.getElementById("preloader");
+  const hero = document.getElementById("hero");
+  window.addEventListener("load", () => {
+    setTimeout(() => {
+      preloader.classList.add("hidden");
+      hero.classList.add("loaded");
+    }, 600);
+  });
+  // Fallback in case 'load' is slow
+  setTimeout(() => {
+    preloader.classList.add("hidden");
+    hero.classList.add("loaded");
+  }, 2500);
+
+  /* ---------- Sticky header shadow ---------- */
+  const header = document.getElementById("header");
+  const backTop = document.getElementById("backTop");
+  window.addEventListener("scroll", () => {
+    header.classList.toggle("scrolled", window.scrollY > 40);
+    backTop.classList.toggle("show", window.scrollY > 500);
+  });
+
+  /* ---------- Mobile nav ---------- */
+  const menuToggle = document.getElementById("menuToggle");
+  const nav = document.getElementById("nav");
+  menuToggle.addEventListener("click", () => {
+    menuToggle.classList.toggle("open");
+    nav.classList.toggle("open");
+  });
+  document.querySelectorAll(".nav-link").forEach(link => {
+    link.addEventListener("click", () => {
+      menuToggle.classList.remove("open");
+      nav.classList.remove("open");
+    });
+  });
+
+  /* ---------- Active nav link on scroll ---------- */
+  const sections = document.querySelectorAll("section[id], footer[id]");
+  const navLinks = document.querySelectorAll(".nav-link");
+  const spy = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const id = entry.target.getAttribute("id");
+        navLinks.forEach(l => l.classList.toggle("active", l.getAttribute("href") === `#${id}`));
+      }
+    });
+  }, { rootMargin: "-45% 0px -50% 0px" });
+  sections.forEach(s => spy.observe(s));
+
+  /* ---------- Reveal on scroll ---------- */
+  const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const delay = entry.target.dataset.delay || 0;
+        setTimeout(() => entry.target.classList.add("in-view"), delay);
+        revealObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.15 });
+  document.querySelectorAll(".reveal").forEach(el => revealObserver.observe(el));
+
+  /* ---------- Animated counters ---------- */
+  const counters = document.querySelectorAll(".stat-num");
+  const counterObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        animateCount(entry.target);
+        counterObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.6 });
+  counters.forEach(c => counterObserver.observe(c));
+
+  function animateCount(el) {
+    const target = +el.dataset.target;
+    const duration = 1800;
+    const start = performance.now();
+    function tick(now) {
+      const progress = Math.min((now - start) / duration, 1);
+      const eased = 1 - Math.pow(1 - progress, 3); // easeOutCubic
+      el.textContent = Math.floor(eased * target).toLocaleString();
+      if (progress < 1) requestAnimationFrame(tick);
+      else el.textContent = target.toLocaleString();
+    }
+    requestAnimationFrame(tick);
+  }
+
+  /* ---------- Render products ---------- */
+  const products = [
+    { name: "Stainless Steel Chafing Dish", cat: "Chafing Dishes", icon: "fa-fire-burner", price: "£59.00", old: "", badge: "New", badgeType: "", stars: 5 },
+    { name: "24-Piece Cutlery Set", cat: "Cutlery", icon: "fa-utensils", price: "£39.00", old: "£49.00", badge: "-20%", badgeType: "hot", stars: 4 },
+    { name: "Professional Stock Pot", cat: "Cookware", icon: "fa-kitchen-set", price: "£89.00", old: "", badge: "Hot", badgeType: "hot", stars: 5 },
+    { name: "Porcelain Dinner Plates", cat: "Crockery", icon: "fa-plate-wheat", price: "£29.00", old: "", badge: "", badgeType: "", stars: 4 },
+    { name: "Crystal Wine Glasses x6", cat: "Glassware", icon: "fa-wine-glass", price: "£24.00", old: "£32.00", badge: "Sale", badgeType: "hot", stars: 5 },
+    { name: "Round Buffet Warmer", cat: "Chafing Dishes", icon: "fa-bowl-food", price: "£65.00", old: "", badge: "New", badgeType: "", stars: 5 },
+    { name: "Insulated Coffee Urn", cat: "Beverage", icon: "fa-mug-hot", price: "£72.00", old: "", badge: "", badgeType: "", stars: 4 },
+    { name: "Non-Stick Frying Pan", cat: "Cookware", icon: "fa-utensil-spoon", price: "£34.00", old: "£42.00", badge: "-19%", badgeType: "hot", stars: 5 },
+  ];
+
+  const grid = document.getElementById("productGrid");
+  if (grid) {
+    grid.innerHTML = products.map((p, i) => `
+      <div class="product-card reveal" data-delay="${(i % 4) * 80}">
+        <div class="product-thumb">
+          ${p.badge ? `<span class="product-badge ${p.badgeType}">${p.badge}</span>` : ""}
+          <i class="fa-solid ${p.icon}"></i>
+          <div class="product-actions">
+            <button aria-label="Quick view"><i class="fa-solid fa-eye"></i></button>
+            <button aria-label="Wishlist"><i class="fa-solid fa-heart"></i></button>
+          </div>
+        </div>
+        <div class="product-info">
+          <span class="product-cat">${p.cat}</span>
+          <h4>${p.name}</h4>
+          <div class="product-stars">${renderStars(p.stars)}</div>
+          <div class="product-bottom">
+            <span class="price">${p.price}${p.old ? `<span class="old">${p.old}</span>` : ""}</span>
+            <button class="add-cart" aria-label="Add to cart"><i class="fa-solid fa-cart-plus"></i></button>
+          </div>
+        </div>
+      </div>
+    `).join("");
+
+    // observe the freshly added product cards
+    grid.querySelectorAll(".reveal").forEach(el => revealObserver.observe(el));
+  }
+
+  function renderStars(n) {
+    let html = "";
+    for (let i = 1; i <= 5; i++) {
+      html += `<i class="fa-${i <= n ? "solid" : "regular"} fa-star ${i <= n ? "" : "grey"}"></i>`;
+    }
+    return html;
+  }
+
+  /* ---------- Cart counter demo ---------- */
+  const cartCount = document.querySelector(".cart-count");
+  let count = 0;
+  document.addEventListener("click", (e) => {
+    if (e.target.closest(".add-cart")) {
+      count++;
+      cartCount.textContent = count;
+      const btn = e.target.closest(".add-cart");
+      btn.style.transform = "scale(1.3) rotate(15deg)";
+      setTimeout(() => (btn.style.transform = ""), 250);
+    }
+  });
+
+});
