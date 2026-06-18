@@ -54,7 +54,7 @@
 
     /* ===== ABOUT SECTION ===== */
     .ab-about {
-      padding: 100px 0;
+      padding: 120px 0;
       background: var(--light);
     }
 
@@ -146,21 +146,21 @@
 
     .ab-section-tag {
       display: inline-block;
-      font-size: 0.75rem;
+      font-size: 0.8rem;
       font-weight: 700;
       color: var(--gold);
       text-transform: uppercase;
-      letter-spacing: 1.5px;
-      margin-bottom: 12px;
+      letter-spacing: 2px;
+      margin-bottom: 16px;
     }
 
     .ab-section-title {
       font-family: var(--font-head);
-      font-size: clamp(2rem, 5vw, 3.2rem);
+      font-size: clamp(2.2rem, 6vw, 3.5rem);
       font-weight: 800;
-      line-height: 1.1;
+      line-height: 1.15;
       color: var(--navy);
-      margin-bottom: 24px;
+      margin-bottom: 32px;
     }
 
     .ab-section-title span {
@@ -168,35 +168,37 @@
     }
 
     .ab-about-lead {
-      font-size: 1.1rem;
+      font-size: 1.15rem;
       font-weight: 500;
       color: var(--navy);
-      margin-bottom: 14px;
+      margin-bottom: 22px;
+      line-height: 1.7;
     }
 
     .ab-about-body {
       color: var(--grey);
       font-weight: 300;
-      margin-bottom: 14px;
-      line-height: 1.8;
+      margin-bottom: 18px;
+      line-height: 1.85;
+      font-size: 1rem;
     }
 
     .ab-about-pills {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin: 24px 0 28px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      margin: 32px 0 36px;
     }
 
     .ab-about-pills span {
-      display: inline-flex;
+      display: flex;
       align-items: center;
-      gap: 7px;
-      background: var(--white);
-      border: 1px solid #e2e8f0;
-      border-radius: 50px;
-      padding: 7px 14px;
-      font-size: 0.82rem;
+      gap: 10px;
+      background: transparent;
+      border: none;
+      border-radius: 0;
+      padding: 0;
+      font-size: 0.95rem;
       font-weight: 500;
       color: var(--navy);
     }
@@ -207,20 +209,20 @@
 
     .ab-about-contact {
       display: flex;
-      align-items: center;
-      gap: 22px;
+      align-items: flex-start;
+      gap: 28px;
       flex-wrap: wrap;
-      margin-top: 30px;
+      margin-top: 40px;
     }
 
     .ab-btn {
       display: inline-flex;
       align-items: center;
       gap: 10px;
-      padding: 14px 30px;
+      padding: 16px 36px;
       border-radius: 50px;
       font-weight: 600;
-      font-size: 0.95rem;
+      font-size: 1rem;
       cursor: pointer;
       border: none;
       text-decoration: none;
@@ -241,10 +243,11 @@
     .ab-about-addr {
       display: flex;
       align-items: flex-start;
-      gap: 8px;
-      font-size: 0.88rem;
+      gap: 12px;
+      font-size: 0.95rem;
       color: var(--grey);
-      max-width: 260px;
+      max-width: 280px;
+      line-height: 1.6;
     }
 
     .ab-about-addr i {
@@ -283,15 +286,21 @@
 
     @media (max-width: 560px) {
       .ab-about {
-        padding: 60px 0;
+        padding: 80px 0;
       }
 
       .ab-section-title {
-        font-size: clamp(1.5rem, 4vw, 2.2rem);
+        font-size: clamp(1.6rem, 4vw, 2.4rem);
+        margin-bottom: 24px;
+      }
+
+      .ab-about-lead {
+        font-size: 1.05rem;
+        margin-bottom: 18px;
       }
 
       .ab-about-img-main {
-        height: 280px;
+        height: 300px;
       }
 
       .ab-about-badge-card {
@@ -307,11 +316,18 @@
       .ab-about-contact {
         flex-direction: column;
         align-items: flex-start;
-        gap: 16px;
+        gap: 18px;
+        margin-top: 32px;
       }
 
       .ab-about-pills {
-        gap: 8px;
+        grid-template-columns: 1fr;
+        gap: 12px;
+        margin: 28px 0 32px;
+      }
+
+      .ab-about-pills span {
+        font-size: 0.9rem;
       }
     }
   </style>
