@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Contact Section — Catering Solutionz</title>
+	<link rel="preconnect" href="https://fonts.googleapis.com" />
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+	<link href="https://fonts.googleapis.com/css2?family=Cabin:wght@400;600&family=Lato:wght@400;700&display=swap" rel="stylesheet" />
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+	<style>
+		#ct-contact-section {
+			--primary: #00c3ff;
+			--primary-alt: #07cdfe;
+			--navy: #092143;
+			--title-color: #242424;
+			--text-color: #777777;
+			--white: #ffffff;
+			--light-bg: #f6f8fb;
+			--dark-bg: #0a0a0a;
+			--trans: 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+			--font-head: "Cabin", Arial, Helvetica, sans-serif;
+			--font-body: "Cabin", Arial, Helvetica, sans-serif;
+			--font-alt: "Lato", Arial, Helvetica, sans-serif;
+			--shadow: 0 18px 50px rgba(9, 33, 67, 0.12);
+		}
+
+		#ct-contact-section * {
+			margin: 0;
+			padding: 0;
+			box-sizing: border-box;
+		}
+
+		#ct-contact-section {
+			font-family: var(--font-body);
+			color: var(--text-color);
+			background: var(--white);
+			overflow-x: hidden;
+			line-height: 1.6;
+		}
+
+		#ct-contact-section a {
+			text-decoration: none;
+			color: inherit;
+		}
+
+		#ct-contact-section img {
+			max-width: 100%;
+			display: block;
+		}
+
+		.ct-container {
+			width: min(1222px, 92%);
+			margin: 0 auto;
+		}
+
+		/* ===== CONTACT SECTION ===== */
+		.ct-contact {
+			padding: 100px 0;
+			background: var(--white);
+		}
+
+		.ct-section-tag {
+			display: inline-block;
+			font-size: 0.8rem;
+			font-weight: 700;
+			color: var(--primary);
+			text-transform: uppercase;
+			letter-spacing: 2px;
+			margin-bottom: 16px;
+		}
+
+		.ct-section-title {
+			font-family: var(--font-head);
+			font-size: clamp(1.8rem, 4vw, 2.4rem);
+			font-weight: 600;
+			line-height: 1.2;
+			color: var(--title-color);
+			margin-bottom: 20px;
+		}
+
+		.ct-section-subtitle {
+			font-size: 1rem;
+			color: var(--text-color);
+			margin-bottom: 60px;
+			max-width: 600px;
+		}
+
+		/* ===== INFO CARDS ===== */
+		.ct-info-grid {
+			display: grid;
+			grid-template-columns: repeat(4, 1fr);
+			gap: 30px;
+			margin-bottom: 80px;
+		}
+
+		.ct-info-card {
+			background: var(--light-bg);
+			padding: 40px 30px;
+			border-radius: 12px;
+			text-align: center;
+			transition: var(--trans);
+			animation: ctReveal 0.8s ease-out forwards;
+			opacity: 0;
+			transform: translateY(20px);
+		}
+
+		.ct-info-card:nth-child(1) { animation-delay: 0s; }
+		.ct-info-card:nth-child(2) { animation-delay: 0.1s; }
+		.ct-info-card:nth-child(3) { animation-delay: 0.2s; }
+		.ct-info-card:nth-child(4) { animation-delay: 0.3s; }
+
+		.ct-info-card:hover {
+			background: rgba(0, 195, 255, 0.08);
+			transform: translateY(-8px);
+		}
+
+		.ct-info-icon {
+			font-size: 2.5rem;
+			color: var(--primary);
+			margin-bottom: 20px;
+		}
+
+		.ct-info-card h3 {
+			font-size: 1.15rem;
+			font-weight: 600;
+			color: var(--title-color);
+			margin-bottom: 12px;
+			font-family: var(--font-head);
+		}
+
+		.ct-info-card p {
+			font-size: 0.95rem;
+			color: var(--text-color);
+			margin-bottom: 16px;
+			line-height: 1.7;
+		}
+
+		.ct-info-link {
+			display: inline-flex;
+			align-items: center;
+			gap: 8px;
+			color: var(--primary);
+			font-weight: 600;
+			transition: var(--trans);
+		}
+
+		.ct-info-link:hover {
+			gap: 12px;
+			color: var(--primary-alt);
+		}
+
+		.ct-info-link i {
+			font-size: 0.8rem;
+		}
+
+		/* ===== FORM & MAP SECTION ===== */
+		.ct-main {
+			padding: 0 0 100px 0;
+			background: var(--white);
+		}
+
+		.ct-main-inner {
+			display: grid;
+			grid-template-columns: 1fr 1fr;
+			gap: 60px;
+			align-items: start;
+		}
+
+		/* ===== FORM STYLING ===== */
+		.ct-form-wrap {
+			animation: ctReveal 0.8s 0.1s ease-out forwards;
+			opacity: 0;
+			transform: translateY(20px);
+		}
+
+		.ct-form {
+			margin-top: 40px;
+		}
+
+		.ct-form-row {
+			display: grid;
+			grid-template-columns: 1fr 1fr;
+			gap: 20px;
+			margin-bottom: 20px;
+		}
+
+		.ct-field {
+			position: relative;
+		}
+
+		.ct-field label {
+			display: block;
+			font-size: 0.95rem;
+			font-weight: 600;
+			color: var(--title-color);
+			margin-bottom: 10px;
+			font-family: var(--font-head);
+		}
+
+		.ct-field label span {
+			color: var(--primary);
+		}
+
+		.ct-field input,
+		.ct-field select,
+		.ct-field textarea {
+			width: 100%;
+			padding: 14px 16px 14px 45px;
+			border: 2px solid rgba(0, 195, 255, 0.2);
+			border-radius: 8px;
+			font-family: var(--font-body);
+			font-size: 0.95rem;
+			color: var(--title-color);
+			background: var(--white);
+			transition: var(--trans);
+		}
+
+		.ct-field input:focus,
+		.ct-field select:focus,
+		.ct-field textarea:focus {
+			outline: none;
+			border-color: var(--primary);
+			background: rgba(0, 195, 255, 0.03);
+		}
+
+		.ct-field input::placeholder,
+		.ct-field textarea::placeholder {
+			color: rgba(119, 119, 119, 0.6);
+		}
+
+		.ct-field select {
+			appearance: none;
+			padding-right: 40px;
+		}
+
+		.ct-field-icon {
+			position: absolute;
+			left: 14px;
+			top: 44px;
+			color: var(--primary);
+			font-size: 1rem;
+			pointer-events: none;
+		}
+
+		.ct-form-row .ct-field:only-child {
+			grid-column: 1 / -1;
+		}
+
+		.ct-field:last-of-type {
+			grid-column: 1 / -1;
+		}
+
+		.ct-field textarea {
+			resize: vertical;
+			min-height: 140px;
+			font-family: var(--font-body);
+		}
+
+		.ct-submit {
+			display: inline-flex;
+			align-items: center;
+			gap: 12px;
+			margin-top: 10px;
+			padding: 14px 40px;
+			border: none;
+			border-radius: 8px;
+			background: linear-gradient(135deg, var(--primary), var(--primary-alt));
+			color: var(--white);
+			font-weight: 600;
+			font-size: 1rem;
+			cursor: pointer;
+			transition: var(--trans);
+			font-family: var(--font-body);
+		}
+
+		.ct-submit:hover {
+			transform: translateY(-2px);
+			box-shadow: 0 12px 32px rgba(0, 195, 255, 0.35);
+		}
+
+		.ct-feedback {
+			margin-top: 20px;
+			padding: 14px 16px;
+			border-radius: 8px;
+			font-size: 0.95rem;
+			display: none;
+		}
+
+		.ct-feedback.show {
+			display: block;
+		}
+
+		.ct-feedback.success {
+			background: rgba(69, 150, 71, 0.1);
+			color: #459647;
+			border: 1px solid rgba(69, 150, 71, 0.3);
+		}
+
+		.ct-feedback.error {
+			background: rgba(207, 46, 46, 0.1);
+			color: #cf2e2e;
+			border: 1px solid rgba(207, 46, 46, 0.3);
+		}
+
+		/* ===== MAP & SOCIAL ===== */
+		.ct-map-wrap {
+			display: flex;
+			flex-direction: column;
+			gap: 30px;
+			animation: ctReveal 0.8s 0.2s ease-out forwards;
+			opacity: 0;
+			transform: translateY(20px);
+		}
+
+		.ct-map {
+			width: 100%;
+			height: 420px;
+			border-radius: 12px;
+			overflow: hidden;
+			box-shadow: var(--shadow);
+		}
+
+		.ct-map iframe {
+			width: 100%;
+			height: 100%;
+		}
+
+		.ct-social-panel {
+			background: var(--light-bg);
+			padding: 40px;
+			border-radius: 12px;
+		}
+
+		.ct-social-panel h3 {
+			font-size: 1.2rem;
+			font-weight: 600;
+			color: var(--title-color);
+			margin-bottom: 12px;
+			font-family: var(--font-head);
+		}
+
+		.ct-social-panel p {
+			color: var(--text-color);
+			font-size: 0.95rem;
+			margin-bottom: 20px;
+			line-height: 1.6;
+		}
+
+		.ct-social-links {
+			display: flex;
+			flex-direction: column;
+			gap: 12px;
+		}
+
+		.ct-social-btn {
+			display: flex;
+			align-items: center;
+			gap: 12px;
+			padding: 12px 16px;
+			background: var(--white);
+			border: 1px solid rgba(0, 195, 255, 0.2);
+			border-radius: 8px;
+			color: var(--title-color);
+			font-weight: 600;
+			transition: var(--trans);
+		}
+
+		.ct-social-btn i {
+			font-size: 1.2rem;
+			color: var(--primary);
+		}
+
+		.ct-social-btn:hover {
+			background: var(--primary);
+			color: var(--white);
+			border-color: var(--primary);
+		}
+
+		.ct-social-btn:hover i {
+			color: var(--white);
+		}
+
+		@keyframes ctReveal {
+			from {
+				opacity: 0;
+				transform: translateY(20px);
+			}
+			to {
+				opacity: 1;
+				transform: translateY(0);
+			}
+		}
+
+		/* ===== RESPONSIVE ===== */
+		@media (max-width: 1024px) {
+			.ct-contact {
+				padding: 80px 0;
+			}
+
+			.ct-info-grid {
+				grid-template-columns: repeat(2, 1fr);
+				gap: 20px;
+				margin-bottom: 60px;
+			}
+
+			.ct-main-inner {
+				grid-template-columns: 1fr;
+				gap: 40px;
+			}
+
+			.ct-map {
+				height: 320px;
+			}
+		}
+
+		@media (max-width: 560px) {
+			.ct-contact {
+				padding: 60px 0;
+			}
+
+			.ct-section-title {
+				font-size: clamp(1.4rem, 3.5vw, 2rem);
+				margin-bottom: 16px;
+			}
+
+			.ct-section-subtitle {
+				font-size: 0.95rem;
+				margin-bottom: 40px;
+			}
+
+			.ct-info-grid {
+				grid-template-columns: 1fr;
+				gap: 16px;
+				margin-bottom: 40px;
+			}
+
+			.ct-info-card {
+				padding: 30px 20px;
+			}
+
+			.ct-form-row {
+				grid-template-columns: 1fr;
+				gap: 16px;
+			}
+
+			.ct-field input,
+			.ct-field select,
+			.ct-field textarea {
+				padding: 12px 14px 12px 40px;
+				font-size: 16px;
+			}
+
+			.ct-field-icon {
+				top: 40px;
+				left: 10px;
+				font-size: 0.9rem;
+			}
+
+			.ct-submit {
+				padding: 12px 30px;
+				font-size: 0.95rem;
+			}
+
+			.ct-map {
+				height: 250px;
+			}
+
+			.ct-social-panel {
+				padding: 30px 20px;
+			}
+
+			.ct-main {
+				padding: 0 0 60px 0;
+			}
+		}
+	</style>
+</head>
+<body>
+
+	<!-- ===== CONTACT SECTION ===== -->
+	<section class="ct-contact" id="ct-contact-section">
+		<div class="ct-container">
+			<div style="margin-bottom: 60px;">
+				<span class="ct-section-tag">Contact Us</span>
+				<h2 class="ct-section-title">Get In Touch</h2>
+				<p class="ct-section-subtitle">We'd love to hear from you. Send us a message and we'll respond as soon as possible.</p>
+			</div>
+
+			<!-- Info Cards -->
+			<div class="ct-info-grid">
+				<div class="ct-info-card">
+					<div class="ct-info-icon"><i class="fa-solid fa-location-dot"></i></div>
+					<h3>Address</h3>
+					<p>Unit 1b Cheston Road<br>Aston, Birmingham<br>B7 5EE</p>
+					<a href="https://maps.google.com/?q=Cheston+Road+Aston+Birmingham+B7+5EE" target="_blank" class="ct-info-link">Get Directions <i class="fa-solid fa-arrow-right"></i></a>
+				</div>
+
+				<div class="ct-info-card">
+					<div class="ct-info-icon"><i class="fa-solid fa-phone"></i></div>
+					<h3>Phone</h3>
+					<p>Call us Monday to Saturday. We're here to help with any enquiry.</p>
+					<a href="tel:07611825723" class="ct-info-link">07611 825723 <i class="fa-solid fa-arrow-right"></i></a>
+				</div>
+
+				<div class="ct-info-card">
+					<div class="ct-info-icon"><i class="fa-solid fa-envelope"></i></div>
+					<h3>Email</h3>
+					<p>Send us an email and we'll get back to you within one business day.</p>
+					<a href="mailto:info@cateringsolutionz.com" class="ct-info-link">info@cateringsolutionz.com <i class="fa-solid fa-arrow-right"></i></a>
+				</div>
+
+				<div class="ct-info-card">
+					<div class="ct-info-icon"><i class="fa-solid fa-clock"></i></div>
+					<h3>Hours</h3>
+					<p><strong>Mon–Fri:</strong> 9am–6pm<br><strong>Sat:</strong> 10am–4pm<br><strong>Sun:</strong> Closed</p>
+				</div>
+			</div>
+		</div>
+
+		<!-- Form & Map -->
+		<div class="ct-container">
+			<div class="ct-main-inner">
+
+				<!-- Contact Form -->
+				<div class="ct-form-wrap">
+					<h3 style="font-size: 1.2rem; font-weight: 600; color: var(--title-color); margin-bottom: 30px; font-family: var(--font-head);">Send us a Message</h3>
+
+					<form class="ct-form" id="ctForm" novalidate>
+						<div class="ct-form-row">
+							<div class="ct-field">
+								<label for="ctFirstName">First Name <span>*</span></label>
+								<input type="text" id="ctFirstName" name="firstName" placeholder="John" required />
+								<span class="ct-field-icon"><i class="fa-solid fa-user"></i></span>
+							</div>
+							<div class="ct-field">
+								<label for="ctLastName">Last Name <span>*</span></label>
+								<input type="text" id="ctLastName" name="lastName" placeholder="Smith" required />
+								<span class="ct-field-icon"><i class="fa-solid fa-user"></i></span>
+							</div>
+						</div>
+
+						<div class="ct-form-row">
+							<div class="ct-field">
+								<label for="ctEmail">Email <span>*</span></label>
+								<input type="email" id="ctEmail" name="email" placeholder="john@example.com" required />
+								<span class="ct-field-icon"><i class="fa-solid fa-envelope"></i></span>
+							</div>
+							<div class="ct-field">
+								<label for="ctPhone">Phone</label>
+								<input type="tel" id="ctPhone" name="phone" placeholder="07700 000000" />
+								<span class="ct-field-icon"><i class="fa-solid fa-phone"></i></span>
+							</div>
+						</div>
+
+						<div class="ct-field">
+							<label for="ctSubject">Subject <span>*</span></label>
+							<select id="ctSubject" name="subject" required>
+								<option value="">Select a subject...</option>
+								<option value="product">Product Enquiry</option>
+								<option value="order">Order &amp; Delivery</option>
+								<option value="wholesale">Wholesale / Trade</option>
+								<option value="support">Support</option>
+								<option value="other">Other</option>
+							</select>
+							<span class="ct-field-icon"><i class="fa-solid fa-tag"></i></span>
+						</div>
+
+						<div class="ct-field">
+							<label for="ctMessage">Message <span>*</span></label>
+							<textarea id="ctMessage" name="message" placeholder="Tell us how we can help..." required></textarea>
+						</div>
+
+						<button type="submit" class="ct-submit">
+							<span>Send Message</span>
+							<i class="fa-solid fa-paper-plane"></i>
+						</button>
+
+						<div class="ct-feedback" id="ctFeedback" aria-live="polite"></div>
+					</form>
+				</div>
+
+				<!-- Map & Social -->
+				<div class="ct-map-wrap">
+					<div class="ct-map">
+						<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2429.3!2d-1.8712!3d52.4934!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4870bc8e5e09c3a7%3A0x1!2sCheston%20Rd%2C%20Birmingham%20B7%205EE!5e0!3m2!1sen!2suk!4v1234567890" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Catering Solutionz on Google Maps"></iframe>
+					</div>
+
+					<div class="ct-social-panel">
+						<h3>Follow Us</h3>
+						<p>Stay updated with new products, deals and news from Catering Solutionz.</p>
+						<div class="ct-social-links">
+							<a href="https://www.facebook.com/ifzal.hafiz" target="_blank" class="ct-social-btn">
+								<i class="fa-brands fa-facebook-f"></i>
+								<span>Facebook</span>
+							</a>
+							<a href="https://www.instagram.com/cateringsolutionz/" target="_blank" class="ct-social-btn">
+								<i class="fa-brands fa-instagram"></i>
+								<span>Instagram</span>
+							</a>
+							<a href="https://share.google/IndMplzxJdc2CNqRK" target="_blank" class="ct-social-btn">
+								<i class="fa-brands fa-google"></i>
+								<span>Google Reviews</span>
+							</a>
+						</div>
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</section>
+
+	<script>
+		const ctForm = document.getElementById('ctForm');
+		const ctFeedback = document.getElementById('ctFeedback');
+
+		ctForm.addEventListener('submit', (e) => {
+			e.preventDefault();
+
+			const formData = new FormData(ctForm);
+			const firstName = formData.get('firstName');
+			const lastName = formData.get('lastName');
+			const email = formData.get('email');
+			const subject = formData.get('subject');
+			const message = formData.get('message');
+
+			if (!firstName || !lastName || !email || !subject || !message) {
+				showFeedback('Please fill in all required fields.', 'error');
+				return;
+			}
+
+			const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+			if (!emailRegex.test(email)) {
+				showFeedback('Please enter a valid email address.', 'error');
+				return;
+			}
+
+			showFeedback('Thank you! Your message has been sent successfully. We\'ll get back to you soon.', 'success');
+			ctForm.reset();
+		});
+
+		function showFeedback(message, type) {
+			ctFeedback.textContent = message;
+			ctFeedback.classList.add('show', type);
+			setTimeout(() => {
+				ctFeedback.classList.remove('show', type);
+			}, 5000);
+		}
+	</script>
+
+</body>
+</html>
