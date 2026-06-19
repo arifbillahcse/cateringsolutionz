@@ -10,7 +10,7 @@
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
 
 	<style>
-		#ct-contact-section {
+		:root {
 			--primary: #00c3ff;
 			--primary-alt: #07cdfe;
 			--navy: #092143;
@@ -22,30 +22,27 @@
 			--trans: 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 			--font-head: "Cabin", Arial, Helvetica, sans-serif;
 			--font-body: "Cabin", Arial, Helvetica, sans-serif;
-			--font-alt: "Lato", Arial, Helvetica, sans-serif;
-			--shadow: 0 18px 50px rgba(9, 33, 67, 0.12);
 		}
 
-		#ct-contact-section * {
+		* {
 			margin: 0;
 			padding: 0;
 			box-sizing: border-box;
 		}
 
-		#ct-contact-section {
+		body {
 			font-family: var(--font-body);
 			color: var(--text-color);
 			background: var(--white);
-			overflow-x: hidden;
 			line-height: 1.6;
 		}
 
-		#ct-contact-section a {
+		a {
 			text-decoration: none;
 			color: inherit;
 		}
 
-		#ct-contact-section img {
+		img {
 			max-width: 100%;
 			display: block;
 		}
@@ -127,7 +124,6 @@
 			font-weight: 600;
 			color: var(--title-color);
 			margin-bottom: 12px;
-			font-family: var(--font-head);
 		}
 
 		.ct-info-card p {
@@ -151,13 +147,9 @@
 			color: var(--primary-alt);
 		}
 
-		.ct-info-link i {
-			font-size: 0.8rem;
-		}
-
 		/* ===== FORM & MAP SECTION ===== */
 		.ct-main {
-			padding: 0 0 100px 0;
+			padding: 0;
 			background: var(--white);
 		}
 
@@ -168,15 +160,21 @@
 			align-items: start;
 		}
 
-		/* ===== FORM STYLING ===== */
 		.ct-form-wrap {
 			animation: ctReveal 0.8s 0.1s ease-out forwards;
 			opacity: 0;
 			transform: translateY(20px);
 		}
 
+		.ct-form-wrap h3 {
+			font-size: 1.2rem;
+			font-weight: 600;
+			color: var(--title-color);
+			margin-bottom: 30px;
+		}
+
 		.ct-form {
-			margin-top: 40px;
+			margin-top: 0;
 		}
 
 		.ct-form-row {
@@ -196,7 +194,6 @@
 			font-weight: 600;
 			color: var(--title-color);
 			margin-bottom: 10px;
-			font-family: var(--font-head);
 		}
 
 		.ct-field label span {
@@ -255,7 +252,6 @@
 		.ct-field textarea {
 			resize: vertical;
 			min-height: 140px;
-			font-family: var(--font-body);
 		}
 
 		.ct-submit {
@@ -272,7 +268,6 @@
 			font-size: 1rem;
 			cursor: pointer;
 			transition: var(--trans);
-			font-family: var(--font-body);
 		}
 
 		.ct-submit:hover {
@@ -319,7 +314,7 @@
 			height: 420px;
 			border-radius: 12px;
 			overflow: hidden;
-			box-shadow: var(--shadow);
+			box-shadow: 0 18px 50px rgba(9, 33, 67, 0.12);
 		}
 
 		.ct-map iframe {
@@ -338,7 +333,6 @@
 			font-weight: 600;
 			color: var(--title-color);
 			margin-bottom: 12px;
-			font-family: var(--font-head);
 		}
 
 		.ct-social-panel p {
@@ -365,6 +359,7 @@
 			color: var(--title-color);
 			font-weight: 600;
 			transition: var(--trans);
+			text-decoration: none;
 		}
 
 		.ct-social-btn i {
@@ -469,10 +464,6 @@
 
 			.ct-social-panel {
 				padding: 30px 20px;
-			}
-
-			.ct-main {
-				padding: 0 0 60px 0;
 			}
 		}
 	</style>
