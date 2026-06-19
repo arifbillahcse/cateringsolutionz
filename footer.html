@@ -6,21 +6,23 @@
   <title>Footer — Catering Solutionz</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Cabin:wght@400;600&family=Lato:wght@400;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
 
   <style>
     #ft-footer-section {
       --navy: #092143;
-      --navy-2: #0d2d5a;
       --gold: #00c3ff;
-      --gold-soft: #66d9ff;
-      --dark: #071838;
-      --grey: #6b7689;
+      --gold-soft: #07cdfe;
+      --dark: #092143;
+      --grey: #777777;
+      --text-color: #777777;
+      --title-color: #242424;
       --white: #ffffff;
       --trans: 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-      --font-head: "Playfair Display", serif;
-      --font-body: "Poppins", sans-serif;
+      --font-head: "Cabin", Arial, Helvetica, sans-serif;
+      --font-body: "Cabin", Arial, Helvetica, sans-serif;
+      --font-alt: "Lato", Arial, Helvetica, sans-serif;
       --shadow: 0 18px 50px rgba(9, 33, 67, 0.12);
     }
 
@@ -32,7 +34,7 @@
 
     #ft-footer-section {
       font-family: var(--font-body);
-      color: #aeb8c9;
+      color: var(--text-color);
       background: var(--dark);
       overflow-x: hidden;
       line-height: 1.6;
@@ -60,7 +62,7 @@
     /* ===== FOOTER ===== */
     .ft-footer {
       background: var(--dark);
-      color: #aeb8c9;
+      color: var(--text-color);
       padding-top: 70px;
     }
 
@@ -131,7 +133,7 @@
     }
 
     .ft-footer-col {
-      color: #aeb8c9;
+      color: var(--text-color);
     }
 
     .ft-footer-col h4 {
@@ -141,7 +143,9 @@
       margin-bottom: 22px;
       position: relative;
       padding-bottom: 12px;
-      font-family: var(--font-head);
+      font-family: var(--font-body);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
     }
 
     .ft-footer-col h4::after {
@@ -160,7 +164,7 @@
     }
 
     .ft-footer-col ul li a {
-      color: #aeb8c9;
+      color: var(--text-color);
       transition: color 0.3s, padding-left 0.3s;
     }
 
@@ -178,7 +182,7 @@
     }
 
     .ft-footer-contact a {
-      color: #aeb8c9;
+      color: var(--text-color);
       transition: color 0.3s;
     }
 
@@ -202,14 +206,14 @@
       justify-content: space-between;
       align-items: center;
       font-size: 0.85rem;
-      color: #aeb8c9;
+      color: var(--text-color);
     }
 
     .ft-pay-methods {
       display: flex;
       gap: 14px;
       font-size: 1.6rem;
-      color: #6b7689;
+      color: var(--text-color);
     }
 
     .ft-pay-methods i {
@@ -218,38 +222,6 @@
 
     .ft-pay-methods i:hover {
       color: var(--gold);
-    }
-
-    /* ===== BACK TO TOP ===== */
-    .ft-back-top {
-      position: fixed;
-      bottom: 28px;
-      right: 28px;
-      z-index: 900;
-      width: 50px;
-      height: 50px;
-      border: none;
-      border-radius: 50%;
-      background: var(--gold);
-      color: var(--navy);
-      cursor: pointer;
-      font-size: 1rem;
-      box-shadow: 0 10px 26px rgba(0, 195, 255, 0.5);
-      opacity: 0;
-      visibility: hidden;
-      transform: translateY(20px);
-      transition: var(--trans);
-    }
-
-    .ft-back-top.show {
-      opacity: 1;
-      visibility: visible;
-      transform: translateY(0);
-    }
-
-    .ft-back-top:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 15px 35px rgba(0, 195, 255, 0.6);
     }
 
     /* ===== RESPONSIVE ===== */
@@ -338,26 +310,6 @@
       </div>
     </div>
   </footer>
-
-  <!-- Back to top -->
-  <button class="ft-back-top" id="ft-backTop" aria-label="Back to top"><i class="fa-solid fa-arrow-up"></i></button>
-
-  <script>
-    /* Back to top button */
-    const ftBackTopBtn = document.getElementById("ft-backTop");
-
-    window.addEventListener("scroll", () => {
-      if (window.scrollY > 300) {
-        ftBackTopBtn.classList.add("show");
-      } else {
-        ftBackTopBtn.classList.remove("show");
-      }
-    });
-
-    ftBackTopBtn.addEventListener("click", () => {
-      window.scrollTo({ top: 0, behavior: "smooth" });
-    });
-  </script>
 
 </body>
 </html>
