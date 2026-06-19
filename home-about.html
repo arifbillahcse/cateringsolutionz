@@ -17,10 +17,13 @@
       --gold-soft: #66d9ff;
       --light: #f6f8fb;
       --grey: #6b7689;
+      --text-color: #777777;
+      --title-color: #242424;
       --white: #ffffff;
       --trans: 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-      --font-head: "Playfair Display", serif;
-      --font-body: "Poppins", sans-serif;
+      --font-head: "Cabin", Arial, Helvetica, sans-serif;
+      --font-body: "Cabin", Arial, Helvetica, sans-serif;
+      --font-alt: "Lato", Arial, Helvetica, sans-serif;
       --shadow: 0 18px 50px rgba(9, 33, 67, 0.12);
     }
 
@@ -55,33 +58,34 @@
     /* ===== ABOUT SECTION ===== */
     .ab-about {
       padding: 120px 0;
-      background: var(--light);
+      background: var(--white);
     }
 
     .ab-about-inner {
       display: grid;
-      grid-template-columns: 1fr 1.2fr;
-      gap: 60px;
-      align-items: stretch;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
     }
 
     .ab-about-visual {
       opacity: 0;
-      transform: translateY(32px);
-      animation: abReveal 0.8s 0.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+      transform: translateX(-40px);
+      animation: abRevealLeft 0.8s 0.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+      position: relative;
+      height: 100%;
     }
 
     .ab-about-img-stack {
       position: relative;
-      display: flex;
-      justify-content: center;
+      width: 100%;
+      height: 100%;
     }
 
     .ab-about-img-main {
-      width: 100%;
-      max-width: 100%;
-      height: 550px;
-      border-radius: 24px;
+      width: 320px;
+      height: 380px;
+      border-radius: 20px;
       box-shadow: var(--shadow);
       position: relative;
       overflow: hidden;
@@ -99,7 +103,7 @@
     }
 
     .ab-about-img-main:hover img {
-      transform: scale(1.05);
+      transform: scale(1.08);
     }
 
     .ab-about-img-main::before {
@@ -107,126 +111,108 @@
       position: absolute;
       inset: 0;
       z-index: 1;
-      background: linear-gradient(160deg, rgba(9, 33, 67, 0.25) 0%, rgba(9, 33, 67, 0.1) 100%);
+      background: linear-gradient(160deg, rgba(9, 33, 67, 0.2) 0%, rgba(9, 33, 67, 0.05) 100%);
     }
 
     .ab-about-badge-card {
       position: absolute;
-      bottom: 20px;
-      left: 50%;
-      transform: translateX(-50%);
+      bottom: 24px;
+      right: 24px;
       background: var(--gold);
       color: var(--navy);
       border-radius: 16px;
-      padding: 18px 28px;
+      padding: 16px 20px;
       text-align: center;
       box-shadow: 0 12px 32px rgba(0, 195, 255, 0.4);
+      z-index: 2;
     }
 
     .ab-about-badge-num {
       display: block;
       font-family: var(--font-head);
-      font-size: 2rem;
-      font-weight: 800;
+      font-size: 1.8rem;
+      font-weight: 700;
       line-height: 1;
     }
 
     .ab-about-badge-lbl {
       display: block;
-      font-size: 0.75rem;
+      font-size: 0.7rem;
       font-weight: 600;
-      margin-top: 4px;
+      margin-top: 3px;
       letter-spacing: 0.5px;
     }
 
     .ab-about-text {
       opacity: 0;
-      transform: translateY(32px);
-      animation: abReveal 0.8s 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-      overflow: hidden;
-    }
-
-    .ab-section-tag {
-      display: inline-block;
-      font-size: 0.8rem;
-      font-weight: 700;
-      color: var(--gold);
-      text-transform: uppercase;
-      letter-spacing: 2px;
-      margin-bottom: 16px;
+      transform: translateX(40px);
+      animation: abRevealRight 0.8s 0.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
     }
 
     .ab-section-title {
       font-family: var(--font-head);
-      font-size: clamp(1.8rem, 4vw, 2.4rem);
-      font-weight: 800;
-      line-height: 1.2;
-      color: var(--navy);
-      margin-bottom: 32px;
+      font-size: clamp(1.6rem, 3vw, 2.2rem);
+      font-weight: 700;
+      line-height: 1.3;
+      color: var(--title-color);
+      margin-bottom: 24px;
     }
 
     .ab-section-title span {
       color: var(--gold);
     }
 
-    .ab-about-lead {
-      font-size: 1.15rem;
-      font-weight: 500;
-      color: var(--navy);
-      margin-bottom: 22px;
-      line-height: 1.7;
-    }
-
     .ab-about-body {
-      color: var(--grey);
-      font-weight: 300;
-      margin-bottom: 18px;
-      line-height: 1.85;
-      font-size: 1rem;
+      color: var(--text-color);
+      font-weight: 400;
+      margin-bottom: 16px;
+      line-height: 1.8;
+      font-size: 0.95rem;
     }
 
     .ab-about-pills {
       display: grid;
-      grid-template-columns: 1fr;
-      gap: 16px;
-      margin: 40px 0 42px;
+      grid-template-columns: 1fr 1fr;
+      gap: 28px;
+      margin: 44px 0 0;
     }
 
     .ab-pill-item {
-      display: flex;
-      align-items: center;
-      gap: 18px;
-      padding: 16px 20px;
-      background: rgba(0, 195, 255, 0.08);
-      border-radius: 12px;
-      transition: var(--trans);
+      opacity: 0;
+      animation: abFadeInUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+      padding: 0;
     }
 
-    .ab-pill-item:hover {
-      background: rgba(0, 195, 255, 0.14);
-      transform: translateX(6px);
-    }
+    .ab-pill-item:nth-child(1) { animation-delay: 0.3s; }
+    .ab-pill-item:nth-child(2) { animation-delay: 0.4s; }
+    .ab-pill-item:nth-child(3) { animation-delay: 0.5s; }
+    .ab-pill-item:nth-child(4) { animation-delay: 0.6s; }
 
     .ab-pill-item i {
-      font-size: 1.8rem;
+      font-size: 2.4rem;
       color: var(--gold);
-      flex-shrink: 0;
-      min-width: 40px;
-      text-align: center;
+      margin-bottom: 12px;
+      display: block;
     }
 
-    .ab-pill-item span {
-      font-size: 0.95rem;
-      font-weight: 500;
-      color: var(--navy);
-      line-height: 1.4;
+    .ab-pill-title {
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--title-color);
+      margin-bottom: 8px;
+      line-height: 1.3;
+    }
+
+    .ab-pill-desc {
+      font-size: 0.85rem;
+      color: var(--text-color);
+      line-height: 1.6;
     }
 
     .ab-about-contact {
       display: flex;
-      align-items: flex-start;
+      align-items: center;
       gap: 28px;
-      flex-wrap: wrap;
       margin-top: 40px;
     }
 
@@ -234,10 +220,10 @@
       display: inline-flex;
       align-items: center;
       gap: 10px;
-      padding: 16px 36px;
-      border-radius: 50px;
+      padding: 14px 32px;
+      border-radius: 35px;
       font-weight: 600;
-      font-size: 1rem;
+      font-size: 0.95rem;
       cursor: pointer;
       border: none;
       text-decoration: none;
@@ -246,7 +232,7 @@
     }
 
     .ab-btn-primary {
-      background: linear-gradient(135deg, var(--gold), var(--gold-soft));
+      background: var(--gold);
       color: var(--navy);
     }
 
@@ -255,11 +241,32 @@
       box-shadow: 0 12px 32px rgba(0, 195, 255, 0.35);
     }
 
-
-    @keyframes abReveal {
+    @keyframes abRevealLeft {
       from {
         opacity: 0;
-        transform: translateY(32px);
+        transform: translateX(-40px);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    @keyframes abRevealRight {
+      from {
+        opacity: 0;
+        transform: translateX(40px);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    @keyframes abFadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
       }
       to {
         opacity: 1;
@@ -272,7 +279,6 @@
       .ab-about-inner {
         grid-template-columns: 1fr;
         gap: 40px;
-        align-items: center;
       }
 
       .ab-about-visual {
@@ -280,8 +286,16 @@
       }
 
       .ab-about-img-main {
-        max-width: 100%;
-        height: 400px;
+        width: 100%;
+        max-width: 300px;
+        height: 360px;
+        margin: 0 auto;
+      }
+
+      .ab-about-pills {
+        grid-template-columns: 1fr 1fr;
+        gap: 24px;
+        margin-top: 36px;
       }
     }
 
@@ -290,23 +304,30 @@
         padding: 80px 0;
       }
 
-      .ab-section-title {
-        font-size: clamp(1.4rem, 3.5vw, 2rem);
-        margin-bottom: 24px;
+      .ab-about-inner {
+        gap: 30px;
       }
 
-      .ab-about-lead {
-        font-size: 1rem;
-        margin-bottom: 16px;
+      .ab-section-title {
+        font-size: clamp(1.3rem, 3.5vw, 1.8rem);
+        margin-bottom: 18px;
+      }
+
+      .ab-about-body {
+        font-size: 0.9rem;
+        margin-bottom: 14px;
       }
 
       .ab-about-img-main {
+        width: 100%;
+        max-width: 280px;
         height: 320px;
       }
 
       .ab-about-badge-card {
         bottom: 16px;
-        padding: 14px 22px;
+        right: 16px;
+        padding: 12px 16px;
       }
 
       .ab-about-badge-num {
@@ -314,32 +335,41 @@
       }
 
       .ab-about-badge-lbl {
-        font-size: 0.7rem;
+        font-size: 0.65rem;
+        margin-top: 2px;
+      }
+
+      .ab-about-pills {
+        grid-template-columns: 1fr;
+        gap: 20px;
+        margin-top: 32px;
+      }
+
+      .ab-pill-item i {
+        font-size: 2rem;
+        margin-bottom: 10px;
+      }
+
+      .ab-pill-title {
+        font-size: 0.95rem;
+        margin-bottom: 6px;
+      }
+
+      .ab-pill-desc {
+        font-size: 0.8rem;
       }
 
       .ab-about-contact {
         flex-direction: column;
         align-items: flex-start;
         gap: 16px;
-        margin-top: 28px;
+        margin-top: 30px;
       }
 
-      .ab-about-pills {
-        gap: 12px;
-        margin: 32px 0 36px;
-      }
-
-      .ab-pill-item {
-        padding: 14px 16px;
-        gap: 14px;
-      }
-
-      .ab-pill-item i {
-        font-size: 1.4rem;
-      }
-
-      .ab-pill-item span {
-        font-size: 0.88rem;
+      .ab-btn {
+        width: 100%;
+        justify-content: center;
+        padding: 12px 28px;
       }
     }
   </style>
@@ -363,7 +393,6 @@
 
       <div class="ab-about-text">
         <h2 class="ab-section-title">What Do We <span>Offer?</span></h2>
-        <p class="ab-about-lead">Catering Solutionz is Birmingham's trusted supplier of premium catering equipment and professional kitchen supplies.</p>
 
         <p class="ab-about-body">Based in Aston, Birmingham, we have been serving restaurants, event caterers, hotels and food businesses for over 15 years. Our extensive range — from stainless steel chafing dishes and commercial cookware to disposables and glassware — is chosen for quality, durability and value.</p>
 
@@ -371,28 +400,24 @@
 
         <div class="ab-about-pills">
           <div class="ab-pill-item">
-            <i class="fa-solid fa-location-dot"></i>
-            <span>Birmingham Based</span>
+            <i class="fa-solid fa-truck"></i>
+            <div class="ab-pill-title">Fast Delivery</div>
+            <div class="ab-pill-desc">Local delivery across Birmingham with quick turnaround times</div>
           </div>
           <div class="ab-pill-item">
             <i class="fa-solid fa-trophy"></i>
-            <span>Commercial Grade Quality</span>
-          </div>
-          <div class="ab-pill-item">
-            <i class="fa-solid fa-credit-card"></i>
-            <span>Cash &amp; Card Accepted</span>
-          </div>
-          <div class="ab-pill-item">
-            <i class="fa-solid fa-truck"></i>
-            <span>Fast Local Delivery</span>
-          </div>
-          <div class="ab-pill-item">
-            <i class="fa-solid fa-cubes"></i>
-            <span>Stock Management</span>
+            <div class="ab-pill-title">Premium Quality</div>
+            <div class="ab-pill-desc">Commercial grade equipment built for durability and reliability</div>
           </div>
           <div class="ab-pill-item">
             <i class="fa-solid fa-headset"></i>
-            <span>Expert Advice</span>
+            <div class="ab-pill-title">Expert Support</div>
+            <div class="ab-pill-desc">Knowledgeable team that understands catering industry needs</div>
+          </div>
+          <div class="ab-pill-item">
+            <i class="fa-solid fa-credit-card"></i>
+            <div class="ab-pill-title">Flexible Payment</div>
+            <div class="ab-pill-desc">Cash and card accepted with easy payment options</div>
           </div>
         </div>
 
