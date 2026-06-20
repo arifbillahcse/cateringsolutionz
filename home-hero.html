@@ -167,39 +167,7 @@
 
     /* ── Scroll indicator ── */
     .cs-hero__scroll {
-      position: absolute;
-      bottom: 32px;
-      left: 50%;
-      transform: translateX(-50%);
-      z-index: 3;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 8px;
-      color: rgba(255,255,255,0.6);
-      font-size: 0.7rem;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      opacity: 0;
-      animation: csUp 1s 1.2s ease forwards;
-    }
-    .cs-hero__mouse {
-      width: 22px; height: 36px;
-      border: 2px solid rgba(255,255,255,0.4);
-      border-radius: 12px;
-      display: flex;
-      justify-content: center;
-      padding-top: 5px;
-    }
-    .cs-hero__wheel {
-      width: 3px; height: 7px;
-      background: #00c3ff;
-      border-radius: 3px;
-      animation: csWheel 1.6s ease-in-out infinite;
-    }
-    @keyframes csWheel {
-      0%   { opacity: 1; transform: translateY(0); }
-      100% { opacity: 0; transform: translateY(11px); }
+      display: none;
     }
 
     @media (max-width: 768px) {
@@ -251,12 +219,6 @@
       <a href="#shop" class="cs-hero__btn">
         Shop Now <i class="fa-solid fa-arrow-right"></i>
       </a>
-    </div>
-
-    <!-- Scroll indicator -->
-    <div class="cs-hero__scroll">
-      <div class="cs-hero__mouse"><span class="cs-hero__wheel"></span></div>
-      <span>Scroll</span>
     </div>
 
   </section>
