@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Testimonials — Catering Solutionz</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=Cabin:wght@400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+  <style>
+    #tm-testimonials-section {
+      --navy: #092143;
+      --navy-2: #0d2d5a;
+      --gold: #00c3ff;
+      --gold-soft: #66d9ff;
+      --light: #f6f8fb;
+      --grey: #777777;
+      --text-color: #777777;
+      --title-color: #242424;
+      --white: #ffffff;
+      --radius: 12px;
+      --trans: 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+      --shadow-sm: 0 4px 16px rgba(9, 33, 67, 0.08);
+      --shadow: 0 18px 50px rgba(9, 33, 67, 0.12);
+    }
+
+    #tm-testimonials-section * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    #tm-testimonials-section {
+      font-family: "Cabin", Arial, Helvetica, sans-serif;
+      background: var(--white);
+      overflow-x: hidden;
+      line-height: 1.6;
+    }
+
+    #tm-testimonials-section a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .tm-container {
+      width: min(1200px, 92%);
+      margin: 0 auto;
+    }
+
+    /* ===== TESTIMONIALS ===== */
+    .tm-testimonials {
+      padding: 100px 0;
+    }
+
+    .tm-section-head {
+      text-align: center;
+      margin-bottom: 60px;
+      opacity: 0;
+      transform: translateY(32px);
+      animation: tmReveal 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+
+    .tm-section-tag {
+      display: inline-block;
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--gold);
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      margin-bottom: 16px;
+    }
+
+    .tm-section-title {
+      font-family: "Playfair Display", serif;
+      font-size: clamp(2rem, 4vw, 2.8rem);
+      font-weight: 800;
+      color: var(--title-color);
+      margin-bottom: 16px;
+      line-height: 1.2;
+    }
+
+    .tm-section-sub {
+      color: var(--text-color);
+      font-size: 1.05rem;
+      font-weight: 400;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .tm-review-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 26px;
+      margin-bottom: 44px;
+    }
+
+    .tm-review-card {
+      background: #fff;
+      border: 1px solid #eef1f6;
+      border-radius: var(--radius);
+      padding: 34px 30px;
+      box-shadow: var(--shadow-sm);
+      transition: var(--trans);
+      position: relative;
+      opacity: 0;
+      transform: translateY(32px);
+      animation: tmReveal 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+
+    .tm-review-card:nth-child(1) { animation-delay: 0.1s; }
+    .tm-review-card:nth-child(2) { animation-delay: 0.2s; }
+    .tm-review-card:nth-child(3) { animation-delay: 0.3s; }
+
+    .tm-review-card::before {
+      content: "\201C";
+      font-family: "Playfair Display", serif;
+      position: absolute;
+      top: 10px;
+      right: 26px;
+      font-size: 5rem;
+      color: rgba(0, 195, 255, 0.18);
+      line-height: 1;
+    }
+
+    .tm-review-card:hover {
+      transform: translateY(-8px);
+      box-shadow: var(--shadow);
+    }
+
+    .tm-stars {
+      color: var(--gold);
+      margin-bottom: 16px;
+      font-size: 1.1rem;
+    }
+
+    .tm-review-card p {
+      color: #4a5468;
+      font-style: italic;
+      margin-bottom: 22px;
+      font-weight: 400;
+      line-height: 1.7;
+    }
+
+    .tm-reviewer {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .tm-avatar {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--navy), var(--navy-2));
+      color: var(--gold);
+      display: grid;
+      place-items: center;
+      font-weight: 700;
+      font-size: 0.9rem;
+      flex-shrink: 0;
+    }
+
+    .tm-reviewer-info strong {
+      display: block;
+      font-size: 0.95rem;
+      color: var(--title-color);
+      font-weight: 600;
+    }
+
+    .tm-reviewer-info small {
+      color: var(--grey);
+      font-size: 0.85rem;
+      display: block;
+      margin-top: 2px;
+    }
+
+    .tm-review-cta {
+      text-align: center;
+      opacity: 0;
+      transform: translateY(32px);
+      animation: tmReveal 0.8s 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+
+    .tm-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 14px 32px;
+      background: linear-gradient(135deg, var(--gold), var(--gold-soft));
+      color: var(--navy);
+      font-family: "Cabin", Arial, Helvetica, sans-serif;
+      font-size: 0.95rem;
+      font-weight: 600;
+      border-radius: 50px;
+      border: none;
+      cursor: pointer;
+      transition: var(--trans);
+      box-shadow: 0 8px 24px rgba(0, 195, 255, 0.3);
+    }
+
+    .tm-btn:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 32px rgba(0, 195, 255, 0.45);
+    }
+
+    .tm-btn i {
+      transition: transform 0.3s ease;
+    }
+
+    .tm-btn:hover i {
+      transform: translateX(4px);
+    }
+
+    @keyframes tmReveal {
+      from {
+        opacity: 0;
+        transform: translateY(32px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 1024px) {
+      .tm-testimonials {
+        padding: 80px 0;
+      }
+
+      .tm-review-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 24px;
+      }
+
+      .tm-section-title {
+        font-size: clamp(1.6rem, 3.5vw, 2.4rem);
+      }
+    }
+
+    @media (max-width: 560px) {
+      .tm-testimonials {
+        padding: 60px 0;
+      }
+
+      .tm-review-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+
+      .tm-review-card {
+        padding: 28px 22px;
+      }
+
+      .tm-section-title {
+        font-size: clamp(1.3rem, 3vw, 1.8rem);
+        margin-bottom: 12px;
+      }
+
+      .tm-section-sub {
+        font-size: 0.95rem;
+      }
+
+      .tm-review-card p {
+        font-size: 0.9rem;
+        margin-bottom: 18px;
+      }
+
+      .tm-avatar {
+        width: 42px;
+        height: 42px;
+        font-size: 0.85rem;
+      }
+
+      .tm-reviewer-info strong {
+        font-size: 0.9rem;
+      }
+
+      .tm-reviewer-info small {
+        font-size: 0.8rem;
+      }
+
+      .tm-btn {
+        padding: 12px 28px;
+        font-size: 0.9rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ===== TESTIMONIALS ===== -->
+  <section class="tm-testimonials" id="tm-testimonials-section">
+    <div class="tm-container">
+      <div class="tm-section-head">
+        <span class="tm-section-tag">Testimonials</span>
+        <h2 class="tm-section-title">What Our Customers Say</h2>
+        <p class="tm-section-sub">Real reviews from caterers and event businesses we proudly serve.</p>
+      </div>
+
+      <div class="tm-review-grid">
+        <div class="tm-review-card">
+          <div class="tm-stars">
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+          </div>
+          <p>"Top quality equipment and lightning-fast delivery. Catering Solutionz has become our go-to supplier for every event."</p>
+          <div class="tm-reviewer">
+            <span class="tm-avatar">SH</span>
+            <div class="tm-reviewer-info">
+              <strong>Sarah Hughes</strong>
+              <small>Event Caterer, Birmingham</small>
+            </div>
+          </div>
+        </div>
+
+        <div class="tm-review-card">
+          <div class="tm-stars">
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+          </div>
+          <p>"The chafing dishes are superb and the prices are unbeatable. Genuinely the best catering supplier in the area."</p>
+          <div class="tm-reviewer">
+            <span class="tm-avatar">MR</span>
+            <div class="tm-reviewer-info">
+              <strong>Mohammed Raza</strong>
+              <small>Restaurant Owner</small>
+            </div>
+          </div>
+        </div>
+
+        <div class="tm-review-card">
+          <div class="tm-stars">
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+          </div>
+          <p>"Brilliant service from start to finish. The team really know their products and went above and beyond to help."</p>
+          <div class="tm-reviewer">
+            <span class="tm-avatar">EC</span>
+            <div class="tm-reviewer-info">
+              <strong>Emma Clarke</strong>
+              <small>Wedding Planner</small>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tm-review-cta">
+        <a href="https://share.google/IndMplzxJdc2CNqRK" target="_blank" class="tm-btn">
+          <i class="fa-brands fa-google"></i> Read More on Google
+        </a>
+      </div>
+    </div>
+  </section>
+
+</body>
+</html>
