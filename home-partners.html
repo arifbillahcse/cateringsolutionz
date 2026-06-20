@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Partners — Catering Solutionz</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=Cabin:wght@400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+  <style>
+    #pt-partners-section {
+      --navy: #092143;
+      --gold: #00c3ff;
+      --gold-soft: #66d9ff;
+      --bg-light: #f7f7f7;
+      --grey: #777777;
+      --text-color: #777777;
+      --title-color: #242424;
+      --white: #ffffff;
+      --trans: 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+      --shadow-sm: 0 4px 16px rgba(9, 33, 67, 0.08);
+    }
+
+    #pt-partners-section * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    #pt-partners-section {
+      font-family: "Cabin", Arial, Helvetica, sans-serif;
+      background: var(--bg-light);
+      overflow-x: hidden;
+      line-height: 1.6;
+    }
+
+    #pt-partners-section a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .pt-container {
+      width: min(1200px, 92%);
+      margin: 0 auto;
+    }
+
+    /* ===== PARTNERS SECTION ===== */
+    .pt-partners {
+      padding: 100px 0;
+    }
+
+    .pt-section-head {
+      text-align: center;
+      margin-bottom: 60px;
+      opacity: 0;
+      transform: translateY(32px);
+      animation: ptReveal 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+
+    .pt-section-tag {
+      display: inline-block;
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--gold);
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      margin-bottom: 16px;
+    }
+
+    .pt-section-title {
+      font-family: "Playfair Display", serif;
+      font-size: clamp(2rem, 4vw, 2.8rem);
+      font-weight: 800;
+      color: var(--title-color);
+      margin-bottom: 16px;
+      line-height: 1.2;
+    }
+
+    /* ===== CAROUSEL ===== */
+    .pt-carousel-wrapper {
+      position: relative;
+      overflow: hidden;
+      background: var(--white);
+      border-radius: 16px;
+      padding: 30px 0;
+      box-shadow: var(--shadow-sm);
+      opacity: 0;
+      transform: translateY(32px);
+      animation: ptReveal 0.8s 0.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+
+    .pt-carousel {
+      display: flex;
+      gap: 30px;
+      padding: 0 30px;
+      overflow: hidden;
+    }
+
+    .pt-carousel-item {
+      flex: 0 0 calc(16.666% - 25px);
+      min-width: 120px;
+      max-width: 140px;
+      height: 120px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--bg-light);
+      border-radius: 12px;
+      padding: 15px;
+      transition: transform 0.3s ease;
+      opacity: 0;
+      animation: ptSlideIn 0.6s ease forwards;
+    }
+
+    .pt-carousel-item:nth-child(1) { animation-delay: 0.1s; }
+    .pt-carousel-item:nth-child(2) { animation-delay: 0.15s; }
+    .pt-carousel-item:nth-child(3) { animation-delay: 0.2s; }
+    .pt-carousel-item:nth-child(4) { animation-delay: 0.25s; }
+    .pt-carousel-item:nth-child(5) { animation-delay: 0.3s; }
+    .pt-carousel-item:nth-child(6) { animation-delay: 0.35s; }
+    .pt-carousel-item:nth-child(n+7) { animation-delay: 0.4s; }
+
+    .pt-carousel-item:hover {
+      transform: translateY(-8px);
+      background: var(--white);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .pt-logo-img {
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;
+      object-position: center;
+    }
+
+    .pt-carousel-nav {
+      position: absolute;
+      bottom: 15px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 8px;
+      z-index: 10;
+    }
+
+    .pt-nav-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: rgba(9, 33, 67, 0.2);
+      cursor: pointer;
+      transition: var(--trans);
+      border: none;
+      padding: 0;
+    }
+
+    .pt-nav-dot.active {
+      background: var(--gold);
+      width: 24px;
+      border-radius: 4px;
+    }
+
+    @keyframes ptReveal {
+      from {
+        opacity: 0;
+        transform: translateY(32px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes ptSlideIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 1024px) {
+      .pt-partners {
+        padding: 80px 0;
+      }
+
+      .pt-carousel-item {
+        flex: 0 0 calc(25% - 22px);
+        max-width: 120px;
+        min-height: 100px;
+        height: auto;
+      }
+
+      .pt-carousel {
+        gap: 20px;
+        padding: 0 20px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .pt-partners {
+        padding: 60px 0;
+      }
+
+      .pt-carousel-item {
+        flex: 0 0 calc(33.333% - 20px);
+        max-width: 100px;
+        height: 90px;
+      }
+
+      .pt-carousel {
+        gap: 15px;
+        padding: 0 15px;
+      }
+
+      .pt-carousel-wrapper {
+        padding: 25px 0;
+      }
+
+      .pt-section-title {
+        font-size: clamp(1.6rem, 3.5vw, 2.2rem);
+      }
+    }
+
+    @media (max-width: 560px) {
+      .pt-carousel-item {
+        flex: 0 0 calc(50% - 15px);
+        max-width: 100%;
+        height: 80px;
+      }
+
+      .pt-carousel {
+        gap: 12px;
+        padding: 0 12px;
+      }
+
+      .pt-carousel-wrapper {
+        padding: 20px 0;
+      }
+
+      .pt-nav-dot {
+        width: 6px;
+        height: 6px;
+      }
+
+      .pt-nav-dot.active {
+        width: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ===== OUR VALUED PARTNERS ===== -->
+  <section class="pt-partners" id="pt-partners-section">
+    <div class="pt-container">
+      <div class="pt-section-head">
+        <span class="pt-section-tag">Partners</span>
+        <h2 class="pt-section-title">Our Valued Partners</h2>
+      </div>
+
+      <div class="pt-carousel-wrapper">
+        <div class="pt-carousel" id="ptCarousel">
+          <!-- Logos will be inserted here by JavaScript -->
+        </div>
+        <div class="pt-carousel-nav" id="ptNavDots"></div>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    // Partner logo URLs (from user)
+    const partnerLogos = [
+      'https://cateringsolutionz.com/wp-content/uploads/2026/06/WhatsApp-Image-2026-06-20-at-12.22.50-AM.jpeg',
+      'https://cateringsolutionz.com/wp-content/uploads/2026/06/WhatsApp-Image-2026-06-20-at-12.22.50-AM-3.jpeg',
+      'https://cateringsolutionz.com/wp-content/uploads/2026/06/WhatsApp-Image-2026-06-20-at-12.22.50-AM-2.jpeg',
+      'https://cateringsolutionz.com/wp-content/uploads/2026/06/WhatsApp-Image-2026-06-20-at-12.22.51-AM.jpeg',
+      'https://cateringsolutionz.com/wp-content/uploads/2026/06/WhatsApp-Image-2026-06-20-at-12.22.52-AM.jpeg',
+      'https://cateringsolutionz.com/wp-content/uploads/2026/06/WhatsApp-Image-2026-06-20-at-12.22.52-AM-1.jpeg',
+      'https://cateringsolutionz.com/wp-content/uploads/2026/06/WhatsApp-Image-2026-06-20-at-12.22.50-AM-1.jpeg',
+      'https://cateringsolutionz.com/wp-content/uploads/2026/06/WhatsApp-Image-2026-06-20-at-12.22.49-AM.jpeg',
+    ];
+
+    const REMOVE_BG_API_KEY = 'YOUR_REMOVE_BG_API_KEY_HERE'; // Get free key from remove.bg
+    const USE_REMOVE_BG = false; // Set to true if you have remove.bg API key
+
+    class PartnerCarousel {
+      constructor() {
+        this.carousel = document.getElementById('ptCarousel');
+        this.navDots = document.getElementById('ptNavDots');
+        this.logos = partnerLogos;
+        this.currentIndex = 0;
+        this.itemsPerPage = 6;
+        this.init();
+      }
+
+      async init() {
+        await this.loadLogos();
+        this.createNavDots();
+        this.startAutoScroll();
+        this.addEventListeners();
+      }
+
+      async loadLogos() {
+        for (const logo of this.logos) {
+          const item = document.createElement('div');
+          item.className = 'pt-carousel-item';
+
+          const img = document.createElement('img');
+          img.className = 'pt-logo-img';
+          img.alt = 'Partner Logo';
+
+          if (USE_REMOVE_BG && REMOVE_BG_API_KEY !== 'YOUR_REMOVE_BG_API_KEY_HERE') {
+            // Use remove.bg API to remove background
+            img.src = `https://api.remove.bg/v1.0/removebg?u=${encodeURIComponent(logo)}&apiKey=${REMOVE_BG_API_KEY}&size=auto&format=png`;
+          } else {
+            // Use original image (recommend pre-processing with remove.bg)
+            img.src = logo;
+            img.style.filter = 'brightness(1.05)';
+          }
+
+          img.onerror = () => {
+            console.warn('Failed to load logo:', logo);
+          };
+
+          item.appendChild(img);
+          this.carousel.appendChild(item);
+        }
+      }
+
+      createNavDots() {
+        const totalPages = Math.ceil(this.logos.length / this.itemsPerPage);
+        for (let i = 0; i < totalPages; i++) {
+          const dot = document.createElement('button');
+          dot.className = `pt-nav-dot ${i === 0 ? 'active' : ''}`;
+          dot.addEventListener('click', () => this.goToPage(i));
+          this.navDots.appendChild(dot);
+        }
+      }
+
+      startAutoScroll() {
+        setInterval(() => {
+          const totalPages = Math.ceil(this.logos.length / this.itemsPerPage);
+          this.currentIndex = (this.currentIndex + 1) % totalPages;
+          this.updateCarousel();
+        }, 5000); // Auto-scroll every 5 seconds
+      }
+
+      goToPage(pageIndex) {
+        this.currentIndex = pageIndex;
+        this.updateCarousel();
+      }
+
+      updateCarousel() {
+        const offset = -(this.currentIndex * this.itemsPerPage * (140 + 30));
+        this.carousel.style.transition = 'transform 0.6s cubic-bezier(0.16, 1, 0.3, 1)';
+        this.carousel.style.transform = `translateX(${offset}px)`;
+
+        // Update nav dots
+        document.querySelectorAll('.pt-nav-dot').forEach((dot, i) => {
+          dot.classList.toggle('active', i === this.currentIndex);
+        });
+      }
+
+      addEventListeners() {
+        // Pause auto-scroll on hover
+        this.carousel.addEventListener('mouseenter', () => {
+          clearInterval(this.autoScrollInterval);
+        });
+      }
+    }
+
+    // Initialize carousel when DOM is ready
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', () => new PartnerCarousel());
+    } else {
+      new PartnerCarousel();
+    }
+  </script>
+
+</body>
+</html>
