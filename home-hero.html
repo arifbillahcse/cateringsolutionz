@@ -73,15 +73,22 @@
       opacity: 0;
     }
 
-    /* Individual icon positions, sizes, speeds */
-    .cs-fi:nth-child(1) { width:70px; height:70px; font-size:1.7rem; top:12%; left:7%;    animation: csFloat 8s   ease-in-out 0.0s infinite; }
-    .cs-fi:nth-child(2) { width:78px; height:78px; font-size:1.9rem; top:16%; right:9%;   animation: csFloat 6.5s ease-in-out 1.0s infinite; }
-    .cs-fi:nth-child(3) { width:65px; height:65px; font-size:1.5rem; bottom:24%; left:6%; animation: csFloat 9s   ease-in-out 2.0s infinite; }
-    .cs-fi:nth-child(4) { width:72px; height:72px; font-size:1.7rem; top:42%; right:5%;   animation: csFloat 7s   ease-in-out 0.5s infinite; }
-    .cs-fi:nth-child(5) { width:62px; height:62px; font-size:1.4rem; bottom:20%; right:8%;animation: csFloat 8.5s ease-in-out 3.0s infinite; }
-    .cs-fi:nth-child(6) { width:68px; height:68px; font-size:1.6rem; top:58%; left:4%;    animation: csFloat 6s   ease-in-out 1.5s infinite; }
-    .cs-fi:nth-child(7) { width:58px; height:58px; font-size:1.3rem; top:26%; left:20%;   animation: csFloat 7.5s ease-in-out 2.5s infinite; }
-    .cs-fi:nth-child(8) { width:60px; height:60px; font-size:1.4rem; bottom:16%; right:20%;animation:csFloat 8s  ease-in-out 4.0s infinite; }
+    /* Individual icon positions, sizes, and animations with random movement */
+    .cs-fi:nth-child(1) { width:70px; height:70px; font-size:1.7rem; top:12%; left:7%;    animation: move1 10s ease-in-out 0.0s infinite; }
+    .cs-fi:nth-child(2) { width:78px; height:78px; font-size:1.9rem; top:16%; right:9%;   animation: move2 11s ease-in-out 0.8s infinite; }
+    .cs-fi:nth-child(3) { width:65px; height:65px; font-size:1.5rem; bottom:24%; left:6%; animation: move3 12s ease-in-out 1.5s infinite; }
+    .cs-fi:nth-child(4) { width:72px; height:72px; font-size:1.7rem; top:42%; right:5%;   animation: move4 10.5s ease-in-out 0.5s infinite; }
+    .cs-fi:nth-child(5) { width:62px; height:62px; font-size:1.4rem; bottom:20%; right:8%;animation: move5 11.5s ease-in-out 2.0s infinite; }
+    .cs-fi:nth-child(6) { width:68px; height:68px; font-size:1.6rem; top:58%; left:4%;    animation: move6 12.5s ease-in-out 1.2s infinite; }
+    .cs-fi:nth-child(7) { width:58px; height:58px; font-size:1.3rem; top:26%; left:20%;   animation: move1 11s ease-in-out 2.0s infinite; }
+    .cs-fi:nth-child(8) { width:60px; height:60px; font-size:1.4rem; bottom:16%; right:20%;animation: move2 10.5s ease-in-out 2.5s infinite; }
+    .cs-fi:nth-child(9) { width:66px; height:66px; font-size:1.6rem; top:35%; left:15%;   animation: move3 11.5s ease-in-out 0.3s infinite; }
+    .cs-fi:nth-child(10) { width:64px; height:64px; font-size:1.5rem; top:48%; right:18%; animation: move4 10.8s ease-in-out 1.8s infinite; }
+    .cs-fi:nth-child(11) { width:70px; height:70px; font-size:1.7rem; bottom:30%; left:18%;animation: move5 12s ease-in-out 2.2s infinite; }
+    .cs-fi:nth-child(12) { width:62px; height:62px; font-size:1.4rem; top:20%; left:45%;   animation: move6 11.2s ease-in-out 0.6s infinite; }
+    .cs-fi:nth-child(13) { width:68px; height:68px; font-size:1.6rem; bottom:35%; right:15%;animation: move1 10.5s ease-in-out 3.0s infinite; }
+    .cs-fi:nth-child(14) { width:60px; height:60px; font-size:1.4rem; top:55%; right:25%; animation: move2 11.8s ease-in-out 1.4s infinite; }
+    .cs-fi:nth-child(15) { width:72px; height:72px; font-size:1.7rem; top:8%; right:30%;  animation: move3 12.2s ease-in-out 2.8s infinite; }
 
     @keyframes csFloat {
       0%, 100% {
@@ -92,6 +99,55 @@
         opacity: 0.9;
         transform: translateY(-26px) rotate(8deg) scale(1.08);
       }
+    }
+
+    /* Random movement animations for each icon */
+    @keyframes move1 {
+      0% { transform: translate(0, 0) rotate(0deg) scale(1); opacity: 0.55; }
+      25% { transform: translate(40px, -60px) rotate(10deg) scale(1.1); opacity: 0.85; }
+      50% { transform: translate(20px, -100px) rotate(5deg) scale(0.95); opacity: 0.9; }
+      75% { transform: translate(-30px, -50px) rotate(-8deg) scale(1.05); opacity: 0.7; }
+      100% { transform: translate(0, 0) rotate(0deg) scale(1); opacity: 0.55; }
+    }
+
+    @keyframes move2 {
+      0% { transform: translate(0, 0) rotate(0deg) scale(1); opacity: 0.55; }
+      25% { transform: translate(-50px, -80px) rotate(-12deg) scale(0.95); opacity: 0.8; }
+      50% { transform: translate(-20px, -120px) rotate(8deg) scale(1.12); opacity: 0.9; }
+      75% { transform: translate(35px, -40px) rotate(3deg) scale(1); opacity: 0.65; }
+      100% { transform: translate(0, 0) rotate(0deg) scale(1); opacity: 0.55; }
+    }
+
+    @keyframes move3 {
+      0% { transform: translate(0, 0) rotate(0deg) scale(1); opacity: 0.55; }
+      25% { transform: translate(30px, -70px) rotate(15deg) scale(1.08); opacity: 0.9; }
+      50% { transform: translate(-40px, -110px) rotate(-5deg) scale(0.98); opacity: 0.75; }
+      75% { transform: translate(-15px, -50px) rotate(12deg) scale(1.1); opacity: 0.8; }
+      100% { transform: translate(0, 0) rotate(0deg) scale(1); opacity: 0.55; }
+    }
+
+    @keyframes move4 {
+      0% { transform: translate(0, 0) rotate(0deg) scale(1); opacity: 0.55; }
+      25% { transform: translate(-45px, -85px) rotate(-15deg) scale(1.05); opacity: 0.85; }
+      50% { transform: translate(25px, -95px) rotate(10deg) scale(1.1); opacity: 0.9; }
+      75% { transform: translate(40px, -60px) rotate(-8deg) scale(0.95); opacity: 0.7; }
+      100% { transform: translate(0, 0) rotate(0deg) scale(1); opacity: 0.55; }
+    }
+
+    @keyframes move5 {
+      0% { transform: translate(0, 0) rotate(0deg) scale(1); opacity: 0.55; }
+      25% { transform: translate(50px, -70px) rotate(8deg) scale(1.08); opacity: 0.8; }
+      50% { transform: translate(-35px, -130px) rotate(-12deg) scale(0.92); opacity: 0.9; }
+      75% { transform: translate(-20px, -45px) rotate(6deg) scale(1.12); opacity: 0.75; }
+      100% { transform: translate(0, 0) rotate(0deg) scale(1); opacity: 0.55; }
+    }
+
+    @keyframes move6 {
+      0% { transform: translate(0, 0) rotate(0deg) scale(1); opacity: 0.55; }
+      25% { transform: translate(-55px, -75px) rotate(12deg) scale(1.1); opacity: 0.85; }
+      50% { transform: translate(45px, -105px) rotate(-8deg) scale(0.98); opacity: 0.9; }
+      75% { transform: translate(15px, -55px) rotate(10deg) scale(1.05); opacity: 0.7; }
+      100% { transform: translate(0, 0) rotate(0deg) scale(1); opacity: 0.55; }
     }
 
     /* ── Content ── */
@@ -222,6 +278,13 @@
       <div class="cs-fi"><i class="fa-solid fa-wine-glass"></i></div>
       <div class="cs-fi"><i class="fa-solid fa-pot-food"></i></div>
       <div class="cs-fi"><i class="fa-solid fa-plate-wheat"></i></div>
+      <div class="cs-fi"><i class="fa-solid fa-cheese"></i></div>
+      <div class="cs-fi"><i class="fa-solid fa-martini-glass-citrus"></i></div>
+      <div class="cs-fi"><i class="fa-solid fa-champagne-glass"></i></div>
+      <div class="cs-fi"><i class="fa-solid fa-cloche"></i></div>
+      <div class="cs-fi"><i class="fa-solid fa-spoon"></i></div>
+      <div class="cs-fi"><i class="fa-solid fa-fork-knife"></i></div>
+      <div class="cs-fi"><i class="fa-solid fa-person-chefs-hat"></i></div>
     </div>
 
     <!-- Text content -->
