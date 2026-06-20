@@ -149,11 +149,97 @@
       0%   { opacity: 1; transform: translateY(0); }
       100% { opacity: 0; transform: translateY(11px); }
     }
+
+    /* ── Floating Icons ── */
+    .cs-hero__icons {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      overflow: hidden;
+      pointer-events: none;
+    }
+
+    .cs-floating-icon {
+      position: absolute;
+      font-size: 3rem;
+      color: rgba(0, 195, 255, 0.15);
+      opacity: 0;
+      animation: csFloat 6s ease-in-out infinite;
+    }
+
+    .cs-floating-icon:nth-child(1) {
+      top: 15%; left: 10%;
+      font-size: 2.5rem;
+      animation: csFloat 8s ease-in-out infinite;
+      animation-delay: 0s;
+    }
+
+    .cs-floating-icon:nth-child(2) {
+      top: 20%; right: 12%;
+      font-size: 3.2rem;
+      animation: csFloat 7s ease-in-out infinite;
+      animation-delay: 0.5s;
+    }
+
+    .cs-floating-icon:nth-child(3) {
+      bottom: 20%; left: 8%;
+      font-size: 2.8rem;
+      animation: csFloat 9s ease-in-out infinite;
+      animation-delay: 1s;
+    }
+
+    .cs-floating-icon:nth-child(4) {
+      top: 35%; right: 8%;
+      font-size: 2.6rem;
+      animation: csFloat 7.5s ease-in-out infinite;
+      animation-delay: 1.5s;
+    }
+
+    .cs-floating-icon:nth-child(5) {
+      bottom: 30%; right: 10%;
+      font-size: 3rem;
+      animation: csFloat 8.5s ease-in-out infinite;
+      animation-delay: 2s;
+    }
+
+    .cs-floating-icon:nth-child(6) {
+      top: 50%; left: 5%;
+      font-size: 2.4rem;
+      animation: csFloat 6.5s ease-in-out infinite;
+      animation-delay: 2.5s;
+    }
+
+    @keyframes csFloat {
+      0%, 100% {
+        opacity: 0.08;
+        transform: translateY(0) rotate(0deg);
+      }
+      50% {
+        opacity: 0.15;
+        transform: translateY(-30px) rotate(5deg);
+      }
+    }
+
+    @media (max-width: 768px) {
+      .cs-floating-icon {
+        font-size: 2rem !important;
+      }
+    }
   </style>
 </head>
 <body>
 
   <section class="cs-hero">
+
+    <!-- Floating Icons -->
+    <div class="cs-hero__icons">
+      <div class="cs-floating-icon"><i class="fa-solid fa-utensils"></i></div>
+      <div class="cs-floating-icon"><i class="fa-solid fa-plate-wheat"></i></div>
+      <div class="cs-floating-icon"><i class="fa-solid fa-fire-burner"></i></div>
+      <div class="cs-floating-icon"><i class="fa-solid fa-martini-glass-citrus"></i></div>
+      <div class="cs-floating-icon"><i class="fa-solid fa-cloche"></i></div>
+      <div class="cs-floating-icon"><i class="fa-solid fa-spoon"></i></div>
+    </div>
 
     <!-- YouTube video background -->
     <div class="cs-hero__yt">
