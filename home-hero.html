@@ -23,7 +23,7 @@
       font-family: 'Cabin', sans-serif;
     }
 
-    /* ── YouTube iframe cover ── */
+    /* ── YouTube iframe ── */
     .cs-hero__yt {
       position: absolute;
       inset: 0;
@@ -51,7 +51,7 @@
       background: rgba(0, 0, 0, 0.62);
     }
 
-    /* ── Floating Icons ── */
+    /* ── Floating Icons container ── */
     .cs-hero__icons {
       position: absolute;
       inset: 0;
@@ -60,94 +60,37 @@
       overflow: hidden;
     }
 
+    /* Icon circles */
     .cs-fi {
       position: absolute;
       display: flex;
       align-items: center;
       justify-content: center;
+      width: 66px;
+      height: 66px;
       border-radius: 50%;
       background: rgba(0, 195, 255, 0.10);
       border: 1.5px solid rgba(0, 195, 255, 0.30);
       backdrop-filter: blur(6px);
       color: #00c3ff;
+      font-size: 1.6rem;
       opacity: 0;
+      transition: transform 0.05s linear;
     }
 
-    /* Individual icon positions, sizes, and animations with random movement */
-    .cs-fi:nth-child(1) { width:70px; height:70px; font-size:1.7rem; top:15%; left:8%;    animation: move1 10s ease-in-out 0.0s infinite; }
-    .cs-fi:nth-child(2) { width:78px; height:78px; font-size:1.9rem; top:20%; right:10%;  animation: move2 11s ease-in-out 0.8s infinite; }
-    .cs-fi:nth-child(3) { width:65px; height:65px; font-size:1.5rem; bottom:15%; left:8%; animation: move3 12s ease-in-out 1.5s infinite; }
-    .cs-fi:nth-child(4) { width:72px; height:72px; font-size:1.7rem; top:40%; right:7%;   animation: move4 10.5s ease-in-out 0.5s infinite; }
-    .cs-fi:nth-child(5) { width:62px; height:62px; font-size:1.4rem; bottom:18%; right:9%;animation: move5 11.5s ease-in-out 2.0s infinite; }
-    .cs-fi:nth-child(6) { width:68px; height:68px; font-size:1.6rem; top:50%; left:5%;    animation: move6 12.5s ease-in-out 1.2s infinite; }
-    .cs-fi:nth-child(7) { width:58px; height:58px; font-size:1.3rem; top:28%; left:18%;   animation: move1 11s ease-in-out 2.0s infinite; }
-    .cs-fi:nth-child(8) { width:60px; height:60px; font-size:1.4rem; bottom:20%; right:18%;animation: move2 10.5s ease-in-out 2.5s infinite; }
-    .cs-fi:nth-child(9) { width:66px; height:66px; font-size:1.6rem; top:35%; left:14%;   animation: move3 11.5s ease-in-out 0.3s infinite; }
-    .cs-fi:nth-child(10) { width:64px; height:64px; font-size:1.5rem; top:45%; right:16%; animation: move4 10.8s ease-in-out 1.8s infinite; }
-    .cs-fi:nth-child(11) { width:70px; height:70px; font-size:1.7rem; bottom:22%; left:16%;animation: move5 12s ease-in-out 2.2s infinite; }
-    .cs-fi:nth-child(12) { width:62px; height:62px; font-size:1.4rem; top:18%; left:42%;   animation: move6 11.2s ease-in-out 0.6s infinite; }
-    .cs-fi:nth-child(13) { width:68px; height:68px; font-size:1.6rem; bottom:28%; right:14%;animation: move1 10.5s ease-in-out 3.0s infinite; }
-    .cs-fi:nth-child(14) { width:60px; height:60px; font-size:1.4rem; top:50%; right:22%; animation: move2 11.8s ease-in-out 1.4s infinite; }
-    .cs-fi:nth-child(15) { width:72px; height:72px; font-size:1.7rem; top:12%; right:28%; animation: move3 12.2s ease-in-out 2.8s infinite; }
-
-    @keyframes csFloat {
-      0%, 100% {
-        opacity: 0.60;
-        transform: translateY(0px) rotate(0deg) scale(1);
-      }
-      50% {
-        opacity: 0.85;
-        transform: translateY(-20px) rotate(8deg) scale(1.08);
-      }
+    /* Logo floating element */
+    .cs-fi-logo {
+      background: rgba(255, 255, 255, 0.08);
+      border: 1.5px solid rgba(255, 255, 255, 0.20);
+      width: 74px;
+      height: 74px;
+      padding: 10px;
     }
-
-    /* Random movement animations for each icon */
-    @keyframes move1 {
-      0% { transform: translate(0, 0) rotate(0deg) scale(1); opacity: 0.60; }
-      25% { transform: translate(35px, -40px) rotate(10deg) scale(1.1); opacity: 0.85; }
-      50% { transform: translate(15px, -70px) rotate(5deg) scale(0.95); opacity: 0.9; }
-      75% { transform: translate(-25px, -35px) rotate(-8deg) scale(1.05); opacity: 0.75; }
-      100% { transform: translate(0, 0) rotate(0deg) scale(1); opacity: 0.60; }
-    }
-
-    @keyframes move2 {
-      0% { transform: translate(0, 0) rotate(0deg) scale(1); opacity: 0.60; }
-      25% { transform: translate(-40px, -50px) rotate(-12deg) scale(0.95); opacity: 0.85; }
-      50% { transform: translate(-15px, -80px) rotate(8deg) scale(1.12); opacity: 0.9; }
-      75% { transform: translate(30px, -30px) rotate(3deg) scale(1); opacity: 0.70; }
-      100% { transform: translate(0, 0) rotate(0deg) scale(1); opacity: 0.60; }
-    }
-
-    @keyframes move3 {
-      0% { transform: translate(0, 0) rotate(0deg) scale(1); opacity: 0.60; }
-      25% { transform: translate(25px, -45px) rotate(15deg) scale(1.08); opacity: 0.85; }
-      50% { transform: translate(-35px, -75px) rotate(-5deg) scale(0.98); opacity: 0.9; }
-      75% { transform: translate(-10px, -35px) rotate(12deg) scale(1.1); opacity: 0.75; }
-      100% { transform: translate(0, 0) rotate(0deg) scale(1); opacity: 0.60; }
-    }
-
-    @keyframes move4 {
-      0% { transform: translate(0, 0) rotate(0deg) scale(1); opacity: 0.60; }
-      25% { transform: translate(-40px, -55px) rotate(-15deg) scale(1.05); opacity: 0.85; }
-      50% { transform: translate(20px, -70px) rotate(10deg) scale(1.1); opacity: 0.9; }
-      75% { transform: translate(35px, -35px) rotate(-8deg) scale(0.95); opacity: 0.70; }
-      100% { transform: translate(0, 0) rotate(0deg) scale(1); opacity: 0.60; }
-    }
-
-    @keyframes move5 {
-      0% { transform: translate(0, 0) rotate(0deg) scale(1); opacity: 0.60; }
-      25% { transform: translate(45px, -45px) rotate(8deg) scale(1.08); opacity: 0.85; }
-      50% { transform: translate(-30px, -85px) rotate(-12deg) scale(0.92); opacity: 0.9; }
-      75% { transform: translate(-15px, -30px) rotate(6deg) scale(1.12); opacity: 0.75; }
-      100% { transform: translate(0, 0) rotate(0deg) scale(1); opacity: 0.60; }
-    }
-
-    @keyframes move6 {
-      0% { transform: translate(0, 0) rotate(0deg) scale(1); opacity: 0.60; }
-      25% { transform: translate(-50px, -50px) rotate(12deg) scale(1.1); opacity: 0.85; }
-      50% { transform: translate(40px, -75px) rotate(-8deg) scale(0.98); opacity: 0.9; }
-      75% { transform: translate(10px, -35px) rotate(10deg) scale(1.05); opacity: 0.70; }
-      100% { transform: translate(0, 0) rotate(0deg) scale(1); opacity: 0.60; }
+    .cs-fi-logo img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      filter: brightness(0) invert(1) drop-shadow(0 0 6px rgba(0,195,255,0.6));
     }
 
     /* ── Content ── */
@@ -201,10 +144,7 @@
       animation: csUp 0.9s 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
       transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
-    .cs-hero__btn:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 18px 44px rgba(0, 195, 255, 0.6);
-    }
+    .cs-hero__btn:hover { transform: translateY(-4px); box-shadow: 0 18px 44px rgba(0, 195, 255, 0.6); }
     .cs-hero__btn i { transition: transform 0.3s ease; }
     .cs-hero__btn:hover i { transform: translateX(5px); }
 
@@ -250,9 +190,8 @@
     }
 
     @media (max-width: 768px) {
-      .cs-fi { display: none; }
-      .cs-fi:nth-child(1), .cs-fi:nth-child(2),
-      .cs-fi:nth-child(3), .cs-fi:nth-child(4) { display: flex; width: 48px !important; height: 48px !important; font-size: 1.1rem !important; }
+      .cs-fi { width: 48px; height: 48px; font-size: 1.1rem; }
+      .cs-fi-logo { width: 54px; height: 54px; }
     }
   </style>
 </head>
@@ -268,23 +207,28 @@
     <!-- Dark overlay -->
     <div class="cs-hero__overlay"></div>
 
-    <!-- Floating catering icons (above overlay, below content) -->
-    <div class="cs-hero__icons">
+    <!-- Floating icons -->
+    <div class="cs-hero__icons" id="csIcons">
+      <!-- Catering icons (valid FA6 names) -->
       <div class="cs-fi"><i class="fa-solid fa-utensils"></i></div>
       <div class="cs-fi"><i class="fa-solid fa-bowl-food"></i></div>
       <div class="cs-fi"><i class="fa-solid fa-fire-burner"></i></div>
       <div class="cs-fi"><i class="fa-solid fa-kitchen-set"></i></div>
       <div class="cs-fi"><i class="fa-solid fa-truck-fast"></i></div>
       <div class="cs-fi"><i class="fa-solid fa-wine-glass"></i></div>
-      <div class="cs-fi"><i class="fa-solid fa-pot-food"></i></div>
+      <div class="cs-fi"><i class="fa-solid fa-mug-hot"></i></div>
       <div class="cs-fi"><i class="fa-solid fa-plate-wheat"></i></div>
       <div class="cs-fi"><i class="fa-solid fa-cheese"></i></div>
       <div class="cs-fi"><i class="fa-solid fa-martini-glass-citrus"></i></div>
-      <div class="cs-fi"><i class="fa-solid fa-champagne-glass"></i></div>
-      <div class="cs-fi"><i class="fa-solid fa-cloche"></i></div>
+      <div class="cs-fi"><i class="fa-solid fa-champagne-glasses"></i></div>
+      <div class="cs-fi"><i class="fa-solid fa-bell-concierge"></i></div>
       <div class="cs-fi"><i class="fa-solid fa-spoon"></i></div>
-      <div class="cs-fi"><i class="fa-solid fa-fork-knife"></i></div>
-      <div class="cs-fi"><i class="fa-solid fa-person-chefs-hat"></i></div>
+      <div class="cs-fi"><i class="fa-solid fa-blender"></i></div>
+      <div class="cs-fi"><i class="fa-solid fa-pepper-hot"></i></div>
+      <!-- Website logo floating -->
+      <div class="cs-fi cs-fi-logo">
+        <img src="https://cateringsolutionz.com/wp-content/uploads/2026/06/logo-ony.png" alt="Catering Solutionz" />
+      </div>
     </div>
 
     <!-- Text content -->
@@ -307,26 +251,96 @@
   <!-- YouTube IFrame API -->
   <script src="https://www.youtube.com/iframe_api"></script>
   <script>
+    /* ── YouTube Player ── */
     function onYouTubeIframeAPIReady() {
       new YT.Player('csYtPlayer', {
         videoId: 'hKj4RG1ugB8',
         playerVars: {
-          autoplay:       1,
-          mute:           1,
-          loop:           1,
-          playlist:       'hKj4RG1ugB8',
-          controls:       0,
-          showinfo:       0,
-          rel:            0,
-          iv_load_policy: 3,
-          modestbranding: 1,
-          start:          5
+          autoplay: 1, mute: 1, loop: 1,
+          playlist: 'hKj4RG1ugB8', controls: 0,
+          showinfo: 0, rel: 0, iv_load_policy: 3,
+          modestbranding: 1, start: 5
         },
-        events: {
-          onReady: e => e.target.playVideo()
-        }
+        events: { onReady: e => e.target.playVideo() }
       });
     }
+
+    /* ── Random drift animation ── */
+    (function () {
+      const section = document.querySelector('.cs-hero');
+      const icons   = Array.from(document.querySelectorAll('.cs-fi'));
+      const isMobile = () => window.innerWidth <= 768;
+
+      const state = icons.map(() => {
+        const W = section.offsetWidth;
+        const H = section.offsetHeight;
+        const size = isMobile() ? 48 : 66;
+        const margin = 10;
+        return {
+          x:  margin + Math.random() * (W - size - margin * 2),
+          y:  margin + Math.random() * (H - size - margin * 2),
+          tx: 0, ty: 0,
+          vx: 0, vy: 0,
+          angle: Math.random() * 360,
+          angleDelta: (Math.random() - 0.5) * 0.3,
+          speed: 0.25 + Math.random() * 0.35
+        };
+      });
+
+      /* Assign random target within safe bounds */
+      function newTarget(s) {
+        const W = section.offsetWidth;
+        const H = section.offsetHeight;
+        const size = isMobile() ? 48 : 66;
+        const margin = 10;
+        s.tx = margin + Math.random() * (W - size - margin * 2);
+        s.ty = margin + Math.random() * (H - size - margin * 2);
+      }
+
+      state.forEach(s => newTarget(s));
+
+      /* Fade icons in */
+      setTimeout(() => {
+        icons.forEach((el, i) => {
+          el.style.transition = 'opacity 1.2s ease';
+          el.style.opacity    = '0.65';
+          el.style.left = state[i].x + 'px';
+          el.style.top  = state[i].y + 'px';
+          el.style.position = 'absolute';
+        });
+      }, 300);
+
+      /* Animation loop — lerp position toward target */
+      function tick() {
+        const W = section.offsetWidth;
+        const H = section.offsetHeight;
+
+        state.forEach((s, i) => {
+          const dx = s.tx - s.x;
+          const dy = s.ty - s.y;
+          const dist = Math.sqrt(dx * dx + dy * dy);
+
+          /* Pick a new target when close enough */
+          if (dist < 4) newTarget(s);
+
+          /* Smooth lerp toward target */
+          s.x += dx * s.speed * 0.012;
+          s.y += dy * s.speed * 0.012;
+
+          /* Gentle rotation */
+          s.angle += s.angleDelta;
+
+          icons[i].style.left      = s.x + 'px';
+          icons[i].style.top       = s.y + 'px';
+          icons[i].style.transform = `rotate(${s.angle}deg)`;
+          icons[i].style.transition = 'none';
+        });
+
+        requestAnimationFrame(tick);
+      }
+
+      requestAnimationFrame(tick);
+    })();
   </script>
 
 </body>
