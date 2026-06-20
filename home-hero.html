@@ -6,7 +6,7 @@
   <title>Hero Section — Catering Solutionz</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=Cabin:wght@400;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
 
   <style>
@@ -20,7 +20,7 @@
       align-items: center;
       justify-content: center;
       overflow: hidden;
-      font-family: 'Poppins', sans-serif;
+      font-family: 'Cabin', sans-serif;
     }
 
     /* ── YouTube iframe cover ── */
@@ -35,7 +35,7 @@
       position: absolute;
       top: 50%; left: 50%;
       width: 100vw;
-      height: 56.25vw;   /* 16:9 */
+      height: 56.25vw;
       min-height: 100vh;
       min-width: 177.78vh;
       transform: translate(-50%, -50%);
@@ -43,18 +43,61 @@
       pointer-events: none;
     }
 
-    /* ── Black overlay ── */
+    /* ── Dark overlay ── */
     .cs-hero__overlay {
       position: absolute;
       inset: 0;
       z-index: 1;
-      background: rgba(0, 0, 0, 0.65);
+      background: rgba(0, 0, 0, 0.62);
+    }
+
+    /* ── Floating Icons ── */
+    .cs-hero__icons {
+      position: absolute;
+      inset: 0;
+      z-index: 2;
+      pointer-events: none;
+      overflow: hidden;
+    }
+
+    .cs-fi {
+      position: absolute;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      background: rgba(0, 195, 255, 0.10);
+      border: 1.5px solid rgba(0, 195, 255, 0.30);
+      backdrop-filter: blur(6px);
+      color: #00c3ff;
+      opacity: 0;
+    }
+
+    /* Individual icon positions, sizes, speeds */
+    .cs-fi:nth-child(1) { width:70px; height:70px; font-size:1.7rem; top:12%; left:7%;    animation: csFloat 8s   ease-in-out 0.0s infinite; }
+    .cs-fi:nth-child(2) { width:78px; height:78px; font-size:1.9rem; top:16%; right:9%;   animation: csFloat 6.5s ease-in-out 1.0s infinite; }
+    .cs-fi:nth-child(3) { width:65px; height:65px; font-size:1.5rem; bottom:24%; left:6%; animation: csFloat 9s   ease-in-out 2.0s infinite; }
+    .cs-fi:nth-child(4) { width:72px; height:72px; font-size:1.7rem; top:42%; right:5%;   animation: csFloat 7s   ease-in-out 0.5s infinite; }
+    .cs-fi:nth-child(5) { width:62px; height:62px; font-size:1.4rem; bottom:20%; right:8%;animation: csFloat 8.5s ease-in-out 3.0s infinite; }
+    .cs-fi:nth-child(6) { width:68px; height:68px; font-size:1.6rem; top:58%; left:4%;    animation: csFloat 6s   ease-in-out 1.5s infinite; }
+    .cs-fi:nth-child(7) { width:58px; height:58px; font-size:1.3rem; top:26%; left:20%;   animation: csFloat 7.5s ease-in-out 2.5s infinite; }
+    .cs-fi:nth-child(8) { width:60px; height:60px; font-size:1.4rem; bottom:16%; right:20%;animation:csFloat 8s  ease-in-out 4.0s infinite; }
+
+    @keyframes csFloat {
+      0%, 100% {
+        opacity: 0.55;
+        transform: translateY(0px) rotate(0deg) scale(1);
+      }
+      50% {
+        opacity: 0.9;
+        transform: translateY(-26px) rotate(8deg) scale(1.08);
+      }
     }
 
     /* ── Content ── */
     .cs-hero__content {
       position: relative;
-      z-index: 2;
+      z-index: 3;
       text-align: center;
       color: #fff;
       padding: 0 20px;
@@ -75,7 +118,7 @@
 
     .cs-hero__slogan {
       font-size: clamp(1rem, 2.5vw, 1.5rem);
-      font-weight: 300;
+      font-weight: 400;
       color: #00c3ff;
       letter-spacing: 1px;
       margin-bottom: 44px;
@@ -90,8 +133,8 @@
       gap: 10px;
       padding: 16px 38px;
       background: linear-gradient(135deg, #00c3ff, #00d9ff);
-      color: #0e1b33;
-      font-family: 'Poppins', sans-serif;
+      color: #092143;
+      font-family: 'Cabin', sans-serif;
       font-size: 1rem;
       font-weight: 600;
       border-radius: 50px;
@@ -119,7 +162,7 @@
       bottom: 32px;
       left: 50%;
       transform: translateX(-50%);
-      z-index: 2;
+      z-index: 3;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -141,7 +184,7 @@
     }
     .cs-hero__wheel {
       width: 3px; height: 7px;
-      background: #d4a54f;
+      background: #00c3ff;
       border-radius: 3px;
       animation: csWheel 1.6s ease-in-out infinite;
     }
@@ -150,96 +193,16 @@
       100% { opacity: 0; transform: translateY(11px); }
     }
 
-    /* ── Floating Icons ── */
-    .cs-hero__icons {
-      position: absolute;
-      inset: 0;
-      z-index: 1;
-      overflow: hidden;
-      pointer-events: none;
-    }
-
-    .cs-floating-icon {
-      position: absolute;
-      font-size: 3rem;
-      color: rgba(0, 195, 255, 0.15);
-      opacity: 0;
-      animation: csFloat 6s ease-in-out infinite;
-    }
-
-    .cs-floating-icon:nth-child(1) {
-      top: 15%; left: 10%;
-      font-size: 2.5rem;
-      animation: csFloat 8s ease-in-out infinite;
-      animation-delay: 0s;
-    }
-
-    .cs-floating-icon:nth-child(2) {
-      top: 20%; right: 12%;
-      font-size: 3.2rem;
-      animation: csFloat 7s ease-in-out infinite;
-      animation-delay: 0.5s;
-    }
-
-    .cs-floating-icon:nth-child(3) {
-      bottom: 20%; left: 8%;
-      font-size: 2.8rem;
-      animation: csFloat 9s ease-in-out infinite;
-      animation-delay: 1s;
-    }
-
-    .cs-floating-icon:nth-child(4) {
-      top: 35%; right: 8%;
-      font-size: 2.6rem;
-      animation: csFloat 7.5s ease-in-out infinite;
-      animation-delay: 1.5s;
-    }
-
-    .cs-floating-icon:nth-child(5) {
-      bottom: 30%; right: 10%;
-      font-size: 3rem;
-      animation: csFloat 8.5s ease-in-out infinite;
-      animation-delay: 2s;
-    }
-
-    .cs-floating-icon:nth-child(6) {
-      top: 50%; left: 5%;
-      font-size: 2.4rem;
-      animation: csFloat 6.5s ease-in-out infinite;
-      animation-delay: 2.5s;
-    }
-
-    @keyframes csFloat {
-      0%, 100% {
-        opacity: 0.08;
-        transform: translateY(0) rotate(0deg);
-      }
-      50% {
-        opacity: 0.15;
-        transform: translateY(-30px) rotate(5deg);
-      }
-    }
-
     @media (max-width: 768px) {
-      .cs-floating-icon {
-        font-size: 2rem !important;
-      }
+      .cs-fi { display: none; }
+      .cs-fi:nth-child(1), .cs-fi:nth-child(2),
+      .cs-fi:nth-child(3), .cs-fi:nth-child(4) { display: flex; width: 48px !important; height: 48px !important; font-size: 1.1rem !important; }
     }
   </style>
 </head>
 <body>
 
   <section class="cs-hero">
-
-    <!-- Floating Icons -->
-    <div class="cs-hero__icons">
-      <div class="cs-floating-icon"><i class="fa-solid fa-utensils"></i></div>
-      <div class="cs-floating-icon"><i class="fa-solid fa-plate-wheat"></i></div>
-      <div class="cs-floating-icon"><i class="fa-solid fa-fire-burner"></i></div>
-      <div class="cs-floating-icon"><i class="fa-solid fa-martini-glass-citrus"></i></div>
-      <div class="cs-floating-icon"><i class="fa-solid fa-cloche"></i></div>
-      <div class="cs-floating-icon"><i class="fa-solid fa-spoon"></i></div>
-    </div>
 
     <!-- YouTube video background -->
     <div class="cs-hero__yt">
@@ -249,9 +212,21 @@
     <!-- Dark overlay -->
     <div class="cs-hero__overlay"></div>
 
+    <!-- Floating catering icons (above overlay, below content) -->
+    <div class="cs-hero__icons">
+      <div class="cs-fi"><i class="fa-solid fa-utensils"></i></div>
+      <div class="cs-fi"><i class="fa-solid fa-bowl-food"></i></div>
+      <div class="cs-fi"><i class="fa-solid fa-fire-burner"></i></div>
+      <div class="cs-fi"><i class="fa-solid fa-kitchen-set"></i></div>
+      <div class="cs-fi"><i class="fa-solid fa-truck-fast"></i></div>
+      <div class="cs-fi"><i class="fa-solid fa-wine-glass"></i></div>
+      <div class="cs-fi"><i class="fa-solid fa-pot-food"></i></div>
+      <div class="cs-fi"><i class="fa-solid fa-plate-wheat"></i></div>
+    </div>
+
     <!-- Text content -->
     <div class="cs-hero__content">
-      <h1 class="cs-hero__title">Catering Solution</h1>
+      <h1 class="cs-hero__title">Catering Solutionz</h1>
       <p class="cs-hero__slogan">We lead the way others follow.</p>
       <a href="#shop" class="cs-hero__btn">
         Shop Now <i class="fa-solid fa-arrow-right"></i>
@@ -273,16 +248,16 @@
       new YT.Player('csYtPlayer', {
         videoId: 'hKj4RG1ugB8',
         playerVars: {
-          autoplay:        1,
-          mute:            1,
-          loop:            1,
-          playlist:        'hKj4RG1ugB8',
-          controls:        0,
-          showinfo:        0,
-          rel:             0,
-          iv_load_policy:  3,
-          modestbranding:  1,
-          start:           5
+          autoplay:       1,
+          mute:           1,
+          loop:           1,
+          playlist:       'hKj4RG1ugB8',
+          controls:       0,
+          showinfo:       0,
+          rel:            0,
+          iv_load_policy: 3,
+          modestbranding: 1,
+          start:          5
         },
         events: {
           onReady: e => e.target.playVideo()
