@@ -1,0 +1,697 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About Us — Catering Solutionz</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=Cabin:wght@400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+  <style>
+    #ab-about-section {
+      --navy: #092143;
+      --gold: #00c3ff;
+      --gold-soft: #66d9ff;
+      --bg-light: #f7f7f7;
+      --grey: #777777;
+      --text-color: #777777;
+      --title-color: #242424;
+      --white: #ffffff;
+      --trans: 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+      --shadow-sm: 0 4px 16px rgba(9, 33, 67, 0.08);
+      --shadow: 0 18px 50px rgba(9, 33, 67, 0.12);
+    }
+
+    #ab-about-section * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    #ab-about-section {
+      font-family: "Cabin", Arial, Helvetica, sans-serif;
+      background: var(--white);
+      overflow-x: hidden;
+      line-height: 1.6;
+      color: var(--text-color);
+    }
+
+    #ab-about-section a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .ab-container {
+      width: min(1200px, 92%);
+      margin: 0 auto;
+    }
+
+    /* ===== HERO SECTION ===== */
+    .ab-hero {
+      padding: 80px 0;
+      background: linear-gradient(135deg, rgba(9, 33, 67, 0.02), rgba(0, 195, 255, 0.02));
+    }
+
+    .ab-hero-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+    }
+
+    .ab-hero-image {
+      position: relative;
+      height: 500px;
+      border-radius: 24px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      opacity: 0;
+      transform: translateX(-40px);
+      animation: abSlideInLeft 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+
+    .ab-hero-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .ab-hero-content {
+      opacity: 0;
+      transform: translateX(40px);
+      animation: abSlideInRight 0.8s 0.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+
+    .ab-hero-tag {
+      display: inline-block;
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--gold);
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      margin-bottom: 16px;
+    }
+
+    .ab-hero-title {
+      font-family: "Playfair Display", serif;
+      font-size: clamp(2rem, 4vw, 3.2rem);
+      font-weight: 800;
+      color: var(--title-color);
+      margin-bottom: 16px;
+      line-height: 1.2;
+    }
+
+    .ab-hero-subtitle {
+      font-size: clamp(0.95rem, 2vw, 1.2rem);
+      font-weight: 600;
+      color: var(--gold);
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      margin-bottom: 28px;
+    }
+
+    .ab-hero-text {
+      font-size: 1rem;
+      line-height: 1.8;
+      color: var(--text-color);
+      margin-bottom: 24px;
+    }
+
+    .ab-hero-text:last-of-type {
+      margin-bottom: 32px;
+    }
+
+    .ab-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 16px 38px;
+      background: linear-gradient(135deg, var(--gold), #00d9ff);
+      color: var(--navy);
+      font-family: "Cabin", sans-serif;
+      font-size: 1rem;
+      font-weight: 600;
+      border-radius: 50px;
+      border: none;
+      cursor: pointer;
+      box-shadow: 0 12px 32px rgba(0, 195, 255, 0.45);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .ab-btn:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 18px 44px rgba(0, 195, 255, 0.6);
+    }
+
+    .ab-btn i {
+      transition: transform 0.3s ease;
+    }
+
+    .ab-btn:hover i {
+      transform: translateX(5px);
+    }
+
+    /* ===== SERVICES SECTION ===== */
+    .ab-services {
+      padding: 100px 0;
+      background: var(--bg-light);
+    }
+
+    .ab-section-head {
+      text-align: center;
+      margin-bottom: 60px;
+      opacity: 0;
+      transform: translateY(32px);
+      animation: abReveal 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+
+    .ab-section-title {
+      font-family: "Playfair Display", serif;
+      font-size: clamp(2rem, 4vw, 2.8rem);
+      font-weight: 800;
+      color: var(--title-color);
+      margin-bottom: 16px;
+      line-height: 1.2;
+    }
+
+    .ab-section-desc {
+      font-size: 1.05rem;
+      color: var(--text-color);
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .ab-services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 40px;
+    }
+
+    .ab-service-card {
+      background: var(--white);
+      padding: 40px 30px;
+      border-radius: 16px;
+      box-shadow: var(--shadow-sm);
+      text-align: center;
+      transition: all 0.3s ease;
+      opacity: 0;
+      transform: translateY(32px);
+      animation: abReveal 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+
+    .ab-service-card:nth-child(1) { animation-delay: 0.1s; }
+    .ab-service-card:nth-child(2) { animation-delay: 0.2s; }
+    .ab-service-card:nth-child(3) { animation-delay: 0.3s; }
+    .ab-service-card:nth-child(4) { animation-delay: 0.4s; }
+
+    .ab-service-card:hover {
+      transform: translateY(-12px);
+      box-shadow: var(--shadow);
+    }
+
+    .ab-service-icon {
+      width: 80px;
+      height: 80px;
+      margin: 0 auto 24px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--navy), rgba(9, 33, 67, 0.8));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2rem;
+      color: var(--gold);
+      transition: all 0.3s ease;
+    }
+
+    .ab-service-card:hover .ab-service-icon {
+      background: linear-gradient(135deg, var(--gold), #00d9ff);
+      color: var(--navy);
+    }
+
+    .ab-service-title {
+      font-size: 1.3rem;
+      font-weight: 600;
+      color: var(--title-color);
+      margin-bottom: 16px;
+    }
+
+    .ab-service-text {
+      font-size: 0.95rem;
+      color: var(--text-color);
+      line-height: 1.7;
+    }
+
+    /* ===== GOOGLE REVIEWS SECTION ===== */
+    .ab-reviews {
+      padding: 100px 0;
+      background: var(--white);
+    }
+
+    .ab-reviews-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 40px;
+    }
+
+    .ab-review-card {
+      background: var(--bg-light);
+      padding: 40px;
+      border-radius: 16px;
+      position: relative;
+      overflow: hidden;
+      opacity: 0;
+      transform: translateY(32px);
+      animation: abReveal 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+      transition: all 0.3s ease;
+    }
+
+    .ab-review-card:nth-child(1) { animation-delay: 0.1s; }
+    .ab-review-card:nth-child(2) { animation-delay: 0.2s; }
+    .ab-review-card:nth-child(3) { animation-delay: 0.3s; }
+
+    .ab-review-card:hover {
+      box-shadow: var(--shadow);
+      transform: translateY(-8px);
+    }
+
+    .ab-review-card::before {
+      content: '"';
+      position: absolute;
+      top: -20px;
+      left: 20px;
+      font-size: 120px;
+      color: rgba(0, 195, 255, 0.1);
+      font-family: "Playfair Display", serif;
+      font-weight: 800;
+      pointer-events: none;
+    }
+
+    .ab-review-stars {
+      display: flex;
+      gap: 6px;
+      margin-bottom: 20px;
+      font-size: 1.2rem;
+    }
+
+    .ab-star {
+      color: var(--gold);
+    }
+
+    .ab-review-text {
+      font-size: 1rem;
+      color: var(--text-color);
+      line-height: 1.8;
+      margin-bottom: 24px;
+      font-style: italic;
+    }
+
+    .ab-reviewer {
+      display: flex;
+      gap: 16px;
+      align-items: center;
+    }
+
+    .ab-reviewer-avatar {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--navy), var(--gold));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--white);
+      font-weight: 600;
+      font-size: 1.2rem;
+      flex-shrink: 0;
+    }
+
+    .ab-reviewer-info {
+      flex: 1;
+    }
+
+    .ab-reviewer-name {
+      font-weight: 600;
+      color: var(--title-color);
+      font-size: 1rem;
+    }
+
+    .ab-reviewer-role {
+      font-size: 0.85rem;
+      color: var(--grey);
+    }
+
+    .ab-google-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 20px;
+      background: var(--white);
+      border-radius: 8px;
+      margin-top: 40px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--grey);
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+
+    .ab-google-badge:hover {
+      color: var(--navy);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .ab-google-badge i {
+      color: var(--gold);
+      font-size: 1.1rem;
+    }
+
+    /* ===== ANIMATIONS ===== */
+    @keyframes abSlideInLeft {
+      from {
+        opacity: 0;
+        transform: translateX(-40px);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    @keyframes abSlideInRight {
+      from {
+        opacity: 0;
+        transform: translateX(40px);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    @keyframes abReveal {
+      from {
+        opacity: 0;
+        transform: translateY(32px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 1024px) {
+      .ab-hero {
+        padding: 60px 0;
+      }
+
+      .ab-hero-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+
+      .ab-hero-image {
+        height: 400px;
+      }
+
+      .ab-services {
+        padding: 80px 0;
+      }
+
+      .ab-reviews {
+        padding: 80px 0;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .ab-hero {
+        padding: 50px 0;
+      }
+
+      .ab-hero-image {
+        height: 300px;
+      }
+
+      .ab-hero-title {
+        font-size: clamp(1.6rem, 3.5vw, 2.2rem);
+      }
+
+      .ab-hero-subtitle {
+        font-size: 0.85rem;
+      }
+
+      .ab-services {
+        padding: 60px 0;
+      }
+
+      .ab-section-title {
+        font-size: clamp(1.6rem, 3.5vw, 2.2rem);
+      }
+
+      .ab-service-card {
+        padding: 30px 20px;
+      }
+
+      .ab-reviews {
+        padding: 60px 0;
+      }
+
+      .ab-reviews-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 560px) {
+      .ab-hero {
+        padding: 40px 0;
+      }
+
+      .ab-hero-image {
+        height: 250px;
+      }
+
+      .ab-hero-title {
+        font-size: clamp(1.3rem, 3vw, 1.8rem);
+      }
+
+      .ab-hero-subtitle {
+        font-size: 0.75rem;
+        margin-bottom: 16px;
+      }
+
+      .ab-hero-text {
+        font-size: 0.9rem;
+        margin-bottom: 16px;
+      }
+
+      .ab-btn {
+        width: 100%;
+        justify-content: center;
+        padding: 14px 24px;
+        font-size: 0.9rem;
+      }
+
+      .ab-services {
+        padding: 40px 0;
+      }
+
+      .ab-section-head {
+        margin-bottom: 40px;
+      }
+
+      .ab-service-card {
+        padding: 24px 16px;
+      }
+
+      .ab-service-icon {
+        width: 60px;
+        height: 60px;
+        font-size: 1.6rem;
+      }
+
+      .ab-service-title {
+        font-size: 1.1rem;
+      }
+
+      .ab-service-text {
+        font-size: 0.9rem;
+      }
+
+      .ab-reviews {
+        padding: 40px 0;
+      }
+
+      .ab-review-card {
+        padding: 28px 20px;
+      }
+
+      .ab-review-card::before {
+        font-size: 80px;
+        top: -10px;
+        left: 10px;
+      }
+
+      .ab-reviewer-avatar {
+        width: 45px;
+        height: 45px;
+        font-size: 1rem;
+      }
+
+      .ab-reviewer-name {
+        font-size: 0.95rem;
+      }
+
+      .ab-reviewer-role {
+        font-size: 0.8rem;
+      }
+
+      .ab-google-badge {
+        width: 100%;
+        justify-content: center;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ===== HERO SECTION ===== -->
+  <section class="ab-hero" id="ab-about-section">
+    <div class="ab-container">
+      <div class="ab-hero-grid">
+        <div class="ab-hero-image">
+          <img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=600&h=500&fit=crop" alt="The CateringSolutionz Difference" />
+        </div>
+        <div class="ab-hero-content">
+          <span class="ab-hero-tag">About Us</span>
+          <h1 class="ab-hero-title">The CateringSolutionz Difference</h1>
+          <p class="ab-hero-subtitle">Equip Your Kitchen to Perform</p>
+          <p class="ab-hero-text">At CateringSolutionz, we supply chefs, caterers, and hospitality businesses with commercial-grade equipment built to handle the pressure of a busy service. From precision ovens to heavy-duty prep stations, every product is selected for durability, performance, and ease of maintenance.</p>
+          <p class="ab-hero-text">Whether you're outfitting a new kitchen or upgrading a single piece of equipment, our range covers cooking, refrigeration, food prep, and tableware. Our team offers expert advice on every order, helping you choose equipment that fits your space, your menu, and your budget.</p>
+          <button class="ab-btn">
+            Shop Now <i class="fa-solid fa-arrow-right"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== SERVICES SECTION ===== -->
+  <section class="ab-services" id="ab-about-section">
+    <div class="ab-container">
+      <div class="ab-section-head">
+        <h2 class="ab-section-title">What Do We Offer?</h2>
+        <p class="ab-section-desc">Everything you need to run a professional catering operation, backed by expert support and competitive pricing.</p>
+      </div>
+
+      <div class="ab-services-grid">
+        <div class="ab-service-card">
+          <div class="ab-service-icon"><i class="fa-solid fa-truck-fast"></i></div>
+          <h3 class="ab-service-title">Fast Local Delivery</h3>
+          <p class="ab-service-text">Quick and reliable delivery to your location with careful handling of all equipment to ensure perfect condition upon arrival.</p>
+        </div>
+
+        <div class="ab-service-card">
+          <div class="ab-service-icon"><i class="fa-solid fa-badge-check"></i></div>
+          <h3 class="ab-service-title">Premium Quality</h3>
+          <p class="ab-service-text">All our equipment meets industry standards and is sourced from trusted manufacturers with proven track records.</p>
+        </div>
+
+        <div class="ab-service-card">
+          <div class="ab-service-icon"><i class="fa-solid fa-credit-card"></i></div>
+          <h3 class="ab-service-title">Flexible Payment</h3>
+          <p class="ab-service-text">Multiple payment options available to suit your business needs, including installment plans for larger orders.</p>
+        </div>
+
+        <div class="ab-service-card">
+          <div class="ab-service-icon"><i class="fa-solid fa-headset"></i></div>
+          <h3 class="ab-service-title">Expert Support</h3>
+          <p class="ab-service-text">Our knowledgeable team is always ready to help you find the right equipment and answer any technical questions.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== GOOGLE REVIEWS SECTION ===== -->
+  <section class="ab-reviews" id="ab-about-section">
+    <div class="ab-container">
+      <div class="ab-section-head">
+        <h2 class="ab-section-title">What Our Customers Say</h2>
+        <p class="ab-section-desc">See why businesses across Birmingham trust us for their catering equipment needs.</p>
+      </div>
+
+      <div class="ab-reviews-grid">
+        <div class="ab-review-card">
+          <div class="ab-review-stars">
+            <span class="ab-star"><i class="fa-solid fa-star"></i></span>
+            <span class="ab-star"><i class="fa-solid fa-star"></i></span>
+            <span class="ab-star"><i class="fa-solid fa-star"></i></span>
+            <span class="ab-star"><i class="fa-solid fa-star"></i></span>
+            <span class="ab-star"><i class="fa-solid fa-star"></i></span>
+          </div>
+          <p class="ab-review-text">Exceptional service and fantastic equipment quality. They helped us set up our entire kitchen and the team was incredibly professional throughout the process.</p>
+          <div class="ab-reviewer">
+            <div class="ab-reviewer-avatar">MJ</div>
+            <div class="ab-reviewer-info">
+              <div class="ab-reviewer-name">Marcus Johnson</div>
+              <div class="ab-reviewer-role">Restaurant Owner</div>
+            </div>
+          </div>
+          <a href="#" class="ab-google-badge">
+            <i class="fa-brands fa-google"></i>
+            Read on Google
+          </a>
+        </div>
+
+        <div class="ab-review-card">
+          <div class="ab-review-stars">
+            <span class="ab-star"><i class="fa-solid fa-star"></i></span>
+            <span class="ab-star"><i class="fa-solid fa-star"></i></span>
+            <span class="ab-star"><i class="fa-solid fa-star"></i></span>
+            <span class="ab-star"><i class="fa-solid fa-star"></i></span>
+            <span class="ab-star"><i class="fa-solid fa-star"></i></span>
+          </div>
+          <p class="ab-review-text">Best catering equipment supplier in Birmingham! Great prices, fast delivery, and the customer service is unbeatable. Highly recommended!</p>
+          <div class="ab-reviewer">
+            <div class="ab-reviewer-avatar">SL</div>
+            <div class="ab-reviewer-info">
+              <div class="ab-reviewer-name">Sarah Lewis</div>
+              <div class="ab-reviewer-role">Event Planner</div>
+            </div>
+          </div>
+          <a href="#" class="ab-google-badge">
+            <i class="fa-brands fa-google"></i>
+            Read on Google
+          </a>
+        </div>
+
+        <div class="ab-review-card">
+          <div class="ab-review-stars">
+            <span class="ab-star"><i class="fa-solid fa-star"></i></span>
+            <span class="ab-star"><i class="fa-solid fa-star"></i></span>
+            <span class="ab-star"><i class="fa-solid fa-star"></i></span>
+            <span class="ab-star"><i class="fa-solid fa-star"></i></span>
+            <span class="ab-star"><i class="fa-solid fa-star"></i></span>
+          </div>
+          <p class="ab-review-text">We've been buying equipment from CateringSolutionz for 3 years now. They consistently deliver quality products at competitive prices. Total professionals!</p>
+          <div class="ab-reviewer">
+            <div class="ab-reviewer-avatar">RK</div>
+            <div class="ab-reviewer-info">
+              <div class="ab-reviewer-name">Rajesh Kumar</div>
+              <div class="ab-reviewer-role">Hotel Manager</div>
+            </div>
+          </div>
+          <a href="#" class="ab-google-badge">
+            <i class="fa-brands fa-google"></i>
+            Read on Google
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</body>
+</html>
