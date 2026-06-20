@@ -30,6 +30,7 @@
       z-index: 0;
       pointer-events: none;
       overflow: hidden;
+      opacity: 0.95;
     }
     .cs-hero__yt iframe {
       position: absolute;
@@ -41,6 +42,17 @@
       transform: translate(-50%, -50%);
       border: 0;
       pointer-events: none;
+      display: block;
+    }
+
+    /* Hide YouTube controls */
+    .cs-hero__yt::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      z-index: 10;
+      pointer-events: none;
+      background: transparent;
     }
 
     /* ── Dark overlay ── */
@@ -256,10 +268,18 @@
       new YT.Player('csYtPlayer', {
         videoId: 'hKj4RG1ugB8',
         playerVars: {
-          autoplay: 1, mute: 1, loop: 1,
-          playlist: 'hKj4RG1ugB8', controls: 0,
-          showinfo: 0, rel: 0, iv_load_policy: 3,
-          modestbranding: 1, start: 5
+          autoplay:       1,
+          mute:           1,
+          loop:           1,
+          playlist:       'hKj4RG1ugB8',
+          controls:       0,
+          showinfo:       0,
+          rel:            0,
+          iv_load_policy: 3,
+          modestbranding: 1,
+          start:          5,
+          fs:             0,
+          disablekb:      1
         },
         events: { onReady: e => e.target.playVideo() }
       });
