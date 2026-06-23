@@ -278,6 +278,9 @@ img { max-width: 100%; display: block; }
   margin-bottom: 18px;
   color: #fff;
 }
+.hero-title-highlight {
+  color: #00C8FF;
+}
 .hero-slogan {
   font-size: clamp(1.1rem, 2.5vw, 1.6rem);
   color: var(--gold);
