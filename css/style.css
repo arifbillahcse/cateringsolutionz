@@ -277,6 +277,7 @@ img { max-width: 100%; display: block; }
   font-weight: 800;
   margin-bottom: 18px;
   color: #fff;
+  white-space: nowrap;
 }
 .hero-title-highlight {
   color: #00C8FF;
