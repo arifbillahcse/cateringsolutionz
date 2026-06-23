@@ -43,6 +43,7 @@
       border: 0;
       pointer-events: none;
       display: block;
+      filter: brightness(0.9) contrast(1.1);
     }
 
     /* Hide YouTube controls */
@@ -53,6 +54,21 @@
       z-index: 10;
       pointer-events: none;
       background: transparent;
+    }
+
+    /* Block YouTube UI elements */
+    .cs-hero__yt iframe[src*="youtube"] {
+      filter: brightness(0.9) contrast(1.1);
+    }
+
+    /* Additional overlay to hide any player controls */
+    .cs-hero__yt::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      z-index: 9;
+      pointer-events: none;
+      background: rgba(0, 0, 0, 0);
     }
 
     /* ── Dark overlay ── */
@@ -234,12 +250,13 @@
           showinfo:       0,
           rel:            0,
           iv_load_policy: 3,
-          modestbranding: 1,
+          modestbranding: 0,
           start:          5,
           fs:             0,
           disablekb:      1,
           cc_load_policy: 0,
-          html5:          1
+          html5:          1,
+          playsinline:    1
         },
         events: {
           onReady: function(e) {
@@ -253,6 +270,13 @@
           }
         }
       });
+
+      // Hide any YouTube UI elements that might appear
+      const iframe = document.querySelector('#csYtPlayer');
+      if (iframe) {
+        iframe.style.pointerEvents = 'none';
+        iframe.style.zIndex = '0';
+      }
     }
 
     window.addEventListener('load', () => {
