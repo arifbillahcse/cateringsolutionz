@@ -78,7 +78,9 @@ document.addEventListener("DOMContentLoaded", () => {
   const backTop = document.getElementById("backTop");
   window.addEventListener("scroll", () => {
     header.classList.toggle("scrolled", window.scrollY > 40);
-    backTop.classList.toggle("show", window.scrollY > 500);
+    if (backTop) {
+      backTop.classList.toggle("show", window.scrollY > 500);
+    }
   });
 
   /* ---------- Mobile nav ---------- */
