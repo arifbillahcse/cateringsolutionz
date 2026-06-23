@@ -210,46 +210,6 @@
     border-top:1px solid var(--divider);
   }
 
-  /* ---------- Back to top ---------- */
-  .back-to-top{
-    position:fixed;
-    right:28px;
-    bottom:28px;
-    width:46px;
-    height:46px;
-    border-radius:50%;
-    background:#fff;
-    color:var(--navy);
-    border:none;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    cursor:pointer;
-    box-shadow:0 6px 20px rgba(0,0,0,0.2);
-    opacity:0;
-    transform:translateY(20px);
-    pointer-events:none;
-    transition:opacity .35s ease, transform .35s ease, background .3s ease, color .3s ease;
-    z-index:50;
-  }
-  .back-to-top.show{
-    opacity:1;
-    transform:translateY(0);
-    pointer-events:auto;
-  }
-  .back-to-top:hover{
-    background:var(--blue);
-    color:#fff;
-  }
-  .back-to-top svg{
-    width:18px;
-    height:18px;
-    fill:currentColor;
-    transition:transform .3s ease;
-  }
-  .back-to-top:hover svg{
-    transform:translateY(-2px);
-  }
 
   @media (max-width: 900px){
     .footer-grid{
@@ -342,10 +302,6 @@
   </div>
 </footer>
 
-<button class="back-to-top" id="backToTop" aria-label="Back to top">
-  <svg viewBox="0 0 24 24"><path d="M12 8l-6 6 1.41 1.41L12 10.83l4.59 4.58L18 14z"/></svg>
-</button>
-
 <script>
   // Scroll reveal
   const observer = new IntersectionObserver((entries)=>{
@@ -361,18 +317,6 @@
     observer.observe(el);
   });
 
-  // Back to top visibility + scroll
-  const backBtn = document.getElementById('backToTop');
-  window.addEventListener('scroll', ()=>{
-    if(window.scrollY > 300){
-      backBtn.classList.add('show');
-    } else {
-      backBtn.classList.remove('show');
-    }
-  });
-  backBtn.addEventListener('click', ()=>{
-    window.scrollTo({top:0, behavior:'smooth'});
-  });
 </script>
 
 </body>
