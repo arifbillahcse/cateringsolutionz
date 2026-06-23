@@ -1,0 +1,1200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About Us — Catering Solutionz</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=Cabin:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+  <style>
+    #cs-about-premium {
+      --navy: #021B4D;
+      --navy-dark: #010F2F;
+      --cyan: #00C8FF;
+      --cyan-light: #33D9FF;
+      --grey-light: #F8F9FB;
+      --grey-dark: #777777;
+      --text-dark: #333333;
+      --text-light: #666666;
+      --white: #ffffff;
+      --trans: 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+      --shadow-sm: 0 4px 16px rgba(2, 27, 77, 0.08);
+      --shadow: 0 12px 40px rgba(2, 27, 77, 0.15);
+      --shadow-lg: 0 20px 60px rgba(2, 27, 77, 0.2);
+    }
+
+    #cs-about-premium * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    #cs-about-premium {
+      font-family: "Cabin", Arial, sans-serif;
+      background: var(--white);
+      color: var(--text-dark);
+      overflow-x: hidden;
+      line-height: 1.6;
+    }
+
+    #cs-about-premium a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .cs-container {
+      width: min(1280px, 95%);
+      margin: 0 auto;
+    }
+
+    /* ===== SECTION 1: HERO BANNER ===== */
+    .cs-hero-banner {
+      position: relative;
+      min-height: 700px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      background: linear-gradient(135deg, var(--navy) 0%, var(--navy-dark) 100%);
+    }
+
+    .cs-hero-bg {
+      position: absolute;
+      inset: 0;
+      background: url('https://images.unsplash.com/photo-1577003832033-a1c86dcc941e?w=1500&h=700&fit=crop') center/cover;
+      opacity: 0.25;
+      z-index: 0;
+    }
+
+    .cs-hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at center, rgba(0, 200, 255, 0.08) 0%, transparent 70%);
+      z-index: 1;
+    }
+
+    .cs-hero-content {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      color: var(--white);
+      max-width: 800px;
+      padding: 60px 20px;
+      opacity: 0;
+      transform: translateY(40px);
+      animation: csHeroFadeIn 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+
+    .cs-hero-tag {
+      display: inline-block;
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--cyan);
+      text-transform: uppercase;
+      letter-spacing: 2.5px;
+      margin-bottom: 20px;
+      opacity: 0.9;
+    }
+
+    .cs-hero-title {
+      font-family: "Playfair Display", serif;
+      font-size: clamp(2.2rem, 5vw, 4rem);
+      font-weight: 800;
+      margin-bottom: 16px;
+      line-height: 1.2;
+    }
+
+    .cs-hero-subtitle {
+      font-size: clamp(1rem, 2.5vw, 1.4rem);
+      font-weight: 400;
+      color: rgba(255, 255, 255, 0.95);
+      margin-bottom: 24px;
+      letter-spacing: 0.5px;
+    }
+
+    .cs-hero-desc {
+      font-size: 1.05rem;
+      color: rgba(255, 255, 255, 0.85);
+      margin-bottom: 40px;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .cs-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      padding: 16px 42px;
+      background: linear-gradient(135deg, var(--cyan), var(--cyan-light));
+      color: var(--navy);
+      font-weight: 600;
+      font-size: 1rem;
+      border-radius: 50px;
+      border: none;
+      cursor: pointer;
+      box-shadow: 0 12px 40px rgba(0, 200, 255, 0.4);
+      transition: all var(--trans);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .cs-btn:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 18px 50px rgba(0, 200, 255, 0.6);
+    }
+
+    .cs-btn-secondary {
+      background: transparent;
+      color: var(--white);
+      border: 2px solid var(--cyan);
+    }
+
+    .cs-btn-secondary:hover {
+      background: var(--cyan);
+      color: var(--navy);
+    }
+
+    /* ===== SECTION 2: OUR STORY ===== */
+    .cs-our-story {
+      padding: 100px 0;
+      background: var(--white);
+    }
+
+    .cs-story-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+
+    .cs-story-image {
+      position: relative;
+      height: 500px;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: var(--shadow-lg);
+      opacity: 0;
+      transform: translateX(-50px);
+      animation: csSlideInLeft 0.9s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+
+    .cs-story-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .cs-story-image::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(2, 27, 77, 0.1), transparent);
+      pointer-events: none;
+    }
+
+    .cs-story-content {
+      opacity: 0;
+      transform: translateX(50px);
+      animation: csSlideInRight 0.9s 0.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+
+    .cs-section-tag {
+      display: inline-block;
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--cyan);
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      margin-bottom: 16px;
+    }
+
+    .cs-section-title {
+      font-family: "Playfair Display", serif;
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 800;
+      color: var(--navy);
+      margin-bottom: 32px;
+      line-height: 1.2;
+    }
+
+    .cs-section-text {
+      font-size: 1.05rem;
+      color: var(--text-light);
+      line-height: 1.9;
+      margin-bottom: 24px;
+    }
+
+    .cs-section-text:last-child {
+      margin-bottom: 0;
+    }
+
+    .cs-highlight {
+      color: var(--navy);
+      font-weight: 600;
+    }
+
+    /* ===== SECTION 3: WHY CHOOSE US ===== */
+    .cs-why-choose {
+      padding: 100px 0;
+      background: var(--grey-light);
+    }
+
+    .cs-why-head {
+      text-align: center;
+      margin-bottom: 80px;
+      opacity: 0;
+      transform: translateY(40px);
+      animation: csReveal 0.9s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+
+    .cs-why-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 40px;
+    }
+
+    .cs-why-card {
+      background: var(--white);
+      padding: 48px 36px;
+      border-radius: 16px;
+      text-align: center;
+      box-shadow: var(--shadow-sm);
+      transition: all var(--trans);
+      opacity: 0;
+      transform: translateY(40px);
+      animation: csReveal 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+
+    .cs-why-card:nth-child(1) { animation-delay: 0.1s; }
+    .cs-why-card:nth-child(2) { animation-delay: 0.2s; }
+    .cs-why-card:nth-child(3) { animation-delay: 0.3s; }
+    .cs-why-card:nth-child(4) { animation-delay: 0.4s; }
+
+    .cs-why-card:hover {
+      transform: translateY(-16px);
+      box-shadow: var(--shadow-lg);
+      border-top: 4px solid var(--cyan);
+    }
+
+    .cs-icon {
+      width: 100px;
+      height: 100px;
+      margin: 0 auto 28px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--navy), var(--navy-dark));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2.5rem;
+      color: var(--cyan);
+      transition: all var(--trans);
+    }
+
+    .cs-why-card:hover .cs-icon {
+      background: linear-gradient(135deg, var(--cyan), var(--cyan-light));
+      color: var(--navy);
+      transform: scale(1.1) rotate(10deg);
+    }
+
+    .cs-why-title {
+      font-size: 1.35rem;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 16px;
+    }
+
+    .cs-why-text {
+      font-size: 1rem;
+      color: var(--text-light);
+      line-height: 1.8;
+    }
+
+    /* ===== SECTION 4: OUR COMMITMENT ===== */
+    .cs-commitment {
+      padding: 100px 0;
+      background: var(--white);
+    }
+
+    .cs-commitment-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+
+    .cs-commitment-content {
+      opacity: 0;
+      transform: translateX(-50px);
+      animation: csSlideInLeft 0.9s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+
+    .cs-commitment-image {
+      position: relative;
+      height: 500px;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: var(--shadow-lg);
+      opacity: 0;
+      transform: translateX(50px);
+      animation: csSlideInRight 0.9s 0.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+
+    .cs-commitment-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .cs-commitment-image::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(0, 200, 255, 0.1), transparent);
+      pointer-events: none;
+    }
+
+    /* ===== SECTION 5: TRUSTED BY ===== */
+    .cs-trusted-by {
+      padding: 100px 0;
+      background: var(--grey-light);
+    }
+
+    .cs-trusted-head {
+      text-align: center;
+      margin-bottom: 80px;
+      opacity: 0;
+      transform: translateY(40px);
+      animation: csReveal 0.9s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+
+    .cs-logo-carousel {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 50px;
+      align-items: center;
+      padding: 60px 40px;
+      background: var(--white);
+      border-radius: 20px;
+      box-shadow: var(--shadow);
+    }
+
+    .cs-logo-item {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100px;
+      padding: 20px;
+      transition: all var(--trans);
+      opacity: 0;
+      animation: csLogoFade 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+
+    .cs-logo-item:nth-child(1) { animation-delay: 0.1s; }
+    .cs-logo-item:nth-child(2) { animation-delay: 0.2s; }
+    .cs-logo-item:nth-child(3) { animation-delay: 0.3s; }
+    .cs-logo-item:nth-child(4) { animation-delay: 0.4s; }
+    .cs-logo-item:nth-child(5) { animation-delay: 0.5s; }
+
+    .cs-logo-item:hover {
+      transform: scale(1.1);
+    }
+
+    .cs-logo-text {
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--navy);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    /* ===== SECTION 6: TESTIMONIALS ===== */
+    .cs-testimonials {
+      padding: 100px 0;
+      background: var(--white);
+    }
+
+    .cs-testimonials-head {
+      text-align: center;
+      margin-bottom: 80px;
+      opacity: 0;
+      transform: translateY(40px);
+      animation: csReveal 0.9s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+
+    .cs-testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 40px;
+    }
+
+    .cs-testimonial-card {
+      background: var(--grey-light);
+      padding: 48px;
+      border-radius: 16px;
+      position: relative;
+      overflow: hidden;
+      transition: all var(--trans);
+      opacity: 0;
+      transform: translateY(40px);
+      animation: csReveal 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+
+    .cs-testimonial-card:nth-child(1) { animation-delay: 0.1s; }
+    .cs-testimonial-card:nth-child(2) { animation-delay: 0.2s; }
+    .cs-testimonial-card:nth-child(3) { animation-delay: 0.3s; }
+
+    .cs-testimonial-card:hover {
+      background: var(--white);
+      box-shadow: var(--shadow-lg);
+      transform: translateY(-12px);
+    }
+
+    .cs-testimonial-card::before {
+      content: '"';
+      position: absolute;
+      top: -20px;
+      left: 20px;
+      font-size: 120px;
+      font-weight: 800;
+      color: rgba(0, 200, 255, 0.08);
+      font-family: "Playfair Display", serif;
+      pointer-events: none;
+    }
+
+    .cs-stars {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 24px;
+      font-size: 1.2rem;
+    }
+
+    .cs-star {
+      color: var(--cyan);
+    }
+
+    .cs-testimonial-text {
+      font-size: 1.05rem;
+      color: var(--text-dark);
+      margin-bottom: 28px;
+      font-style: italic;
+      line-height: 1.8;
+    }
+
+    .cs-reviewer {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .cs-reviewer-avatar {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--navy), var(--cyan));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--white);
+      font-weight: 700;
+      font-size: 1.4rem;
+      flex-shrink: 0;
+    }
+
+    .cs-reviewer-info {
+      flex: 1;
+    }
+
+    .cs-reviewer-name {
+      font-weight: 700;
+      font-size: 1.05rem;
+      color: var(--navy);
+      margin-bottom: 4px;
+    }
+
+    .cs-reviewer-role {
+      font-size: 0.9rem;
+      color: var(--text-light);
+    }
+
+    /* ===== SECTION 7: VALUES ===== */
+    .cs-values {
+      padding: 100px 0;
+      background: linear-gradient(135deg, var(--navy) 0%, var(--navy-dark) 100%);
+      color: var(--white);
+    }
+
+    .cs-values-head {
+      text-align: center;
+      margin-bottom: 80px;
+      opacity: 0;
+      transform: translateY(40px);
+      animation: csReveal 0.9s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+
+    .cs-values-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 40px;
+    }
+
+    .cs-value-card {
+      padding: 48px 36px;
+      text-align: center;
+      border: 2px solid transparent;
+      border-radius: 16px;
+      transition: all var(--trans);
+      opacity: 0;
+      transform: translateY(40px);
+      animation: csReveal 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+      background: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(10px);
+    }
+
+    .cs-value-card:nth-child(1) { animation-delay: 0.1s; }
+    .cs-value-card:nth-child(2) { animation-delay: 0.2s; }
+    .cs-value-card:nth-child(3) { animation-delay: 0.3s; }
+    .cs-value-card:nth-child(4) { animation-delay: 0.4s; }
+
+    .cs-value-card:hover {
+      border-color: var(--cyan);
+      background: rgba(0, 200, 255, 0.1);
+      transform: translateY(-12px);
+    }
+
+    .cs-value-icon {
+      width: 100px;
+      height: 100px;
+      margin: 0 auto 28px;
+      border-radius: 50%;
+      border: 3px solid var(--cyan);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2.5rem;
+      color: var(--cyan);
+      transition: all var(--trans);
+    }
+
+    .cs-value-card:hover .cs-value-icon {
+      background: var(--cyan);
+      color: var(--navy);
+    }
+
+    .cs-value-title {
+      font-size: 1.35rem;
+      font-weight: 700;
+      margin-bottom: 16px;
+    }
+
+    .cs-value-text {
+      font-size: 1rem;
+      color: rgba(255, 255, 255, 0.85);
+      line-height: 1.8;
+    }
+
+    /* ===== SECTION 8: CTA ===== */
+    .cs-cta {
+      position: relative;
+      padding: 100px 0;
+      overflow: hidden;
+      background: linear-gradient(135deg, var(--navy) 0%, var(--navy-dark) 100%);
+    }
+
+    .cs-cta-bg {
+      position: absolute;
+      inset: 0;
+      background: url('https://images.unsplash.com/photo-1556740738-b6a63e27c4df?w=1500&h=800&fit=crop') center/cover;
+      opacity: 0.15;
+      z-index: 0;
+    }
+
+    .cs-cta-overlay {
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at center, rgba(0, 200, 255, 0.08) 0%, transparent 70%);
+      z-index: 1;
+    }
+
+    .cs-cta-content {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      color: var(--white);
+      opacity: 0;
+      transform: translateY(40px);
+      animation: csHeroFadeIn 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+
+    .cs-cta-title {
+      font-family: "Playfair Display", serif;
+      font-size: clamp(2rem, 4vw, 3.2rem);
+      font-weight: 800;
+      margin-bottom: 20px;
+      line-height: 1.2;
+    }
+
+    .cs-cta-text {
+      font-size: 1.2rem;
+      color: rgba(255, 255, 255, 0.9);
+      margin-bottom: 48px;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .cs-cta-buttons {
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    /* ===== ANIMATIONS ===== */
+    @keyframes csHeroFadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(40px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes csSlideInLeft {
+      from {
+        opacity: 0;
+        transform: translateX(-50px);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    @keyframes csSlideInRight {
+      from {
+        opacity: 0;
+        transform: translateX(50px);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    @keyframes csReveal {
+      from {
+        opacity: 0;
+        transform: translateY(40px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes csLogoFade {
+      from {
+        opacity: 0;
+        transform: scale(0.8);
+      }
+      to {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 1024px) {
+      .cs-our-story,
+      .cs-commitment {
+        padding: 80px 0;
+      }
+
+      .cs-story-grid,
+      .cs-commitment-grid {
+        grid-template-columns: 1fr;
+        gap: 60px;
+      }
+
+      .cs-story-image,
+      .cs-commitment-image {
+        height: 400px;
+      }
+
+      .cs-why-choose,
+      .cs-trusted-by,
+      .cs-testimonials,
+      .cs-values {
+        padding: 80px 0;
+      }
+
+      .cs-why-head,
+      .cs-trusted-head,
+      .cs-testimonials-head,
+      .cs-values-head {
+        margin-bottom: 60px;
+      }
+
+      .cs-logo-carousel {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        gap: 30px;
+        padding: 40px 30px;
+      }
+
+      .cs-cta {
+        padding: 80px 0;
+      }
+
+      .cs-cta-buttons {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .cs-btn {
+        width: 100%;
+        max-width: 300px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .cs-hero-banner {
+        min-height: 550px;
+      }
+
+      .cs-hero-content {
+        padding: 40px 20px;
+      }
+
+      .cs-hero-title {
+        font-size: clamp(1.6rem, 4vw, 2.2rem);
+      }
+
+      .cs-hero-subtitle {
+        font-size: clamp(0.9rem, 2vw, 1.1rem);
+      }
+
+      .cs-our-story,
+      .cs-commitment {
+        padding: 60px 0;
+      }
+
+      .cs-story-image,
+      .cs-commitment-image {
+        height: 300px;
+      }
+
+      .cs-story-grid,
+      .cs-commitment-grid {
+        gap: 40px;
+      }
+
+      .cs-section-title {
+        font-size: clamp(1.6rem, 3.5vw, 2.2rem);
+      }
+
+      .cs-why-choose,
+      .cs-trusted-by,
+      .cs-testimonials,
+      .cs-values {
+        padding: 60px 0;
+      }
+
+      .cs-why-grid,
+      .cs-testimonials-grid,
+      .cs-values-grid {
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+        gap: 30px;
+      }
+
+      .cs-why-card,
+      .cs-value-card,
+      .cs-testimonial-card {
+        padding: 36px 24px;
+      }
+
+      .cs-logo-carousel {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+        padding: 30px 20px;
+      }
+
+      .cs-logo-item {
+        height: 80px;
+      }
+
+      .cs-cta {
+        padding: 60px 0;
+      }
+
+      .cs-cta-title {
+        font-size: clamp(1.6rem, 3.5vw, 2.2rem);
+      }
+
+      .cs-cta-text {
+        font-size: 1.05rem;
+        margin-bottom: 36px;
+      }
+    }
+
+    @media (max-width: 560px) {
+      .cs-hero-banner {
+        min-height: 450px;
+      }
+
+      .cs-hero-content {
+        padding: 30px 16px;
+      }
+
+      .cs-hero-title {
+        font-size: clamp(1.3rem, 3.5vw, 1.8rem);
+      }
+
+      .cs-hero-subtitle {
+        font-size: 0.85rem;
+      }
+
+      .cs-our-story,
+      .cs-commitment {
+        padding: 50px 0;
+      }
+
+      .cs-story-image,
+      .cs-commitment-image {
+        height: 250px;
+      }
+
+      .cs-story-grid,
+      .cs-commitment-grid {
+        gap: 30px;
+      }
+
+      .cs-section-title {
+        font-size: clamp(1.3rem, 3vw, 1.6rem);
+      }
+
+      .cs-section-text {
+        font-size: 0.95rem;
+      }
+
+      .cs-why-choose,
+      .cs-trusted-by,
+      .cs-testimonials,
+      .cs-values {
+        padding: 40px 0;
+      }
+
+      .cs-why-head,
+      .cs-trusted-head,
+      .cs-testimonials-head,
+      .cs-values-head {
+        margin-bottom: 40px;
+      }
+
+      .cs-why-grid,
+      .cs-testimonials-grid,
+      .cs-values-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+
+      .cs-why-card,
+      .cs-value-card,
+      .cs-testimonial-card {
+        padding: 28px 20px;
+      }
+
+      .cs-icon {
+        width: 80px;
+        height: 80px;
+        font-size: 2rem;
+      }
+
+      .cs-value-icon {
+        width: 80px;
+        height: 80px;
+        font-size: 2rem;
+      }
+
+      .cs-why-title,
+      .cs-value-title {
+        font-size: 1.15rem;
+      }
+
+      .cs-logo-carousel {
+        grid-template-columns: 1fr;
+        gap: 15px;
+        padding: 20px 15px;
+      }
+
+      .cs-logo-item {
+        height: 70px;
+      }
+
+      .cs-reviewer {
+        gap: 12px;
+      }
+
+      .cs-reviewer-avatar {
+        width: 50px;
+        height: 50px;
+        font-size: 1.1rem;
+      }
+
+      .cs-cta {
+        padding: 40px 0;
+      }
+
+      .cs-cta-title {
+        font-size: clamp(1.2rem, 3vw, 1.6rem);
+      }
+
+      .cs-cta-text {
+        font-size: 0.95rem;
+        margin-bottom: 24px;
+      }
+
+      .cs-cta-buttons {
+        gap: 12px;
+      }
+
+      .cs-btn {
+        padding: 14px 28px;
+        font-size: 0.9rem;
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ===== SECTION 1: HERO BANNER ===== -->
+  <section class="cs-hero-banner" id="cs-about-premium">
+    <div class="cs-hero-bg"></div>
+    <div class="cs-hero-overlay"></div>
+    <div class="cs-container">
+      <div class="cs-hero-content">
+        <span class="cs-hero-tag">About Catering Solutionz</span>
+        <h1 class="cs-hero-title">About Catering Solutionz</h1>
+        <p class="cs-hero-subtitle">Your Trusted Partner for Professional Catering Equipment</p>
+        <p class="cs-hero-desc">Supplying reliable commercial kitchen equipment to restaurants, cafés, hotels, caterers, and food businesses throughout the UK.</p>
+        <button class="cs-btn">
+          Explore Products <i class="fa-solid fa-arrow-right"></i>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== SECTION 2: OUR STORY ===== -->
+  <section class="cs-our-story" id="cs-about-premium">
+    <div class="cs-container">
+      <div class="cs-story-grid">
+        <div class="cs-story-image">
+          <img src="https://images.unsplash.com/photo-1556910103-1c02745aae4d?w=600&h=500&fit=crop" alt="Professional kitchen environment" />
+        </div>
+        <div class="cs-story-content">
+          <span class="cs-section-tag">Our Story</span>
+          <h2 class="cs-section-title">Our Story</h2>
+          <p class="cs-section-text">At Catering Solutionz, we understand the demands of the hospitality industry. Our mission is to provide <span class="cs-highlight">dependable, high-performance catering equipment</span> that helps businesses operate efficiently and deliver exceptional customer experiences.</p>
+          <p class="cs-section-text">From food preparation equipment to refrigeration, cooking appliances, and serving solutions, we carefully select products that meet professional industry standards and are built to withstand the rigorous demands of commercial kitchens.</p>
+          <p class="cs-section-text">We believe <span class="cs-highlight">quality equipment is the foundation of every successful kitchen</span>. Whether you're opening a new restaurant, upgrading your current setup, or expanding your catering operation, we're here to provide the right solutions.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== SECTION 3: WHY CHOOSE US ===== -->
+  <section class="cs-why-choose" id="cs-about-premium">
+    <div class="cs-container">
+      <div class="cs-why-head">
+        <h2 class="cs-section-title">Why Businesses Choose Catering Solutionz</h2>
+      </div>
+      <div class="cs-why-grid">
+        <div class="cs-why-card">
+          <div class="cs-icon"><i class="fa-solid fa-star"></i></div>
+          <h3 class="cs-why-title">Commercial Grade Equipment</h3>
+          <p class="cs-why-text">Only trusted equipment designed and certified for professional kitchens.</p>
+        </div>
+        <div class="cs-why-card">
+          <div class="cs-icon"><i class="fa-solid fa-pound-sign"></i></div>
+          <h3 class="cs-why-title">Competitive Pricing</h3>
+          <p class="cs-why-text">Affordable solutions without compromising on quality or performance.</p>
+        </div>
+        <div class="cs-why-card">
+          <div class="cs-icon"><i class="fa-solid fa-headset"></i></div>
+          <h3 class="cs-why-title">Expert Support</h3>
+          <p class="cs-why-text">Professional guidance from experienced industry specialists.</p>
+        </div>
+        <div class="cs-why-card">
+          <div class="cs-icon"><i class="fa-solid fa-truck-fast"></i></div>
+          <h3 class="cs-why-title">Reliable Delivery</h3>
+          <p class="cs-why-text">Fast and dependable delivery across the UK with careful handling.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== SECTION 4: OUR COMMITMENT ===== -->
+  <section class="cs-commitment" id="cs-about-premium">
+    <div class="cs-container">
+      <div class="cs-commitment-grid">
+        <div class="cs-commitment-content">
+          <span class="cs-section-tag">Our Commitment</span>
+          <h2 class="cs-section-title">Committed To Your Success</h2>
+          <p class="cs-section-text">Whether you're opening a new restaurant, upgrading your kitchen, or expanding your catering business, our goal is to provide <span class="cs-highlight">equipment solutions that support your growth</span>.</p>
+          <p class="cs-section-text">We focus on quality, reliability, and customer satisfaction, ensuring every purchase delivers long-term value. Our team takes pride in helping you find the perfect equipment that matches your specific operational needs, space constraints, and budget requirements.</p>
+          <p class="cs-section-text">With years of experience in the hospitality sector, we know what it takes to build a kitchen that performs. That's why we partner with industry-leading manufacturers and stand behind every product we supply.</p>
+        </div>
+        <div class="cs-commitment-image">
+          <img src="https://images.unsplash.com/photo-1495521821757-a1efb6729352?w=600&h=500&fit=crop" alt="Professional kitchen team" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== SECTION 5: TRUSTED BY ===== -->
+  <section class="cs-trusted-by" id="cs-about-premium">
+    <div class="cs-container">
+      <div class="cs-trusted-head">
+        <h2 class="cs-section-title">Trusted By Restaurants, Cafés & Caterers</h2>
+      </div>
+      <div class="cs-logo-carousel">
+        <div class="cs-logo-item">
+          <div class="cs-logo-text">Greggs</div>
+        </div>
+        <div class="cs-logo-item">
+          <div class="cs-logo-text">Akbar's</div>
+        </div>
+        <div class="cs-logo-item">
+          <div class="cs-logo-text">Dixy Chicken</div>
+        </div>
+        <div class="cs-logo-item">
+          <div class="cs-logo-text">TGI Fridays</div>
+        </div>
+        <div class="cs-logo-item">
+          <div class="cs-logo-text">Local Hospitality</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== SECTION 6: TESTIMONIALS ===== -->
+  <section class="cs-testimonials" id="cs-about-premium">
+    <div class="cs-container">
+      <div class="cs-testimonials-head">
+        <h2 class="cs-section-title">What Our Customers Say</h2>
+      </div>
+      <div class="cs-testimonials-grid">
+        <div class="cs-testimonial-card">
+          <div class="cs-stars">
+            <span class="cs-star"><i class="fa-solid fa-star"></i></span>
+            <span class="cs-star"><i class="fa-solid fa-star"></i></span>
+            <span class="cs-star"><i class="fa-solid fa-star"></i></span>
+            <span class="cs-star"><i class="fa-solid fa-star"></i></span>
+            <span class="cs-star"><i class="fa-solid fa-star"></i></span>
+          </div>
+          <p class="cs-testimonial-text">Catering Solutionz delivered exactly what we needed for our new restaurant. Their team understood our requirements and provided equipment that's been reliable for over two years now. Highly recommended!</p>
+          <div class="cs-reviewer">
+            <div class="cs-reviewer-avatar">MJ</div>
+            <div class="cs-reviewer-info">
+              <div class="cs-reviewer-name">Marcus Johnson</div>
+              <div class="cs-reviewer-role">Restaurant Owner</div>
+            </div>
+          </div>
+        </div>
+        <div class="cs-testimonial-card">
+          <div class="cs-stars">
+            <span class="cs-star"><i class="fa-solid fa-star"></i></span>
+            <span class="cs-star"><i class="fa-solid fa-star"></i></span>
+            <span class="cs-star"><i class="fa-solid fa-star"></i></span>
+            <span class="cs-star"><i class="fa-solid fa-star"></i></span>
+            <span class="cs-star"><i class="fa-solid fa-star"></i></span>
+          </div>
+          <p class="cs-testimonial-text">Best catering equipment supplier in the UK. Their prices are competitive, delivery is always on time, and the quality is outstanding. We've been a customer for three years now.</p>
+          <div class="cs-reviewer">
+            <div class="cs-reviewer-avatar">SL</div>
+            <div class="cs-reviewer-info">
+              <div class="cs-reviewer-name">Sarah Lewis</div>
+              <div class="cs-reviewer-role">Hotel Manager</div>
+            </div>
+          </div>
+        </div>
+        <div class="cs-testimonial-card">
+          <div class="cs-stars">
+            <span class="cs-star"><i class="fa-solid fa-star"></i></span>
+            <span class="cs-star"><i class="fa-solid fa-star"></i></span>
+            <span class="cs-star"><i class="fa-solid fa-star"></i></span>
+            <span class="cs-star"><i class="fa-solid fa-star"></i></span>
+            <span class="cs-star"><i class="fa-solid fa-star"></i></span>
+          </div>
+          <p class="cs-testimonial-text">Outstanding customer service and premium quality equipment. When we upgraded our catering kitchen, their expert team helped us select exactly the right products for our operation. Worth every penny!</p>
+          <div class="cs-reviewer">
+            <div class="cs-reviewer-avatar">RK</div>
+            <div class="cs-reviewer-info">
+              <div class="cs-reviewer-name">Rajesh Kumar</div>
+              <div class="cs-reviewer-role">Catering Business Owner</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== SECTION 7: VALUES ===== -->
+  <section class="cs-values" id="cs-about-premium">
+    <div class="cs-container">
+      <div class="cs-values-head">
+        <h2 class="cs-section-title">Our Core Values</h2>
+      </div>
+      <div class="cs-values-grid">
+        <div class="cs-value-card">
+          <div class="cs-value-icon"><i class="fa-solid fa-gem"></i></div>
+          <h3 class="cs-value-title">Quality</h3>
+          <p class="cs-value-text">Providing reliable commercial equipment that meets the highest industry standards.</p>
+        </div>
+        <div class="cs-value-card">
+          <div class="cs-value-icon"><i class="fa-solid fa-handshake"></i></div>
+          <h3 class="cs-value-title">Integrity</h3>
+          <p class="cs-value-text">Honest service and transparent pricing in every customer interaction.</p>
+        </div>
+        <div class="cs-value-card">
+          <div class="cs-value-icon"><i class="fa-solid fa-lightbulb"></i></div>
+          <h3 class="cs-value-title">Innovation</h3>
+          <p class="cs-value-text">Modern solutions for evolving kitchens and changing hospitality needs.</p>
+        </div>
+        <div class="cs-value-card">
+          <div class="cs-value-icon"><i class="fa-solid fa-heart"></i></div>
+          <h3 class="cs-value-title">Customer First</h3>
+          <p class="cs-value-text">Supporting customers every step of the way with expert guidance and care.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== SECTION 8: CTA ===== -->
+  <section class="cs-cta" id="cs-about-premium">
+    <div class="cs-cta-bg"></div>
+    <div class="cs-cta-overlay"></div>
+    <div class="cs-container">
+      <div class="cs-cta-content">
+        <h2 class="cs-cta-title">Ready To Upgrade Your Commercial Kitchen?</h2>
+        <p class="cs-cta-text">Explore our range of professional catering equipment and discover solutions built for performance, reliability, and success.</p>
+        <div class="cs-cta-buttons">
+          <button class="cs-btn">
+            Shop Now <i class="fa-solid fa-arrow-right"></i>
+          </button>
+          <button class="cs-btn cs-btn-secondary">
+            Contact Us <i class="fa-solid fa-phone"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</body>
+</html>
