@@ -266,18 +266,21 @@ img { max-width: 100%; display: block; }
   background: rgba(0, 0, 0, 0.7);
 }
 .hero-content {
-  max-width: 900px;
+  max-width: 1200px;
+  width: 100%;
   text-align: center;
   margin: 0 auto;
+  padding: 0 20px;
 }
 .hero-title {
   font-family: var(--font-head);
-  font-size: clamp(3rem, 8vw, 5.5rem);
-  line-height: 1.05;
+  font-size: clamp(2.5rem, 7vw, 4.5rem);
+  line-height: 1.1;
   font-weight: 800;
   margin-bottom: 18px;
   color: #fff;
   white-space: nowrap;
+  display: inline-block;
 }
 .hero-title-highlight {
   color: #00C8FF;
