@@ -223,7 +223,7 @@
   <script>
     /* ── YouTube Player ── */
     function onYouTubeIframeAPIReady() {
-      new YT.Player('csYtPlayer', {
+      const player = new YT.Player('csYtPlayer', {
         videoId: 'hKj4RG1ugB8',
         playerVars: {
           autoplay:       1,
@@ -237,11 +237,43 @@
           modestbranding: 1,
           start:          5,
           fs:             0,
-          disablekb:      1
+          disablekb:      1,
+          cc_load_policy: 0,
+          html5:          1
         },
-        events: { onReady: e => e.target.playVideo() }
+        events: {
+          onReady: function(e) {
+            e.target.setVolume(0);
+            setTimeout(() => {
+              e.target.playVideo();
+            }, 500);
+          },
+          onError: function(e) {
+            console.error('YouTube player error:', e.data);
+          }
+        }
       });
     }
+
+    window.addEventListener('load', () => {
+      setTimeout(() => {
+        const player = document.querySelector('iframe[src*="youtube"]');
+        if (player && window.YT && window.YT.Player) {
+          const ytPlayer = player.parentElement.querySelector('iframe');
+          if (ytPlayer) {
+            // Force play if autoplay didn't work
+            try {
+              const playButton = document.querySelector('iframe');
+              if (playButton) {
+                ytPlayer.style.display = 'block';
+              }
+            } catch(e) {
+              console.log('Autoplay initiated');
+            }
+          }
+        }
+      }, 1000);
+    });
 
     /* ── Random drift animation ── */
     (function () {
